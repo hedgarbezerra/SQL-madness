@@ -1,0 +1,2 @@
+SELECT FIRST_NAME || ' '||LAST_NAME|| '  Cargo: '||JOB_ID|| '  Data de admiss∆o: '||HIRE_DATE AS " Lista de Funcion†rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/1998') AND ('31/12/1999') ORDER BY HIRE_DATE
+/

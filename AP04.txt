@@ -1,0 +1,372 @@
+SQL> list
+SP2-0223: Nenhuma linha no buffer SQL.
+SQL> @ C:\facul\Basic\BD\A.SQL
+SP2-0734: início de comando desconhecido "SQL> CREAT..." - restante da linha ignorado.
+SQL> @ C:\facul\Basic\BD\A.SQL
+
+Tabela criada.
+
+SQL> @ C:\facul\Basic\BD\A.SQL
+
+Seqüência criada.
+
+SQL> @ C:\facul\Basic\BD\A.SQL
+ CREATE SEQUENCE DEPT_HED
+                 *
+ERRO na linha 1:
+ORA-00955: nome já está sendo usado por um objeto existente 
+
+
+SQL> SELECT SEQUENCE_NAME FROM ALL_SEQUENCES;
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+UGROUP_SEQUENCE                                                                 
+OBJECT_GRANT                                                                    
+SYSTEM_GRANT                                                                    
+PROFNUM$                                                                        
+AUDSES$                                                                         
+SNAPSHOT_ID$                                                                    
+SNAPSITE_ID$                                                                    
+JOBSEQ                                                                          
+RGROUPSEQ                                                                       
+ORA_TQ_BASE$                                                                    
+PARTITION_NAME$                                                                 
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+CDC_SUBSCRIBE_SEQ$                                                              
+CDC_RSID_SEQ$                                                                   
+LOG$SEQUENCE                                                                    
+PSINDEX_SEQ$                                                                    
+AWSEQ$                                                                          
+STREAMS$_CAPTURE_INST                                                           
+APPLY$_SOURCE_OBJ_ID                                                            
+APPLY$_DEST_OBJ_ID                                                              
+APPLY$_ERROR_HANDLER_SEQUENCE                                                   
+REDEF_SEQ$                                                                      
+TSM_MIG_SEQ$                                                                    
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+CACHE_STATS_SEQ_1                                                               
+CACHE_STATS_SEQ_0                                                               
+IDGEN1$                                                                         
+MVIEW$_ADVSEQ_GENERIC                                                           
+MVIEW$_ADVSEQ_ID                                                                
+WRI$_ADV_SEQ_TASK                                                               
+WRI$_ADV_SEQ_DIR                                                                
+WRI$_ADV_SEQ_JOURNAL                                                            
+WRI$_ADV_SEQ_MSGGROUP                                                           
+WRI$_ADV_SEQ_SQLW_QUERY                                                         
+DBMS_LOCK_ID                                                                    
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+AQ$_TRANS_SEQUENCE                                                              
+AQ$_PROPAGATION_SEQUENCE                                                        
+AQ$_CHAINSEQ                                                                    
+AQ$_IOTENQTXID                                                                  
+AQ$_RULE_SET_SEQUENCE                                                           
+AQ$_RULE_SEQUENCE                                                               
+AQ$_PUBLISHER_SEQUENCE                                                          
+AQ$_SCHEDULER$_JOBQTAB_N                                                        
+SCHEDULER$_INSTANCE_S                                                           
+SCHEDULER$_EVTSEQ                                                               
+AQ$_SCHEDULER$_EVENT_QTAB_N                                                     
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+SCHEDULER$_OLDOIDS_S                                                            
+SCHEDULER$_JOBSUFFIX_S                                                          
+LOGMNR_EVOLVE_SEQ$                                                              
+LOGMNR_SEQ$                                                                     
+LOGMNR_UIDS$                                                                    
+AQ$_KUPC$DATAPUMP_QUETAB_N                                                      
+IDX_RB$JOBSEQ                                                                   
+MV_RF$JOBSEQ                                                                    
+REPCAT$_FLAVORS_S                                                               
+REPCAT$_FLAVOR_NAME_S                                                           
+REPCAT$_REPPROP_KEY                                                             
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+REPCAT_LOG_SEQUENCE                                                             
+REPCAT$_REFRESH_TEMPLATES_S                                                     
+REPCAT$_USER_AUTHORIZATIONS_S                                                   
+REPCAT$_TEMPLATE_REFGROUPS_S                                                    
+REPCAT$_TEMPLATE_OBJECTS_S                                                      
+REPCAT$_TEMPLATE_PARMS_S                                                        
+REPCAT$_USER_PARM_VALUES_S                                                      
+REPCAT$_TEMPLATE_SITES_S                                                        
+REPCAT$_TEMP_OUTPUT_S                                                           
+REPCAT$_RUNTIME_PARMS_S                                                         
+TEMPLATE$_TARGETS_S                                                             
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+REPCAT$_EXCEPTIONS_S                                                            
+GENERATOR$_S                                                                    
+STREAMS$_APPLY_SPILL_TXNKEY_S                                                   
+FGR$_NAMES_S                                                                    
+STREAMS$_RULE_NAME_S                                                            
+HS$_FDS_CLASS_S                                                                 
+HS$_FDS_INST_S                                                                  
+HS$_CLASS_CAPS_S                                                                
+HS$_INST_CAPS_S                                                                 
+HS$_BASE_DD_S                                                                   
+HS$_CLASS_DD_S                                                                  
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+HS$_INST_DD_S                                                                   
+HS$_CLASS_INIT_S                                                                
+HS$_INST_INIT_S                                                                 
+AQ$_AQ$_MEM_MC_N                                                                
+ORA_PLAN_ID_SEQ$                                                                
+INVALIDATION_REG_ID$                                                            
+WRI$_ALERT_SEQUENCE                                                             
+AQ$_ALERT_QT_N                                                                  
+WRI$_ALERT_THRSLOG_SEQUENCE                                                     
+WRI$_SQLSET_ID_SEQ                                                              
+WRI$_SQLSET_REF_ID_SEQ                                                          
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+WRI$_SQLSET_STMT_ID_SEQ                                                         
+MGMT_RESPONSE_CAPTURE_ID                                                        
+MGMT_RESPONSE_SNAPSHOT_ID                                                       
+DR_ID_SEQ                                                                       
+MESG_ID_SEQ                                                                     
+THS_SEQ                                                                         
+AQ$_SYS$SERVICE_METRICS_TAB_N                                                   
+XDB$PROPNUM_SEQ                                                                 
+XDB$NAMESUFF_SEQ                                                                
+TMP_COORD_OPS                                                                   
+SDO_TOPO_TRANSACT_SUBSEQ                                                        
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+SDO_TOPO_TRANSACT_SEQ                                                           
+SDO_IDX_TAB_SEQUENCE                                                            
+SAMPLE_SEQ                                                                      
+LOCATIONS_SEQ                                                                   
+DEPARTMENTS_SEQ                                                                 
+EMPLOYEES_SEQ                                                                   
+UTL_RECOMP_SEQ                                                                  
+WWV_SEQ                                                                         
+WWV_FLOW_SESSION_SEQ                                                            
+WWV_FLOW_VERSION_SEQ                                                            
+ID_PRODUTORA                                                                    
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+XD                                                                              
+DP_ID_SEQUENCE                                                                  
+DEPT_HED                                                                        
+DEPT_HED                                                                        
+
+114 linhas selecionadas.
+
+SQL> SELECT SEQUENCE_NAME FROM ALL_SEQUENCES WHERE SEQUENCE_NAME LIKE 'HED'
+  2  
+SQL> SELECT SEQUENCE_NAME FROM ALL_SEQUENCES WHERE SEQUENCE_NAME LIKE 'HED';
+
+não há linhas selecionadas
+
+SQL> SELECT SEQUENCE_NAME FROM ALL_SEQUENCES WHERE SEQUENCE_NAME LIKE 'DEPT_HED';
+
+SEQUENCE_NAME                                                                   
+------------------------------                                                  
+DEPT_HED                                                                        
+DEPT_HED                                                                        
+
+SQL> CLEAR SCREEN
+
+SQL> @ C:\facul\Basic\BD\A.SQL
+
+1 linha criada.
+
+SQL> @ C:\facul\Basic\BD\A.SQL
+
+Tabela criada.
+
+SQL> @ C:\facul\Basic\BD\A.SQL
+
+Tabela alterada.
+
+SQL> @ C:\facul\Basic\BD\A.SQL
+
+Tabela criada.
+
+SQL> SELECT * FROM RECYCLEBIN;
+
+não há linhas selecionadas
+
+SQL> show user
+USER é "HED"
+SQL> SELECT * FROM DEPARTAMENTO;
+
+   ID_DEPT NOME                                                                 
+---------- -------------------------                                            
+        10 TI                                                                   
+
+SQL> CREATE SEQUENCE
+  2  START
+  3  
+SQL> TO_CHAR(SEQ_A,'FM00000000')
+SP2-0734: início de comando desconhecido "TO_CHAR(SE..." - restante da linha ignorado.
+SQL> DROP TABLE DEPARTAMENTO;
+DROP TABLE DEPARTAMENTO
+           *
+ERRO na linha 1:
+ORA-02449: chaves primárias/exclusivas na tabela referenciadas por chaves 
+externas 
+
+
+SQL> DROP TABLE EMPREGADO;
+
+Tabela eliminada.
+
+SQL> SELECT TABLE_NAME FROM RECYCLEBIN;
+SELECT TABLE_NAME FROM RECYCLEBIN
+       *
+ERRO na linha 1:
+ORA-00904: "TABLE_NAME": identificador inválido 
+
+
+SQL> SELECT ORIGINAL_NAME FROM RECYCLEBIN;
+
+ORIGINAL_NAME                                                                   
+--------------------------------                                                
+EMPREGADO                                                                       
+
+SQL> FLASHBACK TABLE EMPREGADO TO BEFORE DROP;
+
+Flashback concluído.
+
+SQL> SELECT ORIGINAL_NAME FROM RECYCLEBIN;
+
+não há linhas selecionadas
+
+SQL> SELECT * FROM USER_TABLES;          
+                                                                                
+
+SQL> SELECT * FROM USER_TABLES WHERE TABLE_OWNER = 'HED';
+SELECT * FROM USER_TABLES WHERE TABLE_OWNER = 'HED'
+                                *
+ERRO na linha 1:
+ORA-00904: "TABLE_OWNER": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME FROM USER_TABLES;
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+DEPARTAMENTO                                                                    
+EMPREGADO                                                                       
+EMPREGADO2                                                                      
+
+SQL> SELECT COLUMN_NAME FROM USER_TAB_COLUMNS;
+
+COLUMN_NAME                                                                     
+------------------------------                                                  
+ID_DEPT                                                                         
+NOME                                                                            
+NOME_EMPREGADO                                                                  
+SOBRENOME                                                                       
+DEPT_ID                                                                         
+ID_EMPREGADO                                                                    
+ID_EMRPEGADO                                                                    
+NOME                                                                            
+DEPTID                                                                          
+
+9 linhas selecionadas.
+
+SQL> SELECT * FROM USER_OBJECTS;
+
+OBJECT_NAME                                                                     
+--------------------------------------------------------------------------------
+SUBOBJECT_NAME                  OBJECT_ID DATA_OBJECT_ID OBJECT_TYPE            
+------------------------------ ---------- -------------- -------------------    
+CREATED  LAST_DDL TIMESTAMP           STATUS  T G S                             
+-------- -------- ------------------- ------- - - -                             
+DEPARTAMENTO                                                                    
+                                    13857          13857 TABLE                  
+28/02/18 28/02/18 2018-02-28:23:33:25 VALID   N N N                             
+                                                                                
+PK_DEPARTAMENTO                                                                 
+                                    13858          13858 INDEX                  
+28/02/18 28/02/18 2018-02-28:23:33:25 VALID   N N N                             
+
+OBJECT_NAME                                                                     
+--------------------------------------------------------------------------------
+SUBOBJECT_NAME                  OBJECT_ID DATA_OBJECT_ID OBJECT_TYPE            
+------------------------------ ---------- -------------- -------------------    
+CREATED  LAST_DDL TIMESTAMP           STATUS  T G S                             
+-------- -------- ------------------- ------- - - -                             
+                                                                                
+DEPT_HED                                                                        
+                                    13859                SEQUENCE               
+28/02/18 28/02/18 2018-02-28:23:33:59 VALID   N N N                             
+                                                                                
+EMPREGADO                                                                       
+                                    13860          13860 TABLE                  
+
+OBJECT_NAME                                                                     
+--------------------------------------------------------------------------------
+SUBOBJECT_NAME                  OBJECT_ID DATA_OBJECT_ID OBJECT_TYPE            
+------------------------------ ---------- -------------- -------------------    
+CREATED  LAST_DDL TIMESTAMP           STATUS  T G S                             
+-------- -------- ------------------- ------- - - -                             
+28/02/18 01/03/18 2018-03-01:00:01:50 VALID   N N N                             
+                                                                                
+EMPREGADO2                                                                      
+                                    13861          13861 TABLE                  
+28/02/18 28/02/18 2018-02-28:23:37:47 VALID   N N N                             
+                                                                                
+PK_EMPREGADO2                                                                   
+
+OBJECT_NAME                                                                     
+--------------------------------------------------------------------------------
+SUBOBJECT_NAME                  OBJECT_ID DATA_OBJECT_ID OBJECT_TYPE            
+------------------------------ ---------- -------------- -------------------    
+CREATED  LAST_DDL TIMESTAMP           STATUS  T G S                             
+-------- -------- ------------------- ------- - - -                             
+                                    13862          13862 INDEX                  
+28/02/18 28/02/18 2018-02-28:23:37:47 VALID   N N N                             
+                                                                                
+
+6 linhas selecionadas.
+
+SQL> SELECT * FROM USER_OBJECTS WHERE TABLE_NAME = 'EMPREGADO';
+SELECT * FROM USER_OBJECTS WHERE TABLE_NAME = 'EMPREGADO'
+                                 *
+ERRO na linha 1:
+ORA-00904: "TABLE_NAME": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME FROM USER_OBJECTS;
+SELECT TABLE_NAME FROM USER_OBJECTS
+       *
+ERRO na linha 1:
+ORA-00904: "TABLE_NAME": identificador inválido 
+
+
+SQL> SELECT TABLES_NAME FROM USER_OBJECTS;
+SELECT TABLES_NAME FROM USER_OBJECTS
+       *
+ERRO na linha 1:
+ORA-00904: "TABLES_NAME": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME FROM *;
+SELECT TABLE_NAME FROM *
+                       *
+ERRO na linha 1:
+ORA-00903: nome de tabela inválido 
+
+
+SQL> SELECT TABLE_NAME FROM ALL_TABLES;
+SQL> CLEAR
+SQL> SPOOL OFF

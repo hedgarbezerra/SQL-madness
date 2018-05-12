@@ -1,0 +1,240 @@
+SQL> CREATE TABLE BANCO
+  2  (CD_BANCO NUMBER(3)
+  3  
+SQL> CREATE TABLE BANCO
+  2  (CD_BANCO NUMBER(3),
+  3  NM_BANCO VARCHAR2(30),
+  4  CONSTRAINT PK_BANCO PRIMARY KEY CD_BANCO,
+  5  CONSTRAINT NN_NM_BANCO NOT NULL NM_BANCO);
+CONSTRAINT PK_BANCO PRIMARY KEY CD_BANCO,
+                                *
+ERRO na linha 4:
+ORA-00906: parêntese esquerdo não encontrado 
+
+
+SQL> 
+SQL> CREATE TABLE BANCO
+  2  (CD_BANCO NUMBER(3)
+  3  
+SQL> CREATE TABLE BANCO
+  2  (CD_BANCO NUMBER(3),
+  3  NM_BANCO VARCHAR2(30),
+  4  CONSTRAINT PK_BANCO PRIMARY KEY (CD_BANCO),
+  5  CONSTRAINT NN_NM_BANCO NOT NULL NM_BANCO);
+CONSTRAINT NN_NM_BANCO NOT NULL NM_BANCO)
+                       *
+ERRO na linha 5:
+ORA-00904: : identificador inválido 
+
+
+SQL> CREATE TABLE BANCO
+  2  (CD_BANCO NUMBER(3),
+  3  NM_BANCO VARCHAR2(30) NOT NULL,
+  4  CONSTRAINT PK_BANCO PRIMARY KEY (CD_BANCO);
+CONSTRAINT PK_BANCO PRIMARY KEY (CD_BANCO)
+                                         *
+ERRO na linha 4:
+ORA-00907: parêntese direito não encontrado 
+
+
+SQL> CREATE TABLE BANCO
+  2  (CD_BANCO NUMBER(3),
+  3  NM_BANCO VARCHAR2(30),
+  4  CONSTRAINT PK_BANCO PRIMARY KEY (CD_BANCO));
+
+Tabela criada.
+
+SQL> 
+SQL> CREATE TABLE AGENCIA
+  2  (CD_AGENCIA NUMBER(7),
+  3  CD_BANCO NUMBER(3),
+  4  CONSTRAINT FK_AGENCIA_BANCO FOREIGN KEY (CD_BANCO) REFERENCES BANCO(CD_BANCO),
+  5  CONSTRAINT PK_AGENCIA PRIMARY KEY (CD_BANC0,CD_AGENCIA));
+CONSTRAINT PK_AGENCIA PRIMARY KEY (CD_BANC0,CD_AGENCIA))
+                                   *
+ERRO na linha 5:
+ORA-00904: "CD_BANC0": identificador inválido 
+
+
+SQL> CREATE TABLE AGENCIA
+  2  (CD_AGENCIA NUMBER(7),
+  3  CD_BANCO NUMBER(3),
+  4  CONSTRAINT FK_AGENCIA_BANCO FOREIGN KEY (CD_BANCO) REFERENCES BANCO(CD_BANCO),
+  5  CONSTRAINT PK_AGENCIA PRIMARY KEY (CD_BANCO,CD_AGENCIA));
+
+Tabela criada.
+
+SQL> CREATE TABLE PESSOA_FISICA
+  2  (CD_PESSOA NUMBER(5),
+  3  NM_PESSOA VARCHAR2(50) NOT NULL,
+  4  CD_CPF NUMBER(11),
+  5  CD_IDENTIDADE VARCHAR2(20),
+  6  SG_ORGAO_EXPEDIDOR VARCHAR2(20),
+  7  DT_NASCIMENTO DATE,
+  8  IC_SEXO CHAR(1),
+  9  ESTADO_CIVIL VARCHAR2(30),
+ 10  CONSTRAINT PK_PESSOA_FISICA PRIMARY KEY (CD_PESSOA),
+ 11  CONSTRAINT CPF_UNICO UNIQUE (CD_CPF),
+ 12  CONSTRAINT CHECK_SEXO CHECK (IC_SEXO IN ('M','m','F','f')),
+ 13  CONSTRAINT CHECK_ESTADO_CIVIL CHECK (ESTADO_CIVIL IN ('Solteiro','Casado','Vi£vo','Divorciado','Outro')));
+
+Tabela criada.
+
+SQL> 
+SQL> SELECT *
+  2  FROM USER_TABLES
+  3  WHERE
+  4  
+SQL> SELECT TABLE_NAME
+  2  FROM USER_TABLES
+  3  WHERE TABLE_NAME = &TABELA
+  4  
+SQL> SELECT TABLE_NAME
+  2  FROM USER_TABLES
+  3  WHERE TABLE_NAME = 'BANCO'
+  4  
+SQL> SELECT TABLE_NAME
+  2  FROM ALL_TABLES
+  3  WHERE TABLE_NAME = 'BANCO'
+  4  
+SQL> SELECT TABLE_NAME
+  2  FROM USER_TABLES
+  3  WHERE TABLE_NAME = 'BANCO';
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+BANCO                                                                           
+
+SQL> 
+SQL> SELECT TABLE_NAME
+  2  FROM ALL_TABLES
+  3  WHERE TABLE_NAME = '&TABELAS';
+Informe o valor para tabelas: PESSOA_FISICA
+antigo   3: WHERE TABLE_NAME = '&TABELAS'
+novo   3: WHERE TABLE_NAME = 'PESSOA_FISICA'
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+PESSOA_FISICA                                                                   
+
+SQL> SELECT TABLE_NAME,COLUMN_NAME,DATA_TYPE
+  2  FROM ALL_TABLES
+  3  WHERE TABLE_NAME = '&TABELAS';
+Informe o valor para tabelas: BANCO
+antigo   3: WHERE TABLE_NAME = '&TABELAS'
+novo   3: WHERE TABLE_NAME = 'BANCO'
+SELECT TABLE_NAME,COLUMN_NAME,DATA_TYPE
+                              *
+ERRO na linha 1:
+ORA-00904: "DATA_TYPE": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME,COLUMN_NAME
+  2  FROM ALL_TABLES
+  3  WHERE TABLE_NAME = '&TABELAS';
+Informe o valor para tabelas: BANCO
+antigo   3: WHERE TABLE_NAME = '&TABELAS'
+novo   3: WHERE TABLE_NAME = 'BANCO'
+SELECT TABLE_NAME,COLUMN_NAME
+                  *
+ERRO na linha 1:
+ORA-00904: "COLUMN_NAME": identificador inválido 
+
+
+SQL> SELECT *
+  2  FROM ALL_TABLES
+  3  WHERE TABLE_NAME = '&TABELAS';
+Informe o valor para tabelas: BANCO
+antigo   3: WHERE TABLE_NAME = '&TABELAS'
+novo   3: WHERE TABLE_NAME = 'BANCO'
+
+                                                      
+                                                                                
+
+SQL> SELECT TABLE_NAME,NUM_ROWS,ROW_NAME
+  2  FROM ALL_TABLES
+  3  WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: BANCO
+antigo   3: WHERE TABLE_NAME = '&TABELA'
+novo   3: WHERE TABLE_NAME = 'BANCO'
+SELECT TABLE_NAME,NUM_ROWS,ROW_NAME
+                           *
+ERRO na linha 1:
+ORA-00904: "ROW_NAME": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME,NUM_ROWS,TABLESPACE_NAME
+  2  FROM ALL_TABLES
+  3  WHERE TABLE_NAME = '&TABELAS';
+Informe o valor para tabelas: BANCO
+antigo   3: WHERE TABLE_NAME = '&TABELAS'
+novo   3: WHERE TABLE_NAME = 'BANCO'
+
+TABLE_NAME                       NUM_ROWS TABLESPACE_NAME                       
+------------------------------ ---------- ------------------------------        
+BANCO                                     SYSTEM                                
+
+SQL> SELECT TABLE_NAME,COLUMN_NAME
+  2  FROM ALL_TABLES
+  3  WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: BANCO
+antigo   3: WHERE TABLE_NAME = '&TABELA'
+novo   3: WHERE TABLE_NAME = 'BANCO'
+SELECT TABLE_NAME,COLUMN_NAME
+                  *
+ERRO na linha 1:
+ORA-00904: "COLUMN_NAME": identificador inválido 
+
+
+SQL> SELECT COLUMN_NAME
+  2  FROM ALL_TABLES
+  3  WHERE TABLE_NAME = '&TABELAS';
+Informe o valor para tabelas: BANCO
+antigo   3: WHERE TABLE_NAME = '&TABELAS'
+novo   3: WHERE TABLE_NAME = 'BANCO'
+SELECT COLUMN_NAME
+       *
+ERRO na linha 1:
+ORA-00904: "COLUMN_NAME": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME,COLUMN_NAME
+  2  FROM ALL_TABLES,ALL_TAB_COLS
+  3  WHERE TABLE_NAME = '&TABELAS';
+Informe o valor para tabelas: BANCO
+antigo   3: WHERE TABLE_NAME = '&TABELAS'
+novo   3: WHERE TABLE_NAME = 'BANCO'
+WHERE TABLE_NAME = 'BANCO'
+      *
+ERRO na linha 3:
+ORA-00918: coluna definida de maneira ambígua 
+
+
+SQL> SELECT COLUMN_NAME
+  2  FROM ALL_TAB_COLS
+  3  WHERE TABLE_NAME = '&TABELAS';
+Informe o valor para tabelas: BANCO
+antigo   3: WHERE TABLE_NAME = '&TABELAS'
+novo   3: WHERE TABLE_NAME = 'BANCO'
+
+COLUMN_NAME                                                                     
+------------------------------                                                  
+NM_BANCO                                                                        
+CD_BANCO                                                                        
+
+SQL> SELECT TABLE_NAME,COLUMN_NAME
+  2  FROM *
+  3  WHERE TABLE_NAME = '&TABELAS';
+Informe o valor para tabelas: BANCO
+antigo   3: WHERE TABLE_NAME = '&TABELAS'
+novo   3: WHERE TABLE_NAME = 'BANCO'
+FROM *
+     *
+ERRO na linha 2:
+ORA-00903: nome de tabela inválido 
+
+
+SQL> INSERT INTO V_TB
+  2  SELECT * FROM BANCO
+  3  
+SQL> SPOOL OFF

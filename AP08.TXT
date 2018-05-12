@@ -1,0 +1,484 @@
+SQL> -- EXERCICIOS DA PAG 48--
+SQL> CREATE TABLE AUTOR(
+  2  CD_AUTOR NUMBER(6),
+  3  NOME VARCHAR (50) NOT NULL,
+  4  DT_NASCIMENTO (DATE),
+  5  CONSTRAINT PK_AUTOR PRIMARY KEY (CD_AUTOR));
+DT_NASCIMENTO (DATE),
+              *
+ERRO na linha 4:
+ORA-00902: tipo de dados inválido 
+
+
+SQL> CREATE TABLE AUTOR(
+  2  CD_AUTOR NUMBER(6),
+  3  NOME VARCHAR (50) NOT NULL,
+  4  DT_NASCIMENTO (DATE),
+  5  
+SQL> 
+SQL> CREATE TABLE AUTOR(
+  2  CD_AUTOR NUMBER(6),
+  3  NOME VARCHAR (50) NOT NULL,
+  4  DT_NASCIMENTO DATE,
+  5  CONSTRAINT PK_AUTOR PRIMARY KEY (CD_AUTOR));
+
+Tabela criada.
+
+SQL> 
+SQL> CREATE TABLE EDITORA(
+  2  CD_EDITORA NUMBER(6),
+  3  RAZAO VARCHAR(60),
+  4  CNPJ VARCHAR(14) NOT NULL,
+  5  ENDERECO VARCHAR (50) NOT NULL,
+  6  CIDADE VARCHAR (50),
+  7  CONSTRAINT PK_EDITORA PRIMARY KEY (CD_EDITORA),
+  8  CONSTRAINT UK_CNPJ UNIQUE (CNPJ));
+
+Tabela criada.
+
+SQL> CREATE TABLE LIVRO(
+  2  TITULO VARCHAR(50),
+  3  CD_AUTOR NUMBER(6),
+  4  CD_EDITORA NUMBER(6),
+  5  VL_REAL NUMBER(9,2),
+  6  PUBLICACAO VARCHAR(20),
+  7  VOLUME VARCHAR(10),
+  8  CONSTRAINT FK_LIVRO_AUTOR FOREIGN KEY (CD_AUTOR) REFERENCES AUTOR(CD_AUTOR),
+  9  CONSTRAINT FK_LIVRO_EDITORA FOREIGN KEY (CD_EDITORA) REFERENCES EDITORA(CD_EDITORA));
+
+Tabela criada.
+
+SQL> ALTER TABLE LIVRO MODIFY PUBLICACAO DATE;
+
+Tabela alterada.
+
+SQL> SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: LIVRO
+antigo   1: SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'LIVRO'
+
+COLUMN_NAME                                                                     
+------------------------------                                                  
+TITULO                                                                          
+CD_AUTOR                                                                        
+CD_EDITORA                                                                      
+VL_REAL                                                                         
+PUBLICACAO                                                                      
+VOLUME                                                                          
+
+6 linhas selecionadas.
+
+SQL> SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: EDITORA
+antigo   1: SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'EDITORA'
+
+COLUMN_NAME                                                                     
+------------------------------                                                  
+CD_EDITORA                                                                      
+RAZAO                                                                           
+CNPJ                                                                            
+ENDERECO                                                                        
+CIDADE                                                                          
+
+SQL> SELECT TABLE_NAME, COLUMN_NAME,CONSTRAINT_NAME,DATA_TYPE FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: LIVRO
+antigo   1: SELECT TABLE_NAME, COLUMN_NAME,CONSTRAINT_NAME,DATA_TYPE FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT TABLE_NAME, COLUMN_NAME,CONSTRAINT_NAME,DATA_TYPE FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'LIVRO'
+SELECT TABLE_NAME, COLUMN_NAME,CONSTRAINT_NAME,DATA_TYPE FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'LIVRO'
+                               *
+ERRO na linha 1:
+ORA-00904: "CONSTRAINT_NAME": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME, COLUMN_NAME,DATA_TYPE FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: LIVRO
+antigo   1: SELECT TABLE_NAME, COLUMN_NAME,DATA_TYPE FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT TABLE_NAME, COLUMN_NAME,DATA_TYPE FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'LIVRO'
+
+TABLE_NAME                     COLUMN_NAME                                      
+------------------------------ ------------------------------                   
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+LIVRO                          TITULO                                           
+VARCHAR2                                                                        
+                                                                                
+LIVRO                          CD_AUTOR                                         
+NUMBER                                                                          
+                                                                                
+LIVRO                          CD_EDITORA                                       
+NUMBER                                                                          
+                                                                                
+
+TABLE_NAME                     COLUMN_NAME                                      
+------------------------------ ------------------------------                   
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+LIVRO                          VL_REAL                                          
+NUMBER                                                                          
+                                                                                
+LIVRO                          PUBLICACAO                                       
+DATE                                                                            
+                                                                                
+LIVRO                          VOLUME                                           
+VARCHAR2                                                                        
+                                                                                
+
+6 linhas selecionadas.
+
+SQL> SELECT  COLUMN_NAME,DATA_TYPE, DATA_LENGTH FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: LIVRO
+antigo   1: SELECT  COLUMN_NAME,DATA_TYPE, DATA_LENGTH FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT  COLUMN_NAME,DATA_TYPE, DATA_LENGTH FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'LIVRO'
+
+COLUMN_NAME                                                                     
+------------------------------                                                  
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+DATA_LENGTH                                                                     
+-----------                                                                     
+TITULO                                                                          
+VARCHAR2                                                                        
+         50                                                                     
+                                                                                
+CD_AUTOR                                                                        
+NUMBER                                                                          
+         22                                                                     
+
+COLUMN_NAME                                                                     
+------------------------------                                                  
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+DATA_LENGTH                                                                     
+-----------                                                                     
+                                                                                
+CD_EDITORA                                                                      
+NUMBER                                                                          
+         22                                                                     
+                                                                                
+VL_REAL                                                                         
+NUMBER                                                                          
+
+COLUMN_NAME                                                                     
+------------------------------                                                  
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+DATA_LENGTH                                                                     
+-----------                                                                     
+         22                                                                     
+                                                                                
+PUBLICACAO                                                                      
+DATE                                                                            
+          7                                                                     
+                                                                                
+VOLUME                                                                          
+
+COLUMN_NAME                                                                     
+------------------------------                                                  
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+DATA_LENGTH                                                                     
+-----------                                                                     
+VARCHAR2                                                                        
+         10                                                                     
+                                                                                
+
+6 linhas selecionadas.
+
+SQL> SELECT * FROM ALL_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: LIVRO
+antigo   1: SELECT * FROM ALL_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT * FROM ALL_CONSTRAINTS WHERE TABLE_NAME = 'LIVRO'
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+HED                            FK_LIVRO_AUTOR                 R                 
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+LIVRO                                                                           
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+HED                            PK_AUTOR                       NO ACTION ENABLED 
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+NOT DEFERRABLE IMMEDIATE VALIDATED     USER NAME               01/03/18         
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+HED                            FK_LIVRO_EDITORA               R                 
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+LIVRO                                                                           
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+HED                            PK_EDITORA                     NO ACTION ENABLED 
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+NOT DEFERRABLE IMMEDIATE VALIDATED     USER NAME               01/03/18         
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+SQL> SELECT * FROM ALL_CONS_COLUMNS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: LIVRO
+antigo   1: SELECT * FROM ALL_CONS_COLUMNS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT * FROM ALL_CONS_COLUMNS WHERE TABLE_NAME = 'LIVRO'
+
+OWNER                          CONSTRAINT_NAME                                  
+------------------------------ ------------------------------                   
+TABLE_NAME                                                                      
+------------------------------                                                  
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+  POSITION                                                                      
+----------                                                                      
+HED                            FK_LIVRO_EDITORA                                 
+LIVRO                                                                           
+CD_EDITORA                                                                      
+         1                                                                      
+                                                                                
+
+OWNER                          CONSTRAINT_NAME                                  
+------------------------------ ------------------------------                   
+TABLE_NAME                                                                      
+------------------------------                                                  
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+  POSITION                                                                      
+----------                                                                      
+HED                            FK_LIVRO_AUTOR                                   
+LIVRO                                                                           
+CD_AUTOR                                                                        
+         1                                                                      
+                                                                                
+
+SQL> CLEAR SCREEN
+
+SQL> SPOOL OFF

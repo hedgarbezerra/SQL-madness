@@ -1,0 +1,1590 @@
+SQL> SELECT "Informa‡Æo dos Empregados" || JOB_ID|| "," ||FIRST_NAME|| " "|| LAST_NAME FROM EMPLOYEES;
+SELECT "Informa‡Æo dos Empregados" || JOB_ID|| "," ||FIRST_NAME|| " "|| LAST_NAME FROM EMPLOYEES
+                                                                  *
+ERRO na linha 1:
+ORA-00904: " ": identificador inválido 
+
+
+SQL> SELECT "Informa‡Æo dos Empregados" || JOB_ID|| "," ||FIRST_NAME|| "NULL "|| LAST_NAME FROM EMPLOYEES;
+SELECT "Informa‡Æo dos Empregados" || JOB_ID|| "," ||FIRST_NAME|| "NULL "|| LAST_NAME FROM EMPLOYEES
+                                                                  *
+ERRO na linha 1:
+ORA-00904: "NULL ": identificador inválido 
+
+
+SQL> SELECT 'Informa‡Æo dos Empregados' || JOB_ID|| ',' ||FIRST_NAME|| ', '|| LAST_NAME FROM EMPLOYEES;
+
+'INFORMA‡ÆODOSEMPREGADOS'||JOB_ID||','||FIRST_NAME||','||LAST_NAME              
+--------------------------------------------------------------------------------
+Informa‡Æo dos EmpregadosAD_PRES,Steven, King                                   
+Informa‡Æo dos EmpregadosAD_VP,Neena, Kochhar                                   
+Informa‡Æo dos EmpregadosAD_VP,Lex, De Haan                                     
+Informa‡Æo dos EmpregadosIT_PROG,Alexander, Hunold                              
+Informa‡Æo dos EmpregadosIT_PROG,Bruce, Ernst                                   
+Informa‡Æo dos EmpregadosIT_PROG,David, Austin                                  
+Informa‡Æo dos EmpregadosIT_PROG,Valli, Pataballa                               
+Informa‡Æo dos EmpregadosIT_PROG,Diana, Lorentz                                 
+Informa‡Æo dos EmpregadosFI_MGR,Nancy, Greenberg                                
+Informa‡Æo dos EmpregadosFI_ACCOUNT,Daniel, Faviet                              
+Informa‡Æo dos EmpregadosFI_ACCOUNT,John, Chen                                  
+
+'INFORMA‡ÆODOSEMPREGADOS'||JOB_ID||','||FIRST_NAME||','||LAST_NAME              
+--------------------------------------------------------------------------------
+Informa‡Æo dos EmpregadosFI_ACCOUNT,Ismael, Sciarra                             
+Informa‡Æo dos EmpregadosFI_ACCOUNT,Jose Manuel, Urman                          
+Informa‡Æo dos EmpregadosFI_ACCOUNT,Luis, Popp                                  
+Informa‡Æo dos EmpregadosPU_MAN,Den, Raphaely                                   
+Informa‡Æo dos EmpregadosPU_CLERK,Alexander, Khoo                               
+Informa‡Æo dos EmpregadosPU_CLERK,Shelli, Baida                                 
+Informa‡Æo dos EmpregadosPU_CLERK,Sigal, Tobias                                 
+Informa‡Æo dos EmpregadosPU_CLERK,Guy, Himuro                                   
+Informa‡Æo dos EmpregadosPU_CLERK,Karen, Colmenares                             
+Informa‡Æo dos EmpregadosST_MAN,Matthew, Weiss                                  
+Informa‡Æo dos EmpregadosST_MAN,Adam, Fripp                                     
+
+'INFORMA‡ÆODOSEMPREGADOS'||JOB_ID||','||FIRST_NAME||','||LAST_NAME              
+--------------------------------------------------------------------------------
+Informa‡Æo dos EmpregadosST_MAN,Payam, Kaufling                                 
+Informa‡Æo dos EmpregadosST_MAN,Shanta, Vollman                                 
+Informa‡Æo dos EmpregadosST_MAN,Kevin, Mourgos                                  
+Informa‡Æo dos EmpregadosST_CLERK,Julia, Nayer                                  
+Informa‡Æo dos EmpregadosST_CLERK,Irene, Mikkilineni                            
+Informa‡Æo dos EmpregadosST_CLERK,James, Landry                                 
+Informa‡Æo dos EmpregadosST_CLERK,Steven, Markle                                
+Informa‡Æo dos EmpregadosST_CLERK,Laura, Bissot                                 
+Informa‡Æo dos EmpregadosST_CLERK,Mozhe, Atkinson                               
+Informa‡Æo dos EmpregadosST_CLERK,James, Marlow                                 
+Informa‡Æo dos EmpregadosST_CLERK,TJ, Olson                                     
+
+'INFORMA‡ÆODOSEMPREGADOS'||JOB_ID||','||FIRST_NAME||','||LAST_NAME              
+--------------------------------------------------------------------------------
+Informa‡Æo dos EmpregadosST_CLERK,Jason, Mallin                                 
+Informa‡Æo dos EmpregadosST_CLERK,Michael, Rogers                               
+Informa‡Æo dos EmpregadosST_CLERK,Ki, Gee                                       
+Informa‡Æo dos EmpregadosST_CLERK,Hazel, Philtanker                             
+Informa‡Æo dos EmpregadosST_CLERK,Renske, Ladwig                                
+Informa‡Æo dos EmpregadosST_CLERK,Stephen, Stiles                               
+Informa‡Æo dos EmpregadosST_CLERK,John, Seo                                     
+Informa‡Æo dos EmpregadosST_CLERK,Joshua, Patel                                 
+Informa‡Æo dos EmpregadosST_CLERK,Trenna, Rajs                                  
+Informa‡Æo dos EmpregadosST_CLERK,Curtis, Davies                                
+Informa‡Æo dos EmpregadosST_CLERK,Randall, Matos                                
+
+'INFORMA‡ÆODOSEMPREGADOS'||JOB_ID||','||FIRST_NAME||','||LAST_NAME              
+--------------------------------------------------------------------------------
+Informa‡Æo dos EmpregadosST_CLERK,Peter, Vargas                                 
+Informa‡Æo dos EmpregadosSA_MAN,John, Russell                                   
+Informa‡Æo dos EmpregadosSA_MAN,Karen, Partners                                 
+Informa‡Æo dos EmpregadosSA_MAN,Alberto, Errazuriz                              
+Informa‡Æo dos EmpregadosSA_MAN,Gerald, Cambrault                               
+Informa‡Æo dos EmpregadosSA_MAN,Eleni, Zlotkey                                  
+Informa‡Æo dos EmpregadosSA_REP,Peter, Tucker                                   
+Informa‡Æo dos EmpregadosSA_REP,David, Bernstein                                
+Informa‡Æo dos EmpregadosSA_REP,Peter, Hall                                     
+Informa‡Æo dos EmpregadosSA_REP,Christopher, Olsen                              
+Informa‡Æo dos EmpregadosSA_REP,Nanette, Cambrault                              
+
+'INFORMA‡ÆODOSEMPREGADOS'||JOB_ID||','||FIRST_NAME||','||LAST_NAME              
+--------------------------------------------------------------------------------
+Informa‡Æo dos EmpregadosSA_REP,Oliver, Tuvault                                 
+Informa‡Æo dos EmpregadosSA_REP,Janette, King                                   
+Informa‡Æo dos EmpregadosSA_REP,Patrick, Sully                                  
+Informa‡Æo dos EmpregadosSA_REP,Allan, McEwen                                   
+Informa‡Æo dos EmpregadosSA_REP,Lindsey, Smith                                  
+Informa‡Æo dos EmpregadosSA_REP,Louise, Doran                                   
+Informa‡Æo dos EmpregadosSA_REP,Sarath, Sewall                                  
+Informa‡Æo dos EmpregadosSA_REP,Clara, Vishney                                  
+Informa‡Æo dos EmpregadosSA_REP,Danielle, Greene                                
+Informa‡Æo dos EmpregadosSA_REP,Mattea, Marvins                                 
+Informa‡Æo dos EmpregadosSA_REP,David, Lee                                      
+
+'INFORMA‡ÆODOSEMPREGADOS'||JOB_ID||','||FIRST_NAME||','||LAST_NAME              
+--------------------------------------------------------------------------------
+Informa‡Æo dos EmpregadosSA_REP,Sundar, Ande                                    
+Informa‡Æo dos EmpregadosSA_REP,Amit, Banda                                     
+Informa‡Æo dos EmpregadosSA_REP,Lisa, Ozer                                      
+Informa‡Æo dos EmpregadosSA_REP,Harrison, Bloom                                 
+Informa‡Æo dos EmpregadosSA_REP,Tayler, Fox                                     
+Informa‡Æo dos EmpregadosSA_REP,William, Smith                                  
+Informa‡Æo dos EmpregadosSA_REP,Elizabeth, Bates                                
+Informa‡Æo dos EmpregadosSA_REP,Sundita, Kumar                                  
+Informa‡Æo dos EmpregadosSA_REP,Ellen, Abel                                     
+Informa‡Æo dos EmpregadosSA_REP,Alyssa, Hutton                                  
+Informa‡Æo dos EmpregadosSA_REP,Jonathon, Taylor                                
+
+'INFORMA‡ÆODOSEMPREGADOS'||JOB_ID||','||FIRST_NAME||','||LAST_NAME              
+--------------------------------------------------------------------------------
+Informa‡Æo dos EmpregadosSA_REP,Jack, Livingston                                
+Informa‡Æo dos EmpregadosSA_REP,Kimberely, Grant                                
+Informa‡Æo dos EmpregadosSA_REP,Charles, Johnson                                
+Informa‡Æo dos EmpregadosSH_CLERK,Winston, Taylor                               
+Informa‡Æo dos EmpregadosSH_CLERK,Jean, Fleaur                                  
+Informa‡Æo dos EmpregadosSH_CLERK,Martha, Sullivan                              
+Informa‡Æo dos EmpregadosSH_CLERK,Girard, Geoni                                 
+Informa‡Æo dos EmpregadosSH_CLERK,Nandita, Sarchand                             
+Informa‡Æo dos EmpregadosSH_CLERK,Alexis, Bull                                  
+Informa‡Æo dos EmpregadosSH_CLERK,Julia, Dellinger                              
+Informa‡Æo dos EmpregadosSH_CLERK,Anthony, Cabrio                               
+
+'INFORMA‡ÆODOSEMPREGADOS'||JOB_ID||','||FIRST_NAME||','||LAST_NAME              
+--------------------------------------------------------------------------------
+Informa‡Æo dos EmpregadosSH_CLERK,Kelly, Chung                                  
+Informa‡Æo dos EmpregadosSH_CLERK,Jennifer, Dilly                               
+Informa‡Æo dos EmpregadosSH_CLERK,Timothy, Gates                                
+Informa‡Æo dos EmpregadosSH_CLERK,Randall, Perkins                              
+Informa‡Æo dos EmpregadosSH_CLERK,Sarah, Bell                                   
+Informa‡Æo dos EmpregadosSH_CLERK,Britney, Everett                              
+Informa‡Æo dos EmpregadosSH_CLERK,Samuel, McCain                                
+Informa‡Æo dos EmpregadosSH_CLERK,Vance, Jones                                  
+Informa‡Æo dos EmpregadosSH_CLERK,Alana, Walsh                                  
+Informa‡Æo dos EmpregadosSH_CLERK,Kevin, Feeney                                 
+Informa‡Æo dos EmpregadosSH_CLERK,Donald, OConnell                              
+
+'INFORMA‡ÆODOSEMPREGADOS'||JOB_ID||','||FIRST_NAME||','||LAST_NAME              
+--------------------------------------------------------------------------------
+Informa‡Æo dos EmpregadosSH_CLERK,Douglas, Grant                                
+Informa‡Æo dos EmpregadosAD_ASST,Jennifer, Whalen                               
+Informa‡Æo dos EmpregadosMK_MAN,Michael, Hartstein                              
+Informa‡Æo dos EmpregadosMK_REP,Pat, Fay                                        
+Informa‡Æo dos EmpregadosHR_REP,Susan, Mavris                                   
+Informa‡Æo dos EmpregadosPR_REP,Hermann, Baer                                   
+Informa‡Æo dos EmpregadosAC_MGR,Shelley, Higgins                                
+Informa‡Æo dos EmpregadosAC_ACCOUNT,William, Gietz                              
+
+107 linhas selecionadas.
+
+SQL> SELECT JOB_ID|| ',' ||FIRST_NAME|| ', '|| LAST_NAME AS "DADOS" FROM EMPLOYEES;
+
+DADOS                                                                           
+----------------------------------------------------------                      
+AD_PRES,Steven, King                                                            
+AD_VP,Neena, Kochhar                                                            
+AD_VP,Lex, De Haan                                                              
+IT_PROG,Alexander, Hunold                                                       
+IT_PROG,Bruce, Ernst                                                            
+IT_PROG,David, Austin                                                           
+IT_PROG,Valli, Pataballa                                                        
+IT_PROG,Diana, Lorentz                                                          
+FI_MGR,Nancy, Greenberg                                                         
+FI_ACCOUNT,Daniel, Faviet                                                       
+FI_ACCOUNT,John, Chen                                                           
+
+DADOS                                                                           
+----------------------------------------------------------                      
+FI_ACCOUNT,Ismael, Sciarra                                                      
+FI_ACCOUNT,Jose Manuel, Urman                                                   
+FI_ACCOUNT,Luis, Popp                                                           
+PU_MAN,Den, Raphaely                                                            
+PU_CLERK,Alexander, Khoo                                                        
+PU_CLERK,Shelli, Baida                                                          
+PU_CLERK,Sigal, Tobias                                                          
+PU_CLERK,Guy, Himuro                                                            
+PU_CLERK,Karen, Colmenares                                                      
+ST_MAN,Matthew, Weiss                                                           
+ST_MAN,Adam, Fripp                                                              
+
+DADOS                                                                           
+----------------------------------------------------------                      
+ST_MAN,Payam, Kaufling                                                          
+ST_MAN,Shanta, Vollman                                                          
+ST_MAN,Kevin, Mourgos                                                           
+ST_CLERK,Julia, Nayer                                                           
+ST_CLERK,Irene, Mikkilineni                                                     
+ST_CLERK,James, Landry                                                          
+ST_CLERK,Steven, Markle                                                         
+ST_CLERK,Laura, Bissot                                                          
+ST_CLERK,Mozhe, Atkinson                                                        
+ST_CLERK,James, Marlow                                                          
+ST_CLERK,TJ, Olson                                                              
+
+DADOS                                                                           
+----------------------------------------------------------                      
+ST_CLERK,Jason, Mallin                                                          
+ST_CLERK,Michael, Rogers                                                        
+ST_CLERK,Ki, Gee                                                                
+ST_CLERK,Hazel, Philtanker                                                      
+ST_CLERK,Renske, Ladwig                                                         
+ST_CLERK,Stephen, Stiles                                                        
+ST_CLERK,John, Seo                                                              
+ST_CLERK,Joshua, Patel                                                          
+ST_CLERK,Trenna, Rajs                                                           
+ST_CLERK,Curtis, Davies                                                         
+ST_CLERK,Randall, Matos                                                         
+
+DADOS                                                                           
+----------------------------------------------------------                      
+ST_CLERK,Peter, Vargas                                                          
+SA_MAN,John, Russell                                                            
+SA_MAN,Karen, Partners                                                          
+SA_MAN,Alberto, Errazuriz                                                       
+SA_MAN,Gerald, Cambrault                                                        
+SA_MAN,Eleni, Zlotkey                                                           
+SA_REP,Peter, Tucker                                                            
+SA_REP,David, Bernstein                                                         
+SA_REP,Peter, Hall                                                              
+SA_REP,Christopher, Olsen                                                       
+SA_REP,Nanette, Cambrault                                                       
+
+DADOS                                                                           
+----------------------------------------------------------                      
+SA_REP,Oliver, Tuvault                                                          
+SA_REP,Janette, King                                                            
+SA_REP,Patrick, Sully                                                           
+SA_REP,Allan, McEwen                                                            
+SA_REP,Lindsey, Smith                                                           
+SA_REP,Louise, Doran                                                            
+SA_REP,Sarath, Sewall                                                           
+SA_REP,Clara, Vishney                                                           
+SA_REP,Danielle, Greene                                                         
+SA_REP,Mattea, Marvins                                                          
+SA_REP,David, Lee                                                               
+
+DADOS                                                                           
+----------------------------------------------------------                      
+SA_REP,Sundar, Ande                                                             
+SA_REP,Amit, Banda                                                              
+SA_REP,Lisa, Ozer                                                               
+SA_REP,Harrison, Bloom                                                          
+SA_REP,Tayler, Fox                                                              
+SA_REP,William, Smith                                                           
+SA_REP,Elizabeth, Bates                                                         
+SA_REP,Sundita, Kumar                                                           
+SA_REP,Ellen, Abel                                                              
+SA_REP,Alyssa, Hutton                                                           
+SA_REP,Jonathon, Taylor                                                         
+
+DADOS                                                                           
+----------------------------------------------------------                      
+SA_REP,Jack, Livingston                                                         
+SA_REP,Kimberely, Grant                                                         
+SA_REP,Charles, Johnson                                                         
+SH_CLERK,Winston, Taylor                                                        
+SH_CLERK,Jean, Fleaur                                                           
+SH_CLERK,Martha, Sullivan                                                       
+SH_CLERK,Girard, Geoni                                                          
+SH_CLERK,Nandita, Sarchand                                                      
+SH_CLERK,Alexis, Bull                                                           
+SH_CLERK,Julia, Dellinger                                                       
+SH_CLERK,Anthony, Cabrio                                                        
+
+DADOS                                                                           
+----------------------------------------------------------                      
+SH_CLERK,Kelly, Chung                                                           
+SH_CLERK,Jennifer, Dilly                                                        
+SH_CLERK,Timothy, Gates                                                         
+SH_CLERK,Randall, Perkins                                                       
+SH_CLERK,Sarah, Bell                                                            
+SH_CLERK,Britney, Everett                                                       
+SH_CLERK,Samuel, McCain                                                         
+SH_CLERK,Vance, Jones                                                           
+SH_CLERK,Alana, Walsh                                                           
+SH_CLERK,Kevin, Feeney                                                          
+SH_CLERK,Donald, OConnell                                                       
+
+DADOS                                                                           
+----------------------------------------------------------                      
+SH_CLERK,Douglas, Grant                                                         
+AD_ASST,Jennifer, Whalen                                                        
+MK_MAN,Michael, Hartstein                                                       
+MK_REP,Pat, Fay                                                                 
+HR_REP,Susan, Mavris                                                            
+PR_REP,Hermann, Baer                                                            
+AC_MGR,Shelley, Higgins                                                         
+AC_ACCOUNT,William, Gietz                                                       
+
+107 linhas selecionadas.
+
+SQL> SELECT JOB_ID|| ',' ||FIRST_NAME|| ' '|| LAST_NAME AS "DADOS" FROM EMPLOYEES;
+
+DADOS                                                                           
+---------------------------------------------------------                       
+AD_PRES,Steven King                                                             
+AD_VP,Neena Kochhar                                                             
+AD_VP,Lex De Haan                                                               
+IT_PROG,Alexander Hunold                                                        
+IT_PROG,Bruce Ernst                                                             
+IT_PROG,David Austin                                                            
+IT_PROG,Valli Pataballa                                                         
+IT_PROG,Diana Lorentz                                                           
+FI_MGR,Nancy Greenberg                                                          
+FI_ACCOUNT,Daniel Faviet                                                        
+FI_ACCOUNT,John Chen                                                            
+
+DADOS                                                                           
+---------------------------------------------------------                       
+FI_ACCOUNT,Ismael Sciarra                                                       
+FI_ACCOUNT,Jose Manuel Urman                                                    
+FI_ACCOUNT,Luis Popp                                                            
+PU_MAN,Den Raphaely                                                             
+PU_CLERK,Alexander Khoo                                                         
+PU_CLERK,Shelli Baida                                                           
+PU_CLERK,Sigal Tobias                                                           
+PU_CLERK,Guy Himuro                                                             
+PU_CLERK,Karen Colmenares                                                       
+ST_MAN,Matthew Weiss                                                            
+ST_MAN,Adam Fripp                                                               
+
+DADOS                                                                           
+---------------------------------------------------------                       
+ST_MAN,Payam Kaufling                                                           
+ST_MAN,Shanta Vollman                                                           
+ST_MAN,Kevin Mourgos                                                            
+ST_CLERK,Julia Nayer                                                            
+ST_CLERK,Irene Mikkilineni                                                      
+ST_CLERK,James Landry                                                           
+ST_CLERK,Steven Markle                                                          
+ST_CLERK,Laura Bissot                                                           
+ST_CLERK,Mozhe Atkinson                                                         
+ST_CLERK,James Marlow                                                           
+ST_CLERK,TJ Olson                                                               
+
+DADOS                                                                           
+---------------------------------------------------------                       
+ST_CLERK,Jason Mallin                                                           
+ST_CLERK,Michael Rogers                                                         
+ST_CLERK,Ki Gee                                                                 
+ST_CLERK,Hazel Philtanker                                                       
+ST_CLERK,Renske Ladwig                                                          
+ST_CLERK,Stephen Stiles                                                         
+ST_CLERK,John Seo                                                               
+ST_CLERK,Joshua Patel                                                           
+ST_CLERK,Trenna Rajs                                                            
+ST_CLERK,Curtis Davies                                                          
+ST_CLERK,Randall Matos                                                          
+
+DADOS                                                                           
+---------------------------------------------------------                       
+ST_CLERK,Peter Vargas                                                           
+SA_MAN,John Russell                                                             
+SA_MAN,Karen Partners                                                           
+SA_MAN,Alberto Errazuriz                                                        
+SA_MAN,Gerald Cambrault                                                         
+SA_MAN,Eleni Zlotkey                                                            
+SA_REP,Peter Tucker                                                             
+SA_REP,David Bernstein                                                          
+SA_REP,Peter Hall                                                               
+SA_REP,Christopher Olsen                                                        
+SA_REP,Nanette Cambrault                                                        
+
+DADOS                                                                           
+---------------------------------------------------------                       
+SA_REP,Oliver Tuvault                                                           
+SA_REP,Janette King                                                             
+SA_REP,Patrick Sully                                                            
+SA_REP,Allan McEwen                                                             
+SA_REP,Lindsey Smith                                                            
+SA_REP,Louise Doran                                                             
+SA_REP,Sarath Sewall                                                            
+SA_REP,Clara Vishney                                                            
+SA_REP,Danielle Greene                                                          
+SA_REP,Mattea Marvins                                                           
+SA_REP,David Lee                                                                
+
+DADOS                                                                           
+---------------------------------------------------------                       
+SA_REP,Sundar Ande                                                              
+SA_REP,Amit Banda                                                               
+SA_REP,Lisa Ozer                                                                
+SA_REP,Harrison Bloom                                                           
+SA_REP,Tayler Fox                                                               
+SA_REP,William Smith                                                            
+SA_REP,Elizabeth Bates                                                          
+SA_REP,Sundita Kumar                                                            
+SA_REP,Ellen Abel                                                               
+SA_REP,Alyssa Hutton                                                            
+SA_REP,Jonathon Taylor                                                          
+
+DADOS                                                                           
+---------------------------------------------------------                       
+SA_REP,Jack Livingston                                                          
+SA_REP,Kimberely Grant                                                          
+SA_REP,Charles Johnson                                                          
+SH_CLERK,Winston Taylor                                                         
+SH_CLERK,Jean Fleaur                                                            
+SH_CLERK,Martha Sullivan                                                        
+SH_CLERK,Girard Geoni                                                           
+SH_CLERK,Nandita Sarchand                                                       
+SH_CLERK,Alexis Bull                                                            
+SH_CLERK,Julia Dellinger                                                        
+SH_CLERK,Anthony Cabrio                                                         
+
+DADOS                                                                           
+---------------------------------------------------------                       
+SH_CLERK,Kelly Chung                                                            
+SH_CLERK,Jennifer Dilly                                                         
+SH_CLERK,Timothy Gates                                                          
+SH_CLERK,Randall Perkins                                                        
+SH_CLERK,Sarah Bell                                                             
+SH_CLERK,Britney Everett                                                        
+SH_CLERK,Samuel McCain                                                          
+SH_CLERK,Vance Jones                                                            
+SH_CLERK,Alana Walsh                                                            
+SH_CLERK,Kevin Feeney                                                           
+SH_CLERK,Donald OConnell                                                        
+
+DADOS                                                                           
+---------------------------------------------------------                       
+SH_CLERK,Douglas Grant                                                          
+AD_ASST,Jennifer Whalen                                                         
+MK_MAN,Michael Hartstein                                                        
+MK_REP,Pat Fay                                                                  
+HR_REP,Susan Mavris                                                             
+PR_REP,Hermann Baer                                                             
+AC_MGR,Shelley Higgins                                                          
+AC_ACCOUNT,William Gietz                                                        
+
+107 linhas selecionadas.
+
+SQL> SELECT FIRST_NAME|| ' '|| LAST_NAME|| ' ,'||EMPLOYEE_ID|| ' ,' ||JOB_ID|| ' ,'||PHONE_NUMBER|| ' ,'||SALARY|| ' ,'||DEPARTMENT_ID  AS "DADOS" FROM EMPLOYEES;
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Steven King ,100 ,AD_PRES ,515.123.4567 ,24000 ,90                              
+Neena Kochhar ,101 ,AD_VP ,515.123.4568 ,17000 ,90                              
+Lex De Haan ,102 ,AD_VP ,515.123.4569 ,17000 ,90                                
+Alexander Hunold ,103 ,IT_PROG ,590.423.4567 ,9000 ,60                          
+Bruce Ernst ,104 ,IT_PROG ,590.423.4568 ,6000 ,60                               
+David Austin ,105 ,IT_PROG ,590.423.4569 ,4800 ,60                              
+Valli Pataballa ,106 ,IT_PROG ,590.423.4560 ,4800 ,60                           
+Diana Lorentz ,107 ,IT_PROG ,590.423.5567 ,4200 ,60                             
+Nancy Greenberg ,108 ,FI_MGR ,515.124.4569 ,12000 ,100                          
+Daniel Faviet ,109 ,FI_ACCOUNT ,515.124.4169 ,9000 ,100                         
+John Chen ,110 ,FI_ACCOUNT ,515.124.4269 ,8200 ,100                             
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Ismael Sciarra ,111 ,FI_ACCOUNT ,515.124.4369 ,7700 ,100                        
+Jose Manuel Urman ,112 ,FI_ACCOUNT ,515.124.4469 ,7800 ,100                     
+Luis Popp ,113 ,FI_ACCOUNT ,515.124.4567 ,6900 ,100                             
+Den Raphaely ,114 ,PU_MAN ,515.127.4561 ,11000 ,30                              
+Alexander Khoo ,115 ,PU_CLERK ,515.127.4562 ,3100 ,30                           
+Shelli Baida ,116 ,PU_CLERK ,515.127.4563 ,2900 ,30                             
+Sigal Tobias ,117 ,PU_CLERK ,515.127.4564 ,2800 ,30                             
+Guy Himuro ,118 ,PU_CLERK ,515.127.4565 ,2600 ,30                               
+Karen Colmenares ,119 ,PU_CLERK ,515.127.4566 ,2500 ,30                         
+Matthew Weiss ,120 ,ST_MAN ,650.123.1234 ,8000 ,50                              
+Adam Fripp ,121 ,ST_MAN ,650.123.2234 ,8200 ,50                                 
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Payam Kaufling ,122 ,ST_MAN ,650.123.3234 ,7900 ,50                             
+Shanta Vollman ,123 ,ST_MAN ,650.123.4234 ,6500 ,50                             
+Kevin Mourgos ,124 ,ST_MAN ,650.123.5234 ,5800 ,50                              
+Julia Nayer ,125 ,ST_CLERK ,650.124.1214 ,3200 ,50                              
+Irene Mikkilineni ,126 ,ST_CLERK ,650.124.1224 ,2700 ,50                        
+James Landry ,127 ,ST_CLERK ,650.124.1334 ,2400 ,50                             
+Steven Markle ,128 ,ST_CLERK ,650.124.1434 ,2200 ,50                            
+Laura Bissot ,129 ,ST_CLERK ,650.124.5234 ,3300 ,50                             
+Mozhe Atkinson ,130 ,ST_CLERK ,650.124.6234 ,2800 ,50                           
+James Marlow ,131 ,ST_CLERK ,650.124.7234 ,2500 ,50                             
+TJ Olson ,132 ,ST_CLERK ,650.124.8234 ,2100 ,50                                 
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Jason Mallin ,133 ,ST_CLERK ,650.127.1934 ,3300 ,50                             
+Michael Rogers ,134 ,ST_CLERK ,650.127.1834 ,2900 ,50                           
+Ki Gee ,135 ,ST_CLERK ,650.127.1734 ,2400 ,50                                   
+Hazel Philtanker ,136 ,ST_CLERK ,650.127.1634 ,2200 ,50                         
+Renske Ladwig ,137 ,ST_CLERK ,650.121.1234 ,3600 ,50                            
+Stephen Stiles ,138 ,ST_CLERK ,650.121.2034 ,3200 ,50                           
+John Seo ,139 ,ST_CLERK ,650.121.2019 ,2700 ,50                                 
+Joshua Patel ,140 ,ST_CLERK ,650.121.1834 ,2500 ,50                             
+Trenna Rajs ,141 ,ST_CLERK ,650.121.8009 ,3500 ,50                              
+Curtis Davies ,142 ,ST_CLERK ,650.121.2994 ,3100 ,50                            
+Randall Matos ,143 ,ST_CLERK ,650.121.2874 ,2600 ,50                            
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Peter Vargas ,144 ,ST_CLERK ,650.121.2004 ,2500 ,50                             
+John Russell ,145 ,SA_MAN ,011.44.1344.429268 ,14000 ,80                        
+Karen Partners ,146 ,SA_MAN ,011.44.1344.467268 ,13500 ,80                      
+Alberto Errazuriz ,147 ,SA_MAN ,011.44.1344.429278 ,12000 ,80                   
+Gerald Cambrault ,148 ,SA_MAN ,011.44.1344.619268 ,11000 ,80                    
+Eleni Zlotkey ,149 ,SA_MAN ,011.44.1344.429018 ,10500 ,80                       
+Peter Tucker ,150 ,SA_REP ,011.44.1344.129268 ,10000 ,80                        
+David Bernstein ,151 ,SA_REP ,011.44.1344.345268 ,9500 ,80                      
+Peter Hall ,152 ,SA_REP ,011.44.1344.478968 ,9000 ,80                           
+Christopher Olsen ,153 ,SA_REP ,011.44.1344.498718 ,8000 ,80                    
+Nanette Cambrault ,154 ,SA_REP ,011.44.1344.987668 ,7500 ,80                    
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Oliver Tuvault ,155 ,SA_REP ,011.44.1344.486508 ,7000 ,80                       
+Janette King ,156 ,SA_REP ,011.44.1345.429268 ,10000 ,80                        
+Patrick Sully ,157 ,SA_REP ,011.44.1345.929268 ,9500 ,80                        
+Allan McEwen ,158 ,SA_REP ,011.44.1345.829268 ,9000 ,80                         
+Lindsey Smith ,159 ,SA_REP ,011.44.1345.729268 ,8000 ,80                        
+Louise Doran ,160 ,SA_REP ,011.44.1345.629268 ,7500 ,80                         
+Sarath Sewall ,161 ,SA_REP ,011.44.1345.529268 ,7000 ,80                        
+Clara Vishney ,162 ,SA_REP ,011.44.1346.129268 ,10500 ,80                       
+Danielle Greene ,163 ,SA_REP ,011.44.1346.229268 ,9500 ,80                      
+Mattea Marvins ,164 ,SA_REP ,011.44.1346.329268 ,7200 ,80                       
+David Lee ,165 ,SA_REP ,011.44.1346.529268 ,6800 ,80                            
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Sundar Ande ,166 ,SA_REP ,011.44.1346.629268 ,6400 ,80                          
+Amit Banda ,167 ,SA_REP ,011.44.1346.729268 ,6200 ,80                           
+Lisa Ozer ,168 ,SA_REP ,011.44.1343.929268 ,11500 ,80                           
+Harrison Bloom ,169 ,SA_REP ,011.44.1343.829268 ,10000 ,80                      
+Tayler Fox ,170 ,SA_REP ,011.44.1343.729268 ,9600 ,80                           
+William Smith ,171 ,SA_REP ,011.44.1343.629268 ,7400 ,80                        
+Elizabeth Bates ,172 ,SA_REP ,011.44.1343.529268 ,7300 ,80                      
+Sundita Kumar ,173 ,SA_REP ,011.44.1343.329268 ,6100 ,80                        
+Ellen Abel ,174 ,SA_REP ,011.44.1644.429267 ,11000 ,80                          
+Alyssa Hutton ,175 ,SA_REP ,011.44.1644.429266 ,8800 ,80                        
+Jonathon Taylor ,176 ,SA_REP ,011.44.1644.429265 ,8600 ,80                      
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Jack Livingston ,177 ,SA_REP ,011.44.1644.429264 ,8400 ,80                      
+Kimberely Grant ,178 ,SA_REP ,011.44.1644.429263 ,7000 ,                        
+Charles Johnson ,179 ,SA_REP ,011.44.1644.429262 ,6200 ,80                      
+Winston Taylor ,180 ,SH_CLERK ,650.507.9876 ,3200 ,50                           
+Jean Fleaur ,181 ,SH_CLERK ,650.507.9877 ,3100 ,50                              
+Martha Sullivan ,182 ,SH_CLERK ,650.507.9878 ,2500 ,50                          
+Girard Geoni ,183 ,SH_CLERK ,650.507.9879 ,2800 ,50                             
+Nandita Sarchand ,184 ,SH_CLERK ,650.509.1876 ,4200 ,50                         
+Alexis Bull ,185 ,SH_CLERK ,650.509.2876 ,4100 ,50                              
+Julia Dellinger ,186 ,SH_CLERK ,650.509.3876 ,3400 ,50                          
+Anthony Cabrio ,187 ,SH_CLERK ,650.509.4876 ,3000 ,50                           
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Kelly Chung ,188 ,SH_CLERK ,650.505.1876 ,3800 ,50                              
+Jennifer Dilly ,189 ,SH_CLERK ,650.505.2876 ,3600 ,50                           
+Timothy Gates ,190 ,SH_CLERK ,650.505.3876 ,2900 ,50                            
+Randall Perkins ,191 ,SH_CLERK ,650.505.4876 ,2500 ,50                          
+Sarah Bell ,192 ,SH_CLERK ,650.501.1876 ,4000 ,50                               
+Britney Everett ,193 ,SH_CLERK ,650.501.2876 ,3900 ,50                          
+Samuel McCain ,194 ,SH_CLERK ,650.501.3876 ,3200 ,50                            
+Vance Jones ,195 ,SH_CLERK ,650.501.4876 ,2800 ,50                              
+Alana Walsh ,196 ,SH_CLERK ,650.507.9811 ,3100 ,50                              
+Kevin Feeney ,197 ,SH_CLERK ,650.507.9822 ,3000 ,50                             
+Donald OConnell ,198 ,SH_CLERK ,650.507.9833 ,2600 ,50                          
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Douglas Grant ,199 ,SH_CLERK ,650.507.9844 ,2600 ,50                            
+Jennifer Whalen ,200 ,AD_ASST ,515.123.4444 ,4400 ,10                           
+Michael Hartstein ,201 ,MK_MAN ,515.123.5555 ,13000 ,20                         
+Pat Fay ,202 ,MK_REP ,603.123.6666 ,6000 ,20                                    
+Susan Mavris ,203 ,HR_REP ,515.123.7777 ,6500 ,40                               
+Hermann Baer ,204 ,PR_REP ,515.123.8888 ,10000 ,70                              
+Shelley Higgins ,205 ,AC_MGR ,515.123.8080 ,12000 ,110                          
+William Gietz ,206 ,AC_ACCOUNT ,515.123.8181 ,8300 ,110                         
+
+107 linhas selecionadas.
+
+SQL> SELECT FIRST_NAME|| ' '|| LAST_NAME|| ' CODIGO: '||EMPLOYEE_ID|| '  PROFISSÇO: ' ||JOB_ID|| ' CONTATO: '||PHONE_NUMBER|| ' SALµRIO: '||SALARY|| ' DEPARTAMENTO: '||DEPARTMENT_ID  AS "DADOS" FROM EMPLOYEES;
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Steven King CODIGO: 100  PROFISSÇO: AD_PRES CONTATO: 515.123.4567 SALµRIO: 24000
+ DEPARTAMENTO: 90                                                               
+                                                                                
+Neena Kochhar CODIGO: 101  PROFISSÇO: AD_VP CONTATO: 515.123.4568 SALµRIO: 17000
+ DEPARTAMENTO: 90                                                               
+                                                                                
+Lex De Haan CODIGO: 102  PROFISSÇO: AD_VP CONTATO: 515.123.4569 SALµRIO: 17000 D
+EPARTAMENTO: 90                                                                 
+                                                                                
+Alexander Hunold CODIGO: 103  PROFISSÇO: IT_PROG CONTATO: 590.423.4567 SALµRIO: 
+9000 DEPARTAMENTO: 60                                                           
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+                                                                                
+Bruce Ernst CODIGO: 104  PROFISSÇO: IT_PROG CONTATO: 590.423.4568 SALµRIO: 6000 
+DEPARTAMENTO: 60                                                                
+                                                                                
+David Austin CODIGO: 105  PROFISSÇO: IT_PROG CONTATO: 590.423.4569 SALµRIO: 4800
+ DEPARTAMENTO: 60                                                               
+                                                                                
+Valli Pataballa CODIGO: 106  PROFISSÇO: IT_PROG CONTATO: 590.423.4560 SALµRIO: 4
+800 DEPARTAMENTO: 60                                                            
+                                                                                
+Diana Lorentz CODIGO: 107  PROFISSÇO: IT_PROG CONTATO: 590.423.5567 SALµRIO: 420
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+0 DEPARTAMENTO: 60                                                              
+                                                                                
+Nancy Greenberg CODIGO: 108  PROFISSÇO: FI_MGR CONTATO: 515.124.4569 SALµRIO: 12
+000 DEPARTAMENTO: 100                                                           
+                                                                                
+Daniel Faviet CODIGO: 109  PROFISSÇO: FI_ACCOUNT CONTATO: 515.124.4169 SALµRIO: 
+9000 DEPARTAMENTO: 100                                                          
+                                                                                
+John Chen CODIGO: 110  PROFISSÇO: FI_ACCOUNT CONTATO: 515.124.4269 SALµRIO: 8200
+ DEPARTAMENTO: 100                                                              
+                                                                                
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Ismael Sciarra CODIGO: 111  PROFISSÇO: FI_ACCOUNT CONTATO: 515.124.4369 SALµRIO:
+ 7700 DEPARTAMENTO: 100                                                         
+                                                                                
+Jose Manuel Urman CODIGO: 112  PROFISSÇO: FI_ACCOUNT CONTATO: 515.124.4469 SALµR
+IO: 7800 DEPARTAMENTO: 100                                                      
+                                                                                
+Luis Popp CODIGO: 113  PROFISSÇO: FI_ACCOUNT CONTATO: 515.124.4567 SALµRIO: 6900
+ DEPARTAMENTO: 100                                                              
+                                                                                
+Den Raphaely CODIGO: 114  PROFISSÇO: PU_MAN CONTATO: 515.127.4561 SALµRIO: 11000
+ DEPARTAMENTO: 30                                                               
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+                                                                                
+Alexander Khoo CODIGO: 115  PROFISSÇO: PU_CLERK CONTATO: 515.127.4562 SALµRIO: 3
+100 DEPARTAMENTO: 30                                                            
+                                                                                
+Shelli Baida CODIGO: 116  PROFISSÇO: PU_CLERK CONTATO: 515.127.4563 SALµRIO: 290
+0 DEPARTAMENTO: 30                                                              
+                                                                                
+Sigal Tobias CODIGO: 117  PROFISSÇO: PU_CLERK CONTATO: 515.127.4564 SALµRIO: 280
+0 DEPARTAMENTO: 30                                                              
+                                                                                
+Guy Himuro CODIGO: 118  PROFISSÇO: PU_CLERK CONTATO: 515.127.4565 SALµRIO: 2600 
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+DEPARTAMENTO: 30                                                                
+                                                                                
+Karen Colmenares CODIGO: 119  PROFISSÇO: PU_CLERK CONTATO: 515.127.4566 SALµRIO:
+ 2500 DEPARTAMENTO: 30                                                          
+                                                                                
+Matthew Weiss CODIGO: 120  PROFISSÇO: ST_MAN CONTATO: 650.123.1234 SALµRIO: 8000
+ DEPARTAMENTO: 50                                                               
+                                                                                
+Adam Fripp CODIGO: 121  PROFISSÇO: ST_MAN CONTATO: 650.123.2234 SALµRIO: 8200 DE
+PARTAMENTO: 50                                                                  
+                                                                                
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Payam Kaufling CODIGO: 122  PROFISSÇO: ST_MAN CONTATO: 650.123.3234 SALµRIO: 790
+0 DEPARTAMENTO: 50                                                              
+                                                                                
+Shanta Vollman CODIGO: 123  PROFISSÇO: ST_MAN CONTATO: 650.123.4234 SALµRIO: 650
+0 DEPARTAMENTO: 50                                                              
+                                                                                
+Kevin Mourgos CODIGO: 124  PROFISSÇO: ST_MAN CONTATO: 650.123.5234 SALµRIO: 5800
+ DEPARTAMENTO: 50                                                               
+                                                                                
+Julia Nayer CODIGO: 125  PROFISSÇO: ST_CLERK CONTATO: 650.124.1214 SALµRIO: 3200
+ DEPARTAMENTO: 50                                                               
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+                                                                                
+Irene Mikkilineni CODIGO: 126  PROFISSÇO: ST_CLERK CONTATO: 650.124.1224 SALµRIO
+: 2700 DEPARTAMENTO: 50                                                         
+                                                                                
+James Landry CODIGO: 127  PROFISSÇO: ST_CLERK CONTATO: 650.124.1334 SALµRIO: 240
+0 DEPARTAMENTO: 50                                                              
+                                                                                
+Steven Markle CODIGO: 128  PROFISSÇO: ST_CLERK CONTATO: 650.124.1434 SALµRIO: 22
+00 DEPARTAMENTO: 50                                                             
+                                                                                
+Laura Bissot CODIGO: 129  PROFISSÇO: ST_CLERK CONTATO: 650.124.5234 SALµRIO: 330
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+0 DEPARTAMENTO: 50                                                              
+                                                                                
+Mozhe Atkinson CODIGO: 130  PROFISSÇO: ST_CLERK CONTATO: 650.124.6234 SALµRIO: 2
+800 DEPARTAMENTO: 50                                                            
+                                                                                
+James Marlow CODIGO: 131  PROFISSÇO: ST_CLERK CONTATO: 650.124.7234 SALµRIO: 250
+0 DEPARTAMENTO: 50                                                              
+                                                                                
+TJ Olson CODIGO: 132  PROFISSÇO: ST_CLERK CONTATO: 650.124.8234 SALµRIO: 2100 DE
+PARTAMENTO: 50                                                                  
+                                                                                
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Jason Mallin CODIGO: 133  PROFISSÇO: ST_CLERK CONTATO: 650.127.1934 SALµRIO: 330
+0 DEPARTAMENTO: 50                                                              
+                                                                                
+Michael Rogers CODIGO: 134  PROFISSÇO: ST_CLERK CONTATO: 650.127.1834 SALµRIO: 2
+900 DEPARTAMENTO: 50                                                            
+                                                                                
+Ki Gee CODIGO: 135  PROFISSÇO: ST_CLERK CONTATO: 650.127.1734 SALµRIO: 2400 DEPA
+RTAMENTO: 50                                                                    
+                                                                                
+Hazel Philtanker CODIGO: 136  PROFISSÇO: ST_CLERK CONTATO: 650.127.1634 SALµRIO:
+ 2200 DEPARTAMENTO: 50                                                          
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+                                                                                
+Renske Ladwig CODIGO: 137  PROFISSÇO: ST_CLERK CONTATO: 650.121.1234 SALµRIO: 36
+00 DEPARTAMENTO: 50                                                             
+                                                                                
+Stephen Stiles CODIGO: 138  PROFISSÇO: ST_CLERK CONTATO: 650.121.2034 SALµRIO: 3
+200 DEPARTAMENTO: 50                                                            
+                                                                                
+John Seo CODIGO: 139  PROFISSÇO: ST_CLERK CONTATO: 650.121.2019 SALµRIO: 2700 DE
+PARTAMENTO: 50                                                                  
+                                                                                
+Joshua Patel CODIGO: 140  PROFISSÇO: ST_CLERK CONTATO: 650.121.1834 SALµRIO: 250
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+0 DEPARTAMENTO: 50                                                              
+                                                                                
+Trenna Rajs CODIGO: 141  PROFISSÇO: ST_CLERK CONTATO: 650.121.8009 SALµRIO: 3500
+ DEPARTAMENTO: 50                                                               
+                                                                                
+Curtis Davies CODIGO: 142  PROFISSÇO: ST_CLERK CONTATO: 650.121.2994 SALµRIO: 31
+00 DEPARTAMENTO: 50                                                             
+                                                                                
+Randall Matos CODIGO: 143  PROFISSÇO: ST_CLERK CONTATO: 650.121.2874 SALµRIO: 26
+00 DEPARTAMENTO: 50                                                             
+                                                                                
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Peter Vargas CODIGO: 144  PROFISSÇO: ST_CLERK CONTATO: 650.121.2004 SALµRIO: 250
+0 DEPARTAMENTO: 50                                                              
+                                                                                
+John Russell CODIGO: 145  PROFISSÇO: SA_MAN CONTATO: 011.44.1344.429268 SALµRIO:
+ 14000 DEPARTAMENTO: 80                                                         
+                                                                                
+Karen Partners CODIGO: 146  PROFISSÇO: SA_MAN CONTATO: 011.44.1344.467268 SALµRI
+O: 13500 DEPARTAMENTO: 80                                                       
+                                                                                
+Alberto Errazuriz CODIGO: 147  PROFISSÇO: SA_MAN CONTATO: 011.44.1344.429278 SAL
+µRIO: 12000 DEPARTAMENTO: 80                                                    
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+                                                                                
+Gerald Cambrault CODIGO: 148  PROFISSÇO: SA_MAN CONTATO: 011.44.1344.619268 SALµ
+RIO: 11000 DEPARTAMENTO: 80                                                     
+                                                                                
+Eleni Zlotkey CODIGO: 149  PROFISSÇO: SA_MAN CONTATO: 011.44.1344.429018 SALµRIO
+: 10500 DEPARTAMENTO: 80                                                        
+                                                                                
+Peter Tucker CODIGO: 150  PROFISSÇO: SA_REP CONTATO: 011.44.1344.129268 SALµRIO:
+ 10000 DEPARTAMENTO: 80                                                         
+                                                                                
+David Bernstein CODIGO: 151  PROFISSÇO: SA_REP CONTATO: 011.44.1344.345268 SALµR
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+IO: 9500 DEPARTAMENTO: 80                                                       
+                                                                                
+Peter Hall CODIGO: 152  PROFISSÇO: SA_REP CONTATO: 011.44.1344.478968 SALµRIO: 9
+000 DEPARTAMENTO: 80                                                            
+                                                                                
+Christopher Olsen CODIGO: 153  PROFISSÇO: SA_REP CONTATO: 011.44.1344.498718 SAL
+µRIO: 8000 DEPARTAMENTO: 80                                                     
+                                                                                
+Nanette Cambrault CODIGO: 154  PROFISSÇO: SA_REP CONTATO: 011.44.1344.987668 SAL
+µRIO: 7500 DEPARTAMENTO: 80                                                     
+                                                                                
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Oliver Tuvault CODIGO: 155  PROFISSÇO: SA_REP CONTATO: 011.44.1344.486508 SALµRI
+O: 7000 DEPARTAMENTO: 80                                                        
+                                                                                
+Janette King CODIGO: 156  PROFISSÇO: SA_REP CONTATO: 011.44.1345.429268 SALµRIO:
+ 10000 DEPARTAMENTO: 80                                                         
+                                                                                
+Patrick Sully CODIGO: 157  PROFISSÇO: SA_REP CONTATO: 011.44.1345.929268 SALµRIO
+: 9500 DEPARTAMENTO: 80                                                         
+                                                                                
+Allan McEwen CODIGO: 158  PROFISSÇO: SA_REP CONTATO: 011.44.1345.829268 SALµRIO:
+ 9000 DEPARTAMENTO: 80                                                          
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+                                                                                
+Lindsey Smith CODIGO: 159  PROFISSÇO: SA_REP CONTATO: 011.44.1345.729268 SALµRIO
+: 8000 DEPARTAMENTO: 80                                                         
+                                                                                
+Louise Doran CODIGO: 160  PROFISSÇO: SA_REP CONTATO: 011.44.1345.629268 SALµRIO:
+ 7500 DEPARTAMENTO: 80                                                          
+                                                                                
+Sarath Sewall CODIGO: 161  PROFISSÇO: SA_REP CONTATO: 011.44.1345.529268 SALµRIO
+: 7000 DEPARTAMENTO: 80                                                         
+                                                                                
+Clara Vishney CODIGO: 162  PROFISSÇO: SA_REP CONTATO: 011.44.1346.129268 SALµRIO
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+: 10500 DEPARTAMENTO: 80                                                        
+                                                                                
+Danielle Greene CODIGO: 163  PROFISSÇO: SA_REP CONTATO: 011.44.1346.229268 SALµR
+IO: 9500 DEPARTAMENTO: 80                                                       
+                                                                                
+Mattea Marvins CODIGO: 164  PROFISSÇO: SA_REP CONTATO: 011.44.1346.329268 SALµRI
+O: 7200 DEPARTAMENTO: 80                                                        
+                                                                                
+David Lee CODIGO: 165  PROFISSÇO: SA_REP CONTATO: 011.44.1346.529268 SALµRIO: 68
+00 DEPARTAMENTO: 80                                                             
+                                                                                
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Sundar Ande CODIGO: 166  PROFISSÇO: SA_REP CONTATO: 011.44.1346.629268 SALµRIO: 
+6400 DEPARTAMENTO: 80                                                           
+                                                                                
+Amit Banda CODIGO: 167  PROFISSÇO: SA_REP CONTATO: 011.44.1346.729268 SALµRIO: 6
+200 DEPARTAMENTO: 80                                                            
+                                                                                
+Lisa Ozer CODIGO: 168  PROFISSÇO: SA_REP CONTATO: 011.44.1343.929268 SALµRIO: 11
+500 DEPARTAMENTO: 80                                                            
+                                                                                
+Harrison Bloom CODIGO: 169  PROFISSÇO: SA_REP CONTATO: 011.44.1343.829268 SALµRI
+O: 10000 DEPARTAMENTO: 80                                                       
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+                                                                                
+Tayler Fox CODIGO: 170  PROFISSÇO: SA_REP CONTATO: 011.44.1343.729268 SALµRIO: 9
+600 DEPARTAMENTO: 80                                                            
+                                                                                
+William Smith CODIGO: 171  PROFISSÇO: SA_REP CONTATO: 011.44.1343.629268 SALµRIO
+: 7400 DEPARTAMENTO: 80                                                         
+                                                                                
+Elizabeth Bates CODIGO: 172  PROFISSÇO: SA_REP CONTATO: 011.44.1343.529268 SALµR
+IO: 7300 DEPARTAMENTO: 80                                                       
+                                                                                
+Sundita Kumar CODIGO: 173  PROFISSÇO: SA_REP CONTATO: 011.44.1343.329268 SALµRIO
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+: 6100 DEPARTAMENTO: 80                                                         
+                                                                                
+Ellen Abel CODIGO: 174  PROFISSÇO: SA_REP CONTATO: 011.44.1644.429267 SALµRIO: 1
+1000 DEPARTAMENTO: 80                                                           
+                                                                                
+Alyssa Hutton CODIGO: 175  PROFISSÇO: SA_REP CONTATO: 011.44.1644.429266 SALµRIO
+: 8800 DEPARTAMENTO: 80                                                         
+                                                                                
+Jonathon Taylor CODIGO: 176  PROFISSÇO: SA_REP CONTATO: 011.44.1644.429265 SALµR
+IO: 8600 DEPARTAMENTO: 80                                                       
+                                                                                
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Jack Livingston CODIGO: 177  PROFISSÇO: SA_REP CONTATO: 011.44.1644.429264 SALµR
+IO: 8400 DEPARTAMENTO: 80                                                       
+                                                                                
+Kimberely Grant CODIGO: 178  PROFISSÇO: SA_REP CONTATO: 011.44.1644.429263 SALµR
+IO: 7000 DEPARTAMENTO:                                                          
+                                                                                
+Charles Johnson CODIGO: 179  PROFISSÇO: SA_REP CONTATO: 011.44.1644.429262 SALµR
+IO: 6200 DEPARTAMENTO: 80                                                       
+                                                                                
+Winston Taylor CODIGO: 180  PROFISSÇO: SH_CLERK CONTATO: 650.507.9876 SALµRIO: 3
+200 DEPARTAMENTO: 50                                                            
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+                                                                                
+Jean Fleaur CODIGO: 181  PROFISSÇO: SH_CLERK CONTATO: 650.507.9877 SALµRIO: 3100
+ DEPARTAMENTO: 50                                                               
+                                                                                
+Martha Sullivan CODIGO: 182  PROFISSÇO: SH_CLERK CONTATO: 650.507.9878 SALµRIO: 
+2500 DEPARTAMENTO: 50                                                           
+                                                                                
+Girard Geoni CODIGO: 183  PROFISSÇO: SH_CLERK CONTATO: 650.507.9879 SALµRIO: 280
+0 DEPARTAMENTO: 50                                                              
+                                                                                
+Nandita Sarchand CODIGO: 184  PROFISSÇO: SH_CLERK CONTATO: 650.509.1876 SALµRIO:
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+ 4200 DEPARTAMENTO: 50                                                          
+                                                                                
+Alexis Bull CODIGO: 185  PROFISSÇO: SH_CLERK CONTATO: 650.509.2876 SALµRIO: 4100
+ DEPARTAMENTO: 50                                                               
+                                                                                
+Julia Dellinger CODIGO: 186  PROFISSÇO: SH_CLERK CONTATO: 650.509.3876 SALµRIO: 
+3400 DEPARTAMENTO: 50                                                           
+                                                                                
+Anthony Cabrio CODIGO: 187  PROFISSÇO: SH_CLERK CONTATO: 650.509.4876 SALµRIO: 3
+000 DEPARTAMENTO: 50                                                            
+                                                                                
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Kelly Chung CODIGO: 188  PROFISSÇO: SH_CLERK CONTATO: 650.505.1876 SALµRIO: 3800
+ DEPARTAMENTO: 50                                                               
+                                                                                
+Jennifer Dilly CODIGO: 189  PROFISSÇO: SH_CLERK CONTATO: 650.505.2876 SALµRIO: 3
+600 DEPARTAMENTO: 50                                                            
+                                                                                
+Timothy Gates CODIGO: 190  PROFISSÇO: SH_CLERK CONTATO: 650.505.3876 SALµRIO: 29
+00 DEPARTAMENTO: 50                                                             
+                                                                                
+Randall Perkins CODIGO: 191  PROFISSÇO: SH_CLERK CONTATO: 650.505.4876 SALµRIO: 
+2500 DEPARTAMENTO: 50                                                           
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+                                                                                
+Sarah Bell CODIGO: 192  PROFISSÇO: SH_CLERK CONTATO: 650.501.1876 SALµRIO: 4000 
+DEPARTAMENTO: 50                                                                
+                                                                                
+Britney Everett CODIGO: 193  PROFISSÇO: SH_CLERK CONTATO: 650.501.2876 SALµRIO: 
+3900 DEPARTAMENTO: 50                                                           
+                                                                                
+Samuel McCain CODIGO: 194  PROFISSÇO: SH_CLERK CONTATO: 650.501.3876 SALµRIO: 32
+00 DEPARTAMENTO: 50                                                             
+                                                                                
+Vance Jones CODIGO: 195  PROFISSÇO: SH_CLERK CONTATO: 650.501.4876 SALµRIO: 2800
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+ DEPARTAMENTO: 50                                                               
+                                                                                
+Alana Walsh CODIGO: 196  PROFISSÇO: SH_CLERK CONTATO: 650.507.9811 SALµRIO: 3100
+ DEPARTAMENTO: 50                                                               
+                                                                                
+Kevin Feeney CODIGO: 197  PROFISSÇO: SH_CLERK CONTATO: 650.507.9822 SALµRIO: 300
+0 DEPARTAMENTO: 50                                                              
+                                                                                
+Donald OConnell CODIGO: 198  PROFISSÇO: SH_CLERK CONTATO: 650.507.9833 SALµRIO: 
+2600 DEPARTAMENTO: 50                                                           
+                                                                                
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+Douglas Grant CODIGO: 199  PROFISSÇO: SH_CLERK CONTATO: 650.507.9844 SALµRIO: 26
+00 DEPARTAMENTO: 50                                                             
+                                                                                
+Jennifer Whalen CODIGO: 200  PROFISSÇO: AD_ASST CONTATO: 515.123.4444 SALµRIO: 4
+400 DEPARTAMENTO: 10                                                            
+                                                                                
+Michael Hartstein CODIGO: 201  PROFISSÇO: MK_MAN CONTATO: 515.123.5555 SALµRIO: 
+13000 DEPARTAMENTO: 20                                                          
+                                                                                
+Pat Fay CODIGO: 202  PROFISSÇO: MK_REP CONTATO: 603.123.6666 SALµRIO: 6000 DEPAR
+TAMENTO: 20                                                                     
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+                                                                                
+Susan Mavris CODIGO: 203  PROFISSÇO: HR_REP CONTATO: 515.123.7777 SALµRIO: 6500 
+DEPARTAMENTO: 40                                                                
+                                                                                
+Hermann Baer CODIGO: 204  PROFISSÇO: PR_REP CONTATO: 515.123.8888 SALµRIO: 10000
+ DEPARTAMENTO: 70                                                               
+                                                                                
+Shelley Higgins CODIGO: 205  PROFISSÇO: AC_MGR CONTATO: 515.123.8080 SALµRIO: 12
+000 DEPARTAMENTO: 110                                                           
+                                                                                
+William Gietz CODIGO: 206  PROFISSÇO: AC_ACCOUNT CONTATO: 515.123.8181 SALµRIO: 
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+8300 DEPARTAMENTO: 110                                                          
+                                                                                
+
+107 linhas selecionadas.
+
+SQL> SAVE C:\FACUL\BASIC\BD\ALIASSELECT01.SQL
+Criado file C:\FACUL\BASIC\BD\ALIASSELECT01.SQL
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '  SALARIO : '||SALARY FROM EMPLOYEES WHERE SALARY >2850;
+
+FIRST_NAME||''||LAST_NAME||'SALARIO:'||SALARY                                   
+--------------------------------------------------------------------------------
+Steven King  SALARIO : 24000                                                    
+Neena Kochhar  SALARIO : 17000                                                  
+Lex De Haan  SALARIO : 17000                                                    
+Alexander Hunold  SALARIO : 9000                                                
+Bruce Ernst  SALARIO : 6000                                                     
+David Austin  SALARIO : 4800                                                    
+Valli Pataballa  SALARIO : 4800                                                 
+Diana Lorentz  SALARIO : 4200                                                   
+Nancy Greenberg  SALARIO : 12000                                                
+Daniel Faviet  SALARIO : 9000                                                   
+John Chen  SALARIO : 8200                                                       
+
+FIRST_NAME||''||LAST_NAME||'SALARIO:'||SALARY                                   
+--------------------------------------------------------------------------------
+Ismael Sciarra  SALARIO : 7700                                                  
+Jose Manuel Urman  SALARIO : 7800                                               
+Luis Popp  SALARIO : 6900                                                       
+Den Raphaely  SALARIO : 11000                                                   
+Alexander Khoo  SALARIO : 3100                                                  
+Shelli Baida  SALARIO : 2900                                                    
+Matthew Weiss  SALARIO : 8000                                                   
+Adam Fripp  SALARIO : 8200                                                      
+Payam Kaufling  SALARIO : 7900                                                  
+Shanta Vollman  SALARIO : 6500                                                  
+Kevin Mourgos  SALARIO : 5800                                                   
+
+FIRST_NAME||''||LAST_NAME||'SALARIO:'||SALARY                                   
+--------------------------------------------------------------------------------
+Julia Nayer  SALARIO : 3200                                                     
+Laura Bissot  SALARIO : 3300                                                    
+Jason Mallin  SALARIO : 3300                                                    
+Michael Rogers  SALARIO : 2900                                                  
+Renske Ladwig  SALARIO : 3600                                                   
+Stephen Stiles  SALARIO : 3200                                                  
+Trenna Rajs  SALARIO : 3500                                                     
+Curtis Davies  SALARIO : 3100                                                   
+John Russell  SALARIO : 14000                                                   
+Karen Partners  SALARIO : 13500                                                 
+Alberto Errazuriz  SALARIO : 12000                                              
+
+FIRST_NAME||''||LAST_NAME||'SALARIO:'||SALARY                                   
+--------------------------------------------------------------------------------
+Gerald Cambrault  SALARIO : 11000                                               
+Eleni Zlotkey  SALARIO : 10500                                                  
+Peter Tucker  SALARIO : 10000                                                   
+David Bernstein  SALARIO : 9500                                                 
+Peter Hall  SALARIO : 9000                                                      
+Christopher Olsen  SALARIO : 8000                                               
+Nanette Cambrault  SALARIO : 7500                                               
+Oliver Tuvault  SALARIO : 7000                                                  
+Janette King  SALARIO : 10000                                                   
+Patrick Sully  SALARIO : 9500                                                   
+Allan McEwen  SALARIO : 9000                                                    
+
+FIRST_NAME||''||LAST_NAME||'SALARIO:'||SALARY                                   
+--------------------------------------------------------------------------------
+Lindsey Smith  SALARIO : 8000                                                   
+Louise Doran  SALARIO : 7500                                                    
+Sarath Sewall  SALARIO : 7000                                                   
+Clara Vishney  SALARIO : 10500                                                  
+Danielle Greene  SALARIO : 9500                                                 
+Mattea Marvins  SALARIO : 7200                                                  
+David Lee  SALARIO : 6800                                                       
+Sundar Ande  SALARIO : 6400                                                     
+Amit Banda  SALARIO : 6200                                                      
+Lisa Ozer  SALARIO : 11500                                                      
+Harrison Bloom  SALARIO : 10000                                                 
+
+FIRST_NAME||''||LAST_NAME||'SALARIO:'||SALARY                                   
+--------------------------------------------------------------------------------
+Tayler Fox  SALARIO : 9600                                                      
+William Smith  SALARIO : 7400                                                   
+Elizabeth Bates  SALARIO : 7300                                                 
+Sundita Kumar  SALARIO : 6100                                                   
+Ellen Abel  SALARIO : 11000                                                     
+Alyssa Hutton  SALARIO : 8800                                                   
+Jonathon Taylor  SALARIO : 8600                                                 
+Jack Livingston  SALARIO : 8400                                                 
+Kimberely Grant  SALARIO : 7000                                                 
+Charles Johnson  SALARIO : 6200                                                 
+Winston Taylor  SALARIO : 3200                                                  
+
+FIRST_NAME||''||LAST_NAME||'SALARIO:'||SALARY                                   
+--------------------------------------------------------------------------------
+Jean Fleaur  SALARIO : 3100                                                     
+Nandita Sarchand  SALARIO : 4200                                                
+Alexis Bull  SALARIO : 4100                                                     
+Julia Dellinger  SALARIO : 3400                                                 
+Anthony Cabrio  SALARIO : 3000                                                  
+Kelly Chung  SALARIO : 3800                                                     
+Jennifer Dilly  SALARIO : 3600                                                  
+Timothy Gates  SALARIO : 2900                                                   
+Sarah Bell  SALARIO : 4000                                                      
+Britney Everett  SALARIO : 3900                                                 
+Samuel McCain  SALARIO : 3200                                                   
+
+FIRST_NAME||''||LAST_NAME||'SALARIO:'||SALARY                                   
+--------------------------------------------------------------------------------
+Alana Walsh  SALARIO : 3100                                                     
+Kevin Feeney  SALARIO : 3000                                                    
+Jennifer Whalen  SALARIO : 4400                                                 
+Michael Hartstein  SALARIO : 13000                                              
+Pat Fay  SALARIO : 6000                                                         
+Susan Mavris  SALARIO : 6500                                                    
+Hermann Baer  SALARIO : 10000                                                   
+Shelley Higgins  SALARIO : 12000                                                
+William Gietz  SALARIO : 8300                                                   
+
+86 linhas selecionadas.
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '  SALARIO : '||SALARY AS "EMPREGADOS COM SALARIOS ACIMA DE R$2.850" FROM EMPLOYEES WHERE SALARY >2850;
+SELECT FIRST_NAME|| ' '||LAST_NAME|| '  SALARIO : '||SALARY AS "EMPREGADOS COM SALARIOS ACIMA DE R$2.850" FROM EMPLOYEES WHERE SALARY >2850
+                                                               *
+ERRO na linha 1:
+ORA-00972: identificador muito longo 
+
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '  SALARIO : '||SALARY AS "EMPREGADOS COM SALARIOS " FROM EMPLOYEES WHERE SALARY >2850;
+
+EMPREGADOS COM SALARIOS                                                         
+--------------------------------------------------------------------------------
+Steven King  SALARIO : 24000                                                    
+Neena Kochhar  SALARIO : 17000                                                  
+Lex De Haan  SALARIO : 17000                                                    
+Alexander Hunold  SALARIO : 9000                                                
+Bruce Ernst  SALARIO : 6000                                                     
+David Austin  SALARIO : 4800                                                    
+Valli Pataballa  SALARIO : 4800                                                 
+Diana Lorentz  SALARIO : 4200                                                   
+Nancy Greenberg  SALARIO : 12000                                                
+Daniel Faviet  SALARIO : 9000                                                   
+John Chen  SALARIO : 8200                                                       
+
+EMPREGADOS COM SALARIOS                                                         
+--------------------------------------------------------------------------------
+Ismael Sciarra  SALARIO : 7700                                                  
+Jose Manuel Urman  SALARIO : 7800                                               
+Luis Popp  SALARIO : 6900                                                       
+Den Raphaely  SALARIO : 11000                                                   
+Alexander Khoo  SALARIO : 3100                                                  
+Shelli Baida  SALARIO : 2900                                                    
+Matthew Weiss  SALARIO : 8000                                                   
+Adam Fripp  SALARIO : 8200                                                      
+Payam Kaufling  SALARIO : 7900                                                  
+Shanta Vollman  SALARIO : 6500                                                  
+Kevin Mourgos  SALARIO : 5800                                                   
+
+EMPREGADOS COM SALARIOS                                                         
+--------------------------------------------------------------------------------
+Julia Nayer  SALARIO : 3200                                                     
+Laura Bissot  SALARIO : 3300                                                    
+Jason Mallin  SALARIO : 3300                                                    
+Michael Rogers  SALARIO : 2900                                                  
+Renske Ladwig  SALARIO : 3600                                                   
+Stephen Stiles  SALARIO : 3200                                                  
+Trenna Rajs  SALARIO : 3500                                                     
+Curtis Davies  SALARIO : 3100                                                   
+John Russell  SALARIO : 14000                                                   
+Karen Partners  SALARIO : 13500                                                 
+Alberto Errazuriz  SALARIO : 12000                                              
+
+EMPREGADOS COM SALARIOS                                                         
+--------------------------------------------------------------------------------
+Gerald Cambrault  SALARIO : 11000                                               
+Eleni Zlotkey  SALARIO : 10500                                                  
+Peter Tucker  SALARIO : 10000                                                   
+David Bernstein  SALARIO : 9500                                                 
+Peter Hall  SALARIO : 9000                                                      
+Christopher Olsen  SALARIO : 8000                                               
+Nanette Cambrault  SALARIO : 7500                                               
+Oliver Tuvault  SALARIO : 7000                                                  
+Janette King  SALARIO : 10000                                                   
+Patrick Sully  SALARIO : 9500                                                   
+Allan McEwen  SALARIO : 9000                                                    
+
+EMPREGADOS COM SALARIOS                                                         
+--------------------------------------------------------------------------------
+Lindsey Smith  SALARIO : 8000                                                   
+Louise Doran  SALARIO : 7500                                                    
+Sarath Sewall  SALARIO : 7000                                                   
+Clara Vishney  SALARIO : 10500                                                  
+Danielle Greene  SALARIO : 9500                                                 
+Mattea Marvins  SALARIO : 7200                                                  
+David Lee  SALARIO : 6800                                                       
+Sundar Ande  SALARIO : 6400                                                     
+Amit Banda  SALARIO : 6200                                                      
+Lisa Ozer  SALARIO : 11500                                                      
+Harrison Bloom  SALARIO : 10000                                                 
+
+EMPREGADOS COM SALARIOS                                                         
+--------------------------------------------------------------------------------
+Tayler Fox  SALARIO : 9600                                                      
+William Smith  SALARIO : 7400                                                   
+Elizabeth Bates  SALARIO : 7300                                                 
+Sundita Kumar  SALARIO : 6100                                                   
+Ellen Abel  SALARIO : 11000                                                     
+Alyssa Hutton  SALARIO : 8800                                                   
+Jonathon Taylor  SALARIO : 8600                                                 
+Jack Livingston  SALARIO : 8400                                                 
+Kimberely Grant  SALARIO : 7000                                                 
+Charles Johnson  SALARIO : 6200                                                 
+Winston Taylor  SALARIO : 3200                                                  
+
+EMPREGADOS COM SALARIOS                                                         
+--------------------------------------------------------------------------------
+Jean Fleaur  SALARIO : 3100                                                     
+Nandita Sarchand  SALARIO : 4200                                                
+Alexis Bull  SALARIO : 4100                                                     
+Julia Dellinger  SALARIO : 3400                                                 
+Anthony Cabrio  SALARIO : 3000                                                  
+Kelly Chung  SALARIO : 3800                                                     
+Jennifer Dilly  SALARIO : 3600                                                  
+Timothy Gates  SALARIO : 2900                                                   
+Sarah Bell  SALARIO : 4000                                                      
+Britney Everett  SALARIO : 3900                                                 
+Samuel McCain  SALARIO : 3200                                                   
+
+EMPREGADOS COM SALARIOS                                                         
+--------------------------------------------------------------------------------
+Alana Walsh  SALARIO : 3100                                                     
+Kevin Feeney  SALARIO : 3000                                                    
+Jennifer Whalen  SALARIO : 4400                                                 
+Michael Hartstein  SALARIO : 13000                                              
+Pat Fay  SALARIO : 6000                                                         
+Susan Mavris  SALARIO : 6500                                                    
+Hermann Baer  SALARIO : 10000                                                   
+Shelley Higgins  SALARIO : 12000                                                
+William Gietz  SALARIO : 8300                                                   
+
+86 linhas selecionadas.
+
+SQL> SAVE C:\FACUL\BASIC\BD\ALIASELECT02.SQL
+Criado file C:\FACUL\BASIC\BD\ALIASELECT02.SQL
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '  SALARIO : '||SALARY AS "EMPREGADOS COM SALARIOS " FROM EMPLOYEES WHERE SALARY BETWEEN 1250 AND 2850;
+
+EMPREGADOS COM SALARIOS                                                         
+--------------------------------------------------------------------------------
+Sigal Tobias  SALARIO : 2800                                                    
+Guy Himuro  SALARIO : 2600                                                      
+Karen Colmenares  SALARIO : 2500                                                
+Irene Mikkilineni  SALARIO : 2700                                               
+James Landry  SALARIO : 2400                                                    
+Steven Markle  SALARIO : 2200                                                   
+Mozhe Atkinson  SALARIO : 2800                                                  
+James Marlow  SALARIO : 2500                                                    
+TJ Olson  SALARIO : 2100                                                        
+Ki Gee  SALARIO : 2400                                                          
+Hazel Philtanker  SALARIO : 2200                                                
+
+EMPREGADOS COM SALARIOS                                                         
+--------------------------------------------------------------------------------
+John Seo  SALARIO : 2700                                                        
+Joshua Patel  SALARIO : 2500                                                    
+Randall Matos  SALARIO : 2600                                                   
+Peter Vargas  SALARIO : 2500                                                    
+Martha Sullivan  SALARIO : 2500                                                 
+Girard Geoni  SALARIO : 2800                                                    
+Randall Perkins  SALARIO : 2500                                                 
+Vance Jones  SALARIO : 2800                                                     
+Donald OConnell  SALARIO : 2600                                                 
+Douglas Grant  SALARIO : 2600                                                   
+
+21 linhas selecionadas.
+
+SQL> SAVE C:\FACUL\BASIC\BD\ALIASELECT03.SQL
+Criado file C:\FACUL\BASIC\BD\ALIASELECT03.SQL
+SQL> SELECT FIRST_NAME || ' '||LAST_NAME|| ' Cargo:'||JOB_ID|| ' Data de admissÆo:'||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/2005') AND (31/12/2006) ORDERBY HIRE_DATE;
+SELECT FIRST_NAME || ' '||LAST_NAME|| ' Cargo:'||JOB_ID|| ' Data de admissÆo:'||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/2005') AND (31/12/2006) ORDERBY HIRE_DATE
+                                                                                                                                                                                             *
+ERRO na linha 1:
+ORA-00933: comando SQL não encerrado adequadamente 
+
+
+SQL> SELECT FIRST_NAME || ' '||LAST_NAME|| ' Cargo:'||JOB_ID|| ' Data de admissÆo:'||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/2005') AND (31/12/2006) ORDER BY HIRE_DATE;
+SELECT FIRST_NAME || ' '||LAST_NAME|| ' Cargo:'||JOB_ID|| ' Data de admissÆo:'||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/2005') AND (31/12/2006) ORDER BY HIRE_DATE
+                                                                                                                                                     *
+ERRO na linha 1:
+ORA-00932: tipos de dados inconsistentes: esperava DATE obteve NUMBER 
+
+
+SQL> SELECT FIRST_NAME || ' '||LAST_NAME|| ' Cargo:'||JOB_ID|| ' Data de admissÆo:'||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/2005') AND ('31/12/2006') ORDER BY HIRE_DATE;
+
+não há linhas selecionadas
+
+SQL> SELECT FIRST_NAME || ' '||LAST_NAME|| ' Cargo:'||JOB_ID|| ' Data de admissÆo:'||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/'1998') AND ('31/12/1999') ORDER BY HIRE_DATE;
+ERROR:
+ORA-01756: string entre aspas não finalizada adequadamente 
+
+
+SQL> SELECT FIRST_NAME || ' '||LAST_NAME|| ' Cargo:'||JOB_ID|| ' Data de admissÆo:'||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/1998') AND ('31/12/1999') ORDER BY HIRE_DATE;
+
+ Lista de Funcion rios                                                          
+--------------------------------------------------------------------------------
+Winston Taylor Cargo:SH_CLERK Data de admissÆo:24/01/98                         
+Tayler Fox Cargo:SA_REP Data de admissÆo:24/01/98                               
+Valli Pataballa Cargo:IT_PROG Data de admissÆo:05/02/98                         
+John Seo Cargo:ST_CLERK Data de admissÆo:12/02/98                               
+Jean Fleaur Cargo:SH_CLERK Data de admissÆo:23/02/98                            
+Jose Manuel Urman Cargo:FI_ACCOUNT Data de admissÆo:07/03/98                    
+Randall Matos Cargo:ST_CLERK Data de admissÆo:15/03/98                          
+Harrison Bloom Cargo:SA_REP Data de admissÆo:23/03/98                           
+Jonathon Taylor Cargo:SA_REP Data de admissÆo:24/03/98                          
+Christopher Olsen Cargo:SA_REP Data de admissÆo:30/03/98                        
+Joshua Patel Cargo:ST_CLERK Data de admissÆo:06/04/98                           
+
+ Lista de Funcion rios                                                          
+--------------------------------------------------------------------------------
+Jack Livingston Cargo:SA_REP Data de admissÆo:23/04/98                          
+Alana Walsh Cargo:SH_CLERK Data de admissÆo:24/04/98                            
+Kevin Feeney Cargo:SH_CLERK Data de admissÆo:23/05/98                           
+Julia Dellinger Cargo:SH_CLERK Data de admissÆo:24/06/98                        
+Samuel McCain Cargo:SH_CLERK Data de admissÆo:01/07/98                          
+Peter Vargas Cargo:ST_CLERK Data de admissÆo:09/07/98                           
+Timothy Gates Cargo:SH_CLERK Data de admissÆo:11/07/98                          
+Michael Rogers Cargo:ST_CLERK Data de admissÆo:26/08/98                         
+Irene Mikkilineni Cargo:ST_CLERK Data de admissÆo:28/09/98                      
+Sarath Sewall Cargo:SA_REP Data de admissÆo:03/11/98                            
+Guy Himuro Cargo:PU_CLERK Data de admissÆo:15/11/98                             
+
+ Lista de Funcion rios                                                          
+--------------------------------------------------------------------------------
+Nanette Cambrault Cargo:SA_REP Data de admissÆo:09/12/98                        
+James Landry Cargo:ST_CLERK Data de admissÆo:14/01/99                           
+Diana Lorentz Cargo:IT_PROG Data de admissÆo:07/02/99                           
+Anthony Cabrio Cargo:SH_CLERK Data de admissÆo:07/02/99                         
+William Smith Cargo:SA_REP Data de admissÆo:23/02/99                            
+Vance Jones Cargo:SH_CLERK Data de admissÆo:17/03/99                            
+Danielle Greene Cargo:SA_REP Data de admissÆo:19/03/99                          
+Elizabeth Bates Cargo:SA_REP Data de admissÆo:24/03/99                          
+TJ Olson Cargo:ST_CLERK Data de admissÆo:10/04/99                               
+Kimberely Grant Cargo:SA_REP Data de admissÆo:24/05/99                          
+Martha Sullivan Cargo:SH_CLERK Data de admissÆo:21/06/99                        
+
+ Lista de Funcion rios                                                          
+--------------------------------------------------------------------------------
+Donald OConnell Cargo:SH_CLERK Data de admissÆo:21/06/99                        
+Karen Colmenares Cargo:PU_CLERK Data de admissÆo:10/08/99                       
+Gerald Cambrault Cargo:SA_MAN Data de admissÆo:15/10/99                         
+Kevin Mourgos Cargo:ST_MAN Data de admissÆo:16/11/99                            
+Oliver Tuvault Cargo:SA_REP Data de admissÆo:23/11/99                           
+Luis Popp Cargo:FI_ACCOUNT Data de admissÆo:07/12/99                            
+Ki Gee Cargo:ST_CLERK Data de admissÆo:12/12/99                                 
+Randall Perkins Cargo:SH_CLERK Data de admissÆo:19/12/99                        
+
+41 linhas selecionadas.
+
+SQL> SELECT FIRST_NAME || ' '||LAST_NAME|| '  Cargo: '||JOB_ID|| '  Data de admissÆo: '||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/1998') AND ('31/12/1999') ORDER BY HIRE_DATE;
+
+ Lista de Funcion rios                                                          
+--------------------------------------------------------------------------------
+Winston Taylor  Cargo: SH_CLERK  Data de admissÆo: 24/01/98                     
+Tayler Fox  Cargo: SA_REP  Data de admissÆo: 24/01/98                           
+Valli Pataballa  Cargo: IT_PROG  Data de admissÆo: 05/02/98                     
+John Seo  Cargo: ST_CLERK  Data de admissÆo: 12/02/98                           
+Jean Fleaur  Cargo: SH_CLERK  Data de admissÆo: 23/02/98                        
+Jose Manuel Urman  Cargo: FI_ACCOUNT  Data de admissÆo: 07/03/98                
+Randall Matos  Cargo: ST_CLERK  Data de admissÆo: 15/03/98                      
+Harrison Bloom  Cargo: SA_REP  Data de admissÆo: 23/03/98                       
+Jonathon Taylor  Cargo: SA_REP  Data de admissÆo: 24/03/98                      
+Christopher Olsen  Cargo: SA_REP  Data de admissÆo: 30/03/98                    
+Joshua Patel  Cargo: ST_CLERK  Data de admissÆo: 06/04/98                       
+
+ Lista de Funcion rios                                                          
+--------------------------------------------------------------------------------
+Jack Livingston  Cargo: SA_REP  Data de admissÆo: 23/04/98                      
+Alana Walsh  Cargo: SH_CLERK  Data de admissÆo: 24/04/98                        
+Kevin Feeney  Cargo: SH_CLERK  Data de admissÆo: 23/05/98                       
+Julia Dellinger  Cargo: SH_CLERK  Data de admissÆo: 24/06/98                    
+Samuel McCain  Cargo: SH_CLERK  Data de admissÆo: 01/07/98                      
+Peter Vargas  Cargo: ST_CLERK  Data de admissÆo: 09/07/98                       
+Timothy Gates  Cargo: SH_CLERK  Data de admissÆo: 11/07/98                      
+Michael Rogers  Cargo: ST_CLERK  Data de admissÆo: 26/08/98                     
+Irene Mikkilineni  Cargo: ST_CLERK  Data de admissÆo: 28/09/98                  
+Sarath Sewall  Cargo: SA_REP  Data de admissÆo: 03/11/98                        
+Guy Himuro  Cargo: PU_CLERK  Data de admissÆo: 15/11/98                         
+
+ Lista de Funcion rios                                                          
+--------------------------------------------------------------------------------
+Nanette Cambrault  Cargo: SA_REP  Data de admissÆo: 09/12/98                    
+James Landry  Cargo: ST_CLERK  Data de admissÆo: 14/01/99                       
+Diana Lorentz  Cargo: IT_PROG  Data de admissÆo: 07/02/99                       
+Anthony Cabrio  Cargo: SH_CLERK  Data de admissÆo: 07/02/99                     
+William Smith  Cargo: SA_REP  Data de admissÆo: 23/02/99                        
+Vance Jones  Cargo: SH_CLERK  Data de admissÆo: 17/03/99                        
+Danielle Greene  Cargo: SA_REP  Data de admissÆo: 19/03/99                      
+Elizabeth Bates  Cargo: SA_REP  Data de admissÆo: 24/03/99                      
+TJ Olson  Cargo: ST_CLERK  Data de admissÆo: 10/04/99                           
+Kimberely Grant  Cargo: SA_REP  Data de admissÆo: 24/05/99                      
+Martha Sullivan  Cargo: SH_CLERK  Data de admissÆo: 21/06/99                    
+
+ Lista de Funcion rios                                                          
+--------------------------------------------------------------------------------
+Donald OConnell  Cargo: SH_CLERK  Data de admissÆo: 21/06/99                    
+Karen Colmenares  Cargo: PU_CLERK  Data de admissÆo: 10/08/99                   
+Gerald Cambrault  Cargo: SA_MAN  Data de admissÆo: 15/10/99                     
+Kevin Mourgos  Cargo: ST_MAN  Data de admissÆo: 16/11/99                        
+Oliver Tuvault  Cargo: SA_REP  Data de admissÆo: 23/11/99                       
+Luis Popp  Cargo: FI_ACCOUNT  Data de admissÆo: 07/12/99                        
+Ki Gee  Cargo: ST_CLERK  Data de admissÆo: 12/12/99                             
+Randall Perkins  Cargo: SH_CLERK  Data de admissÆo: 19/12/99                    
+
+41 linhas selecionadas.
+
+SQL> SAVE C:\FACUL\BASIC\BD\ALIASELECT04.SQL
+Criado file C:\FACUL\BASIC\BD\ALIASELECT04.SQL
+SQL> EDIT
+Gravou file afiedt.buf
+
+  1* SELECT FIRST_NAME || ' '||LAST_NAME|| '  Cargo: '||JOB_ID|| '  Data de admissÆo: '||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/1998') AND ('31/12/1999') ORDER BY HIRE_DATE
+SQL> LIST
+  1* SELECT FIRST_NAME || ' '||LAST_NAME|| '  Cargo: '||JOB_ID|| '  Data de admissÆo: '||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/1998') AND ('31/12/1999') ORDER BY HIRE_DATE
+SQL> 
+SQL> LIST
+  1* SELECT FIRST_NAME || ' '||LAST_NAME|| '  Cargo: '||JOB_ID|| '  Data de admissÆo: '||HIRE_DATE AS " Lista de Funcion rios" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/1998') AND ('31/12/1999') ORDER BY HIRE_DATE
+SQL> CLEAR SCREEN
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| ' DEPARTAMENTO:' ||DEPARTMENT_ID AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID ='10' OR '30' ORDER BY FIRST_NAME DESC;
+SELECT FIRST_NAME|| ' '||LAST_NAME|| ' DEPARTAMENTO:' ||DEPARTMENT_ID AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID ='10' OR '30' ORDER BY FIRST_NAME DESC
+                                                                                                                                                          *
+ERRO na linha 1:
+ORA-00920: operador relacional inválido 
+
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| ' DEPARTAMENTO:' ||DEPARTMENT_ID AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID =10 OR 30 ORDER BY FIRST_NAME DESC;
+SELECT FIRST_NAME|| ' '||LAST_NAME|| ' DEPARTAMENTO:' ||DEPARTMENT_ID AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID =10 OR 30 ORDER BY FIRST_NAME DESC
+                                                                                                                                                      *
+ERRO na linha 1:
+ORA-00920: operador relacional inválido 
+
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| ' DEPARTAMENTO:' ||DEPARTMENT_ID AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID 10 OR 30 ORDER BY FIRST_NAME DESC;
+SELECT FIRST_NAME|| ' '||LAST_NAME|| ' DEPARTAMENTO:' ||DEPARTMENT_ID AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID 10 OR 30 ORDER BY FIRST_NAME DESC
+                                                                                                                                            *
+ERRO na linha 1:
+ORA-00920: operador relacional inválido 
+
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| ' DEPARTAMENTO:' ||DEPARTMENT_ID AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID IN (10,30) ORDER BY FIRST_NAME DESC;
+
+EMPLOYEES FROM 10 AND 30 DEPT                                                   
+--------------------------------------------------------------------------------
+Sigal Tobias DEPARTAMENTO:30                                                    
+Shelli Baida DEPARTAMENTO:30                                                    
+Karen Colmenares DEPARTAMENTO:30                                                
+Jennifer Whalen DEPARTAMENTO:10                                                 
+Guy Himuro DEPARTAMENTO:30                                                      
+Den Raphaely DEPARTAMENTO:30                                                    
+Alexander Khoo DEPARTAMENTO:30                                                  
+
+7 linhas selecionadas.
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '| DEPARTMENT:' ||DEPARTMENT_ID AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID IN (10,30) ORDER BY FIRST_NAME DESC;
+
+EMPLOYEES FROM 10 AND 30 DEPT                                                   
+--------------------------------------------------------------------------------
+Sigal Tobias| DEPARTMENT:30                                                     
+Shelli Baida| DEPARTMENT:30                                                     
+Karen Colmenares| DEPARTMENT:30                                                 
+Jennifer Whalen| DEPARTMENT:10                                                  
+Guy Himuro| DEPARTMENT:30                                                       
+Den Raphaely| DEPARTMENT:30                                                     
+Alexander Khoo| DEPARTMENT:30                                                   
+
+7 linhas selecionadas.
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '| DEPARTMENT:' ||DEPARTMENT_ID AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID IN (10,30) ORDER BY FIRST_NAME ;
+
+EMPLOYEES FROM 10 AND 30 DEPT                                                   
+--------------------------------------------------------------------------------
+Alexander Khoo| DEPARTMENT:30                                                   
+Den Raphaely| DEPARTMENT:30                                                     
+Guy Himuro| DEPARTMENT:30                                                       
+Jennifer Whalen| DEPARTMENT:10                                                  
+Karen Colmenares| DEPARTMENT:30                                                 
+Shelli Baida| DEPARTMENT:30                                                     
+Sigal Tobias| DEPARTMENT:30                                                     
+
+7 linhas selecionadas.
+
+SQL> SAVE C:\FACUL\BASIC\BD\ALIASELECT05.SQL
+Criado file C:\FACUL\BASIC\BD\ALIASELECT05.SQL
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '| DEPARTMENT:' ||DEPARTMENT_ID AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID IN (10,30) AND SALARY > 3000 ORDER BY FIRST_NAME ;
+
+EMPLOYEES FROM 10 AND 30 DEPT                                                   
+--------------------------------------------------------------------------------
+Alexander Khoo| DEPARTMENT:30                                                   
+Den Raphaely| DEPARTMENT:30                                                     
+Jennifer Whalen| DEPARTMENT:10                                                  
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '| Department:' ||DEPARTMENT_ID|| '| Salary:'||SALARY|| AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID IN (10,30) AND SALARY > 3000 ORDER BY FIRST_NAME ;
+SELECT FIRST_NAME|| ' '||LAST_NAME|| '| Department:' ||DEPARTMENT_ID|| '| Salary:'||SALARY|| AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID IN (10,30) AND SALARY > 3000 ORDER BY FIRST_NAME 
+                                                                                             *
+ERRO na linha 1:
+ORA-00936: expressão não encontrada 
+
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '| Department:' ||DEPARTMENT_ID|| '| Salary:'||SALARY AS "EMPLOYEES FROM 10 AND 30 DEPT" FROM EMPLOYEES WHERE DEPARTMENT_ID IN (10,30) AND SALARY > 3000 ORDER BY FIRST_NAME ;
+
+EMPLOYEES FROM 10 AND 30 DEPT                                                   
+--------------------------------------------------------------------------------
+Alexander Khoo| Department:30| Salary:3100                                      
+Den Raphaely| Department:30| Salary:11000                                       
+Jennifer Whalen| Department:10| Salary:4400                                     
+
+SQL> SAVE C:\FACUL\BASIC\BD\ALIASELECT06.SQL
+Criado file C:\FACUL\BASIC\BD\ALIASELECT06.SQL
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '| Admission date'||HIRE_DATE AS "ADMISSION DATE" FROM EMPLOYEES WHERE HIRE_DATE = 2007;
+SELECT FIRST_NAME|| ' '||LAST_NAME|| '| Admission date'||HIRE_DATE AS "ADMISSION DATE" FROM EMPLOYEES WHERE HIRE_DATE = 2007
+                                                                                                                      *
+ERRO na linha 1:
+ORA-00932: tipos de dados inconsistentes: esperava DATE obteve NUMBER 
+
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '| Admission date'||HIRE_DATE AS "ADMISSION DATE" FROM EMPLOYEES WHERE HIRE_DATE = '2007';
+SELECT FIRST_NAME|| ' '||LAST_NAME|| '| Admission date'||HIRE_DATE AS "ADMISSION DATE" FROM EMPLOYEES WHERE HIRE_DATE = '2007'
+                                                                                                                        *
+ERRO na linha 1:
+ORA-01861: o literal não corresponde à string de formato 
+
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '| Admission date'||HIRE_DATE AS "ADMISSION DATE" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/2007') AND ('31/12/2007');
+
+não há linhas selecionadas
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '| Admission date'||HIRE_DATE AS "ADMISSION DATE" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/1999') AND ('31/12/1999');
+
+ADMISSION DATE                                                                  
+----------------------------------------------------------------------          
+Diana Lorentz| Admission date07/02/99                                           
+Luis Popp| Admission date07/12/99                                               
+Karen Colmenares| Admission date10/08/99                                        
+Kevin Mourgos| Admission date16/11/99                                           
+James Landry| Admission date14/01/99                                            
+TJ Olson| Admission date10/04/99                                                
+Ki Gee| Admission date12/12/99                                                  
+Gerald Cambrault| Admission date15/10/99                                        
+Oliver Tuvault| Admission date23/11/99                                          
+Danielle Greene| Admission date19/03/99                                         
+William Smith| Admission date23/02/99                                           
+
+ADMISSION DATE                                                                  
+----------------------------------------------------------------------          
+Elizabeth Bates| Admission date24/03/99                                         
+Kimberely Grant| Admission date24/05/99                                         
+Martha Sullivan| Admission date21/06/99                                         
+Anthony Cabrio| Admission date07/02/99                                          
+Randall Perkins| Admission date19/12/99                                         
+Vance Jones| Admission date17/03/99                                             
+Donald OConnell| Admission date21/06/99                                         
+
+18 linhas selecionadas.
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| '| Admission date: '||HIRE_DATE AS "ADMISSION DATE" FROM EMPLOYEES WHERE HIRE_DATE BETWEEN ('01/01/1999') AND ('31/12/1999');
+
+ADMISSION DATE                                                                  
+------------------------------------------------------------------------        
+Diana Lorentz| Admission date: 07/02/99                                         
+Luis Popp| Admission date: 07/12/99                                             
+Karen Colmenares| Admission date: 10/08/99                                      
+Kevin Mourgos| Admission date: 16/11/99                                         
+James Landry| Admission date: 14/01/99                                          
+TJ Olson| Admission date: 10/04/99                                              
+Ki Gee| Admission date: 12/12/99                                                
+Gerald Cambrault| Admission date: 15/10/99                                      
+Oliver Tuvault| Admission date: 23/11/99                                        
+Danielle Greene| Admission date: 19/03/99                                       
+William Smith| Admission date: 23/02/99                                         
+
+ADMISSION DATE                                                                  
+------------------------------------------------------------------------        
+Elizabeth Bates| Admission date: 24/03/99                                       
+Kimberely Grant| Admission date: 24/05/99                                       
+Martha Sullivan| Admission date: 21/06/99                                       
+Anthony Cabrio| Admission date: 07/02/99                                        
+Randall Perkins| Admission date: 19/12/99                                       
+Vance Jones| Admission date: 17/03/99                                           
+Donald OConnell| Admission date: 21/06/99                                       
+
+18 linhas selecionadas.
+
+SQL> SAVE C:\FACUL\BASIC\BD\DATESELECT01.SQL
+Criado file C:\FACUL\BASIC\BD\DATESELECT01.SQL
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| ' | Job '||JOB_ID AS "MANAGERLESS EMPLOYEES" FROM EMPLOYEES WHERE  MANAGER_ID IS NULL;
+
+MANAGERLESS EMPLOYEES                                                           
+---------------------------------------------------------------                 
+Steven King | Job AD_PRES                                                       
+
+SQL> SELECT FIRST_NAME|| ' '||LAST_NAME|| ' | Job: '||JOB_ID AS "MANAGERLESS EMPLOYEES" FROM EMPLOYEES WHERE  MANAGER_ID IS NULL;
+
+MANAGERLESS EMPLOYEES                                                           

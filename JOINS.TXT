@@ -1,0 +1,980 @@
+SQL> SET PAGESIZE 200
+SQL> -- JOINS--
+SQL> -- PRODUTO CARTESIADO : AUSENCIA OU ERRO DE JOIN
+SQL> SELECT FIRST_NAME, DEPARTMENT_NAME FROM EMPLOYEES,DEPARTMENTS;
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Ellen                Administration                                             
+Sundar               Administration                                                         
+Sundita              Payroll                                                    
+
+
+SQL> --EQUIJOIN( JUN€AO IDENTICA) RELA€AO DE PK COM A FK
+SQL> SELECT FIRST_NAME, DEPARTMENT_NAME FROM EMPLOYEES,DEPARTMENTS WHERE DEPARTMENTS.DEPARTMENT_ID = EMPLOYEES.DEPARTMENT_ID;
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+
+SQL> -- ALIAS NAS TABELAS
+SQL> SELECT FIRST_NAME, DEPARTMENT_NAME FROM EMPLOYEES EMP,DEPARTMENTS DEPT WHERE DEPT.DEPARTMENT_ID = EMP.DEPARTMENT_ID;
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+Sigal                Purchasing                                                 
+Karen                Purchasing                                                 
+
+
+SQL> SELECT EMP.FIRST_NAME, DEPT.DEPARTMENT_NAME FROM EMPLOYEES EMP,DEPARTMENTS DEPT WHERE DEPT.DEPARTMENT_ID = EMP.DEPARTMENT_ID;
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+
+
+SQL> --ERROR SIMULATOR
+SQL> SELECT EMP.FIRST_NAME, DEPT.DEPARTMENT_NAME, DEPARTMENT_ID FROM EMPLOYEES EMP,DEPARTMENTS DEPT WHERE DEPT.DEPARTMENT_ID = EMP.DEPARTMENT_ID;
+SELECT EMP.FIRST_NAME, DEPT.DEPARTMENT_NAME, DEPARTMENT_ID FROM EMPLOYEES EMP,DEPARTMENTS DEPT WHERE DEPT.DEPARTMENT_ID = EMP.DEPARTMENT_ID
+                                             *
+ERRO na linha 1:
+ORA-00918: coluna definida de maneira ambígua 
+
+
+SQL> SELECT E.FIRST_NAME, J.JOB_ID FROM EMPLOYEES E, JOBS J WHERE E.JOB_ID = J.JOB_ID;
+
+FIRST_NAME           JOB_ID                                                     
+-------------------- ----------                                                 
+Ellen                SA_REP                                                     
+Sundar               SA_REP                                                     
+Mozhe                ST_CLERK                                                   
+David                IT_PROG                                                    
+Hermann              PR_REP                                                     
+
+SQL> SELECT E.FIRST_NAME,J.JOB_ID, L.CITY
+  2  FROM EMPLOYEES E, JOBS J,LOCATIONS L , DEPARTMENTS D
+  3  WHERE E.JOB_ID = J.JOB_ID AND E.DEPARTMENT_ID = D.DEPARTMENT_ID AND D.LOCATION_ID = L.LOCATION_ID;
+
+FIRST_NAME           JOB_ID     CITY                                            
+-------------------- ---------- ------------------------------                  
+Steven               AD_PRES    Seattle                                         
+Neena                AD_VP      Seattle                                         
+
+SQL> SELECT E.FIRST_NAME EMPREGADO, E.MANAGER_ID, G.EMPLOYEE_ID, G.FIRST_NAME
+  2  FROM EMPLOYEES E, EMPLOYEES G
+  3  WHERE E.EMPLOYEE_ID = G.EMPLOYEE_ID;
+
+EMPREGADO            MANAGER_ID EMPLOYEE_ID FIRST_NAME                          
+-------------------- ---------- ----------- --------------------                
+Steven                                  100 Steven                              
+Neena                       100         101 Neena                               
+Lex                         100         102 Lex                                 
+Alexander                   102         103 Alexander                           
+
+SQL> SELECT E.FIRST_NAME EMPREGADO, E.MANAGER_ID, G.EMPLOYEE_ID, G.FIRST_NAME
+  2  FROM EMPLOYEES E, EMPLOYEES G
+  3  WHERE E.MANAGER_ID = G.EMPLOYEE_ID;
+
+EMPREGADO            MANAGER_ID EMPLOYEE_ID FIRST_NAME                          
+-------------------- ---------- ----------- --------------------                
+William                     148         148 Gerald                              
+Lisa                        148         148 Gerald                              
+Sundita                     148         148 Gerald                              
+Tayler                      148         148 Gerald                              
+Harrison                    148         148 Gerald                              
+Elizabeth                   148         148 Gerald                              
+
+SQL> --NOEQUIJOIN JUN€OES NAO IDENTICAS
+SQL> --CHAVE PRIMARIA EM UM INTERVALO DE VALORES
+SQL> EXIBIR ID DO EMP E ID DO GARGO,SALARIO E FAILA SALARIAL
+SQL> SELECT E.EMPLOYEE_ID, E.JOB_ID, E.SALARY, J.MIN_SALARY,J.MAX_SALARY
+  2  FROM EMPLOYEES E, JOBS J
+  3  WHERE E.JOB_ID = J.JOB_ID
+  4  AND E.SALARY BETWEEN J.MIN_SALARY AND J.MAX_SALARY
+  5  AND E.DEPARTMENT_ID BETWEEN 10 AND 50;
+
+EMPLOYEE_ID JOB_ID         SALARY MIN_SALARY MAX_SALARY                         
+----------- ---------- ---------- ---------- ----------                         
+        200 AD_ASST          4400       3000       6000                         
+        203 HR_REP           6500       4000       9000                         
+        201 MK_MAN          13000       9000      15000                         
+        202 MK_REP           6000       4000       9000                         
+        119 PU_CLERK         2500       2500       5500                         
+        118 PU_CLERK         2600       2500       5500                         
+     
+
+SQL> --JUN€ÇO EXTERNA UTILIZA SINAL + DO LADO DAS CONDI€åES
+SQL> --EXIBIR INCLUSIVE O EMPïREGADO QUE NAOP ESTA ALOCADO · UM DEPT
+SQL> SELECT E.FIRST_NAME, D.DEPARTMENT_NAME FROM EMPLOYEES E , DEPARTMENTS D
+  2  WHERE E.DEPARTMENT_ID = D.DEPARTMENT_ID(+);
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+Karen                Purchasing                                                 
+Guy                  Purchasing                                                 
+Sigal                Purchasing                                                 
+Shelli               Purchasing                                                 
+Alexander            Purchasing                                                 
+Den                  Purchasing                                                 
+Susan                Human Resources                                            
+Douglas              Shipping                                                   
+Donald               Shipping                                                   
+Ke
+
+SQL> SELECT E.FIRST_NAME, D.DEPARTMENT_NAME FROM EMPLOYEES E , DEPARTMENTS D
+  2  WHERE E.DEPARTMENT_ID(+) = D.DEPARTMENT_ID;
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+Sigal                Purchasing                                                 
+
+
+SQL> --PADROES ANSI 99
+SQL> --PRODUTO CARTESIANO
+SQL> SELECT E.FIRST_NAME, D.DEPARTMENT_NAME
+  2  FROM EMPLOYEES E CROSS JOIN DEPARTMENTS D;
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Ellen                Administration                                             
+Sundar               Administration                                             
+Mozhe                Administration                                                                                           
+Lex                  Construction                                               
+Julia                Construction                                               
+Jennifer             Construction                                               
+Louise               Construction                                               
+Bruce                                                
+
+2889 linhas selecionadas.
+
+SQL> SELECT E.FIRST_NAME, D.DEPARTMENT_NAME
+  2  FROM EMPLOYEES E JOIN DEPARTMENTS D
+  3  USING (DEPARTMENT_ID);
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+Sigal                Purchasing                                                 
+Karen                Purchasing                                                 
+Shelli               Purchasing                                                 
+Den                  Purchasing                                                 
+Alexander            Purchasing                                                 
+Guy                  Purchasing                                                 
+Susan                Human Resources                                            
+Kevin                Shipping                                                   
+Jean                 Shipping                                                   
+Adam                 Shipping                                                   
+Timothy              Shipping                                                   
+Ki                   Shipping                                                   
+Girard               Shipping                                                   
+Douglas              Shipping                                                   
+Vance                Shipping                                                   
+Payam                Shipping                                                   
+Renske               Shipping                                                   
+Britney              Shipping                                                   
+Jennifer             Shipping                                                   
+Julia                Shipping                                                   
+Curtis               Shipping                                                   
+Kelly                Shipping                                                   
+Anthony              Shipping                                                   
+Alexis               Shipping                                                   
+Laura                Shipping                                                   
+Sarah                Shipping                                                   
+Mozhe                Shipping                                                   
+James                Shipping                                                   
+Matthew              Shipping                                                   
+Alana                Shipping                                                   
+Shanta               Shipping                                                   
+Peter                Shipping                                                   
+Winston              Shipping                                                   
+Jason                Shipping                                                   
+Steven               Shipping                                                   
+James                Shipping                                                   
+Randall              Shipping                                                   
+Samuel               Shipping                                                   
+Irene                Shipping                                                   
+Kevin                Shipping                                                   
+Julia                Shipping                                                   
+Donald               Shipping                                                   
+TJ                   Shipping                                                   
+Joshua               Shipping                                                   
+Randall              Shipping                                                   
+Hazel                Shipping                                                   
+Trenna               Shipping                                                   
+Michael              Shipping                                                   
+Nandita              Shipping                                                   
+John                 Shipping                                                   
+Stephen              Shipping                                                   
+Martha               Shipping                                                   
+David                IT                                                         
+Valli                IT                                                         
+Bruce                IT                                                         
+Diana                IT                                                         
+Alexander            IT                                                         
+Hermann              Public Relations                                           
+Ellen                Sales                                                      
+Sundar               Sales                                                      
+Amit                 Sales                                                      
+Elizabeth            Sales                                                      
+David                Sales                                                      
+Harrison             Sales                                                      
+Gerald               Sales                                                      
+Nanette              Sales                                                      
+Louise               Sales                                                      
+Alberto              Sales                                                      
+Tayler               Sales                                                      
+Danielle             Sales                                                      
+Peter                Sales                                                      
+Alyssa               Sales                                                      
+Charles              Sales                                                      
+Janette              Sales                                                      
+Sundita              Sales                                                      
+David                Sales                                                      
+Jack                 Sales                                                      
+Mattea               Sales                                                      
+Allan                Sales                                                      
+Christopher          Sales                                                      
+Lisa                 Sales                                                      
+Karen                Sales                                                      
+John                 Sales                                                      
+Sarath               Sales                                                      
+Lindsey              Sales                                                      
+William              Sales                                                      
+Patrick              Sales                                                      
+Jonathon             Sales                                                      
+Peter                Sales                                                      
+Oliver               Sales                                                      
+Clara                Sales                                                      
+Eleni                Sales                                                      
+Neena                Executive                                                  
+Steven               Executive                                                  
+Lex                  Executive                                                  
+Luis                 Finance                                                    
+Jose Manuel          Finance                                                    
+John                 Finance                                                    
+Daniel               Finance                                                    
+Ismael               Finance                                                    
+Nancy                Finance                                                    
+William              Accounting                                                 
+Shelley              Accounting                                                 
+
+106 linhas selecionadas.
+
+SQL> --EQUIJOIN - USING KEY WORD   QUANDO USAR DUAS COLUNAS FOREM IGUAIS USA-LO
+SQL> SELECT E.FIRST_NAME, D.DEPARTMENT_NAME
+  2  FROM EMPLOYEES E JOIN DEPARTMENTS D
+  3  ON (E.DEPARTMENT_ID = D.DEPARTMENT_ID);
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+Sigal                Purchasing                                                 
+Karen                Purchasing                                                 
+Shelli               Purchasing                                                 
+Den                  Purchasing                                                 
+Alexander            Purchasing                                                 
+Guy                  Purchasing                                                 
+Susan                Human Resources                                            
+Kevin                Shipping                                                   
+Jean                 Shipping                                                   
+Adam                 Shipping                                                   
+Timothy              Shipping                                                   
+Ki                   Shipping                                                   
+Girard               Shipping                                                   
+Douglas              Shipping                                                   
+Vance                Shipping                                                   
+Payam                Shipping                                                   
+Renske               Shipping                                                   
+Britney              Shipping                                                   
+Jennifer             Shipping                                                   
+Julia                Shipping                                                   
+Curtis               Shipping                                                   
+Kelly                Shipping                                                   
+Anthony              Shipping                                                   
+Alexis               Shipping                                                   
+Laura                Shipping                                                   
+Sarah                Shipping                                                   
+Mozhe                Shipping                                                   
+James                Shipping                                                   
+Matthew              Shipping                                                   
+Alana                Shipping                                                   
+Shanta               Shipping                                                   
+Peter                Shipping                                                   
+Winston              Shipping                                                   
+Jason                Shipping                                                   
+Steven               Shipping                                                   
+James                Shipping                                                   
+Randall              Shipping                                                   
+Samuel               Shipping                                                   
+Irene                Shipping                                                   
+Kevin                Shipping                                                   
+Julia                Shipping                                                   
+Donald               Shipping                                                   
+TJ                   Shipping                                                   
+Joshua               Shipping                                                   
+Randall              Shipping                                                   
+Hazel                Shipping                                                   
+Trenna               Shipping                                                   
+Michael              Shipping                                                   
+Nandita              Shipping                                                   
+John                 Shipping                                                   
+Stephen              Shipping                                                   
+Martha               Shipping                                                   
+David                IT                                                         
+Valli                IT                                                         
+Bruce                IT                                                         
+Diana                IT                                                         
+Alexander            IT                                                         
+Hermann              Public Relations                                           
+Ellen                Sales                                                      
+Sundar               Sales                                                      
+Amit                 Sales                                                      
+Elizabeth            Sales                                                      
+David                Sales                                                      
+Harrison             Sales                                                      
+Gerald               Sales                                                      
+Nanette              Sales                                                      
+Louise               Sales                                                      
+Alberto              Sales                                                      
+Tayler               Sales                                                      
+Danielle             Sales                                                      
+Peter                Sales                                                      
+Alyssa               Sales                                                      
+Charles              Sales                                                      
+Janette              Sales                                                      
+Sundita              Sales                                                      
+David                Sales                                                      
+Jack                 Sales                                                      
+Mattea               Sales                                                      
+Allan                Sales                                                      
+Christopher          Sales                                                      
+Lisa                 Sales                                                      
+Karen                Sales                                                      
+John                 Sales                                                      
+Sarath               Sales                                                      
+Lindsey              Sales                                                      
+William              Sales                                                      
+Patrick              Sales                                                      
+Jonathon             Sales                                                      
+Peter                Sales                                                      
+Oliver               Sales                                                      
+Clara                Sales                                                      
+Eleni                Sales                                                      
+Neena                Executive                                                  
+Steven               Executive                                                  
+Lex                  Executive                                                  
+Luis                 Finance                                                    
+Jose Manuel          Finance                                                    
+John                 Finance                                                    
+Daniel               Finance                                                    
+Ismael               Finance                                                    
+Nancy                Finance                                                    
+William              Accounting                                                 
+Shelley              Accounting                                                 
+
+106 linhas selecionadas.
+
+SQL> --OUTER JOIN O MESMO QUE JUN€åES EXTERNAS DO ORACLE USANDO SINAL DE +
+SQL> SELECT E.FIRST_NAME, D.DEPARTMENT_NAME
+  2  FROM EMPLOYEES E JOIN DEPARTMENTS D
+  3  ON (E.DEPARTMENT_ID = D.DEPARTMENT_ID);
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+Sigal                Purchasing                                                 
+Karen                Purchasing                                                 
+Shelli               Purchasing                                                 
+Den                  Purchasing                                                 
+Alexander            Purchasing                                                 
+Guy                  Purchasing                                                 
+Susan                Human Resources                                            
+Kevin                Shipping                                                   
+Jean                 Shipping                                                   
+Adam                 Shipping                                                   
+Timothy              Shipping                                                   
+Ki                   Shipping                                                   
+Girard               Shipping                                                   
+Douglas              Shipping                                                   
+Vance                Shipping                                                   
+Payam                Shipping                                                   
+Renske               Shipping                                                   
+Britney              Shipping                                                   
+Jennifer             Shipping                                                   
+Julia                Shipping                                                   
+Curtis               Shipping                                                   
+Kelly                Shipping                                                   
+Anthony              Shipping                                                   
+Alexis               Shipping                                                   
+Laura                Shipping                                                   
+Sarah                Shipping                                                   
+Mozhe                Shipping                                                   
+James                Shipping                                                   
+Matthew              Shipping                                                   
+Alana                Shipping                                                   
+Shanta               Shipping                                                   
+Peter                Shipping                                                   
+Winston              Shipping                                                   
+Jason                Shipping                                                   
+Steven               Shipping                                                   
+James                Shipping                                                   
+Randall              Shipping                                                   
+Samuel               Shipping                                                   
+Irene                Shipping                                                   
+Kevin                Shipping                                                   
+Julia                Shipping                                                   
+Donald               Shipping                                                   
+TJ                   Shipping                                                   
+Joshua               Shipping                                                   
+Randall              Shipping                                                   
+Hazel                Shipping                                                   
+Trenna               Shipping                                                   
+Michael              Shipping                                                   
+Nandita              Shipping                                                   
+John                 Shipping                                                   
+Stephen              Shipping                                                   
+Martha               Shipping                                                   
+David                IT                                                         
+Valli                IT                                                         
+Bruce                IT                                                         
+Diana                IT                                                         
+Alexander            IT                                                         
+Hermann              Public Relations                                           
+Ellen                Sales                                                      
+Sundar               Sales                                                      
+Amit                 Sales                                                      
+Elizabeth            Sales                                                      
+David                Sales                                                      
+Harrison             Sales                                                      
+Gerald               Sales                                                      
+Nanette              Sales                                                      
+Louise               Sales                                                      
+Alberto              Sales                                                      
+Tayler               Sales                                                      
+Danielle             Sales                                                      
+Peter                Sales                                                      
+Alyssa               Sales                                                      
+Charles              Sales                                                      
+Janette              Sales                                                      
+Sundita              Sales                                                      
+David                Sales                                                      
+Jack                 Sales                                                      
+Mattea               Sales                                                      
+Allan                Sales                                                      
+Christopher          Sales                                                      
+Lisa                 Sales                                                      
+Karen                Sales                                                      
+John                 Sales                                                      
+Sarath               Sales                                                      
+Lindsey              Sales                                                      
+William              Sales                                                      
+Patrick              Sales                                                      
+Jonathon             Sales                                                      
+Peter                Sales                                                      
+Oliver               Sales                                                      
+Clara                Sales                                                      
+Eleni                Sales                                                      
+Neena                Executive                                                  
+Steven               Executive                                                  
+Lex                  Executive                                                  
+Luis                 Finance                                                    
+Jose Manuel          Finance                                                    
+John                 Finance                                                    
+Daniel               Finance                                                    
+Ismael               Finance                                                    
+Nancy                Finance                                                    
+William              Accounting                                                 
+Shelley              Accounting                                                 
+
+106 linhas selecionadas.
+
+SQL> SELECT E.FIRST_NAME, D.DEPARTMENT_NAME
+  2  FROM EMPLOYEES E LEFT OUTER JOIN DEPARTMENTS D
+  3  ON (E.DEPARTMENT_ID = D.DEPARTMENT_ID);
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+Karen                Purchasing                                                 
+Guy                  Purchasing                                                 
+Sigal                Purchasing                                                 
+Shelli               Purchasing                                                 
+Alexander            Purchasing                                                 
+Den                  Purchasing                                                 
+Susan                Human Resources                                            
+Douglas              Shipping                                                   
+Donald               Shipping                                                   
+Kevin                Shipping                                                   
+Alana                Shipping                                                   
+Vance                Shipping                                                   
+Samuel               Shipping                                                   
+Britney              Shipping                                                   
+Sarah                Shipping                                                   
+Randall              Shipping                                                   
+Timothy              Shipping                                                   
+Jennifer             Shipping                                                   
+Kelly                Shipping                                                   
+Anthony              Shipping                                                   
+Julia                Shipping                                                   
+Alexis               Shipping                                                   
+Nandita              Shipping                                                   
+Girard               Shipping                                                   
+Martha               Shipping                                                   
+Jean                 Shipping                                                   
+Winston              Shipping                                                   
+Peter                Shipping                                                   
+Randall              Shipping                                                   
+Curtis               Shipping                                                   
+Trenna               Shipping                                                   
+Joshua               Shipping                                                   
+John                 Shipping                                                   
+Stephen              Shipping                                                   
+Renske               Shipping                                                   
+Hazel                Shipping                                                   
+Ki                   Shipping                                                   
+Michael              Shipping                                                   
+Jason                Shipping                                                   
+TJ                   Shipping                                                   
+James                Shipping                                                   
+Mozhe                Shipping                                                   
+Laura                Shipping                                                   
+Steven               Shipping                                                   
+James                Shipping                                                   
+Irene                Shipping                                                   
+Julia                Shipping                                                   
+Kevin                Shipping                                                   
+Shanta               Shipping                                                   
+Payam                Shipping                                                   
+Adam                 Shipping                                                   
+Matthew              Shipping                                                   
+Diana                IT                                                         
+Valli                IT                                                         
+David                IT                                                         
+Bruce                IT                                                         
+Alexander            IT                                                         
+Hermann              Public Relations                                           
+Charles              Sales                                                      
+Jack                 Sales                                                      
+Jonathon             Sales                                                      
+Alyssa               Sales                                                      
+Ellen                Sales                                                      
+Sundita              Sales                                                      
+Elizabeth            Sales                                                      
+William              Sales                                                      
+Tayler               Sales                                                      
+Harrison             Sales                                                      
+Lisa                 Sales                                                      
+Amit                 Sales                                                      
+Sundar               Sales                                                      
+David                Sales                                                      
+Mattea               Sales                                                      
+Danielle             Sales                                                      
+Clara                Sales                                                      
+Sarath               Sales                                                      
+Louise               Sales                                                      
+Lindsey              Sales                                                      
+Allan                Sales                                                      
+Patrick              Sales                                                      
+Janette              Sales                                                      
+Oliver               Sales                                                      
+Nanette              Sales                                                      
+Christopher          Sales                                                      
+Peter                Sales                                                      
+David                Sales                                                      
+Peter                Sales                                                      
+Eleni                Sales                                                      
+Gerald               Sales                                                      
+Alberto              Sales                                                      
+Karen                Sales                                                      
+John                 Sales                                                      
+Lex                  Executive                                                  
+Neena                Executive                                                  
+Steven               Executive                                                  
+Luis                 Finance                                                    
+Jose Manuel          Finance                                                    
+Ismael               Finance                                                    
+John                 Finance                                                    
+Daniel               Finance                                                    
+Nancy                Finance                                                    
+William              Accounting                                                 
+Shelley              Accounting                                                 
+Kimberely                                                                       
+
+107 linhas selecionadas.
+
+SQL> SELECT E.FIRST_NAME, D.DEPARTMENT_NAME
+  2  FROM EMPLOYEES E  RIGHT OUTER JOIN DEPARTMENTS D
+  3  ON (E.DEPARTMENT_ID = D.DEPARTMENT_ID);
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+Sigal                Purchasing                                                 
+Karen                Purchasing                                                 
+Shelli               Purchasing                                                 
+Den                  Purchasing                                                 
+Alexander            Purchasing                                                 
+Guy                  Purchasing                                                 
+Susan                Human Resources                                            
+Kevin                Shipping                                                   
+Jean                 Shipping                                                   
+Adam                 Shipping                                                   
+Timothy              Shipping                                                   
+Ki                   Shipping                                                   
+Girard               Shipping                                                   
+Douglas              Shipping                                                   
+Vance                Shipping                                                   
+Payam                Shipping                                                   
+Renske               Shipping                                                   
+Britney              Shipping                                                   
+Jennifer             Shipping                                                   
+Julia                Shipping                                                   
+Curtis               Shipping                                                   
+Kelly                Shipping                                                   
+Anthony              Shipping                                                   
+Alexis               Shipping                                                   
+Laura                Shipping                                                   
+Sarah                Shipping                                                   
+Mozhe                Shipping                                                   
+James                Shipping                                                   
+Matthew              Shipping                                                   
+Alana                Shipping                                                   
+Shanta               Shipping                                                   
+Peter                Shipping                                                   
+Winston              Shipping                                                   
+Jason                Shipping                                                   
+Steven               Shipping                                                   
+James                Shipping                                                   
+Randall              Shipping                                                   
+Samuel               Shipping                                                   
+Irene                Shipping                                                   
+Kevin                Shipping                                                   
+Julia                Shipping                                                   
+Donald               Shipping                                                   
+TJ                   Shipping                                                   
+Joshua               Shipping                                                   
+Randall              Shipping                                                   
+Hazel                Shipping                                                   
+Trenna               Shipping                                                   
+Michael              Shipping                                                   
+Nandita              Shipping                                                   
+John                 Shipping                                                   
+Stephen              Shipping                                                   
+Martha               Shipping                                                   
+David                IT                                                         
+Valli                IT                                                         
+Bruce                IT                                                         
+Diana                IT                                                         
+Alexander            IT                                                         
+Hermann              Public Relations                                           
+Ellen                Sales                                                      
+Sundar               Sales                                                      
+Amit                 Sales                                                      
+Elizabeth            Sales                                                      
+David                Sales                                                      
+Harrison             Sales                                                      
+Gerald               Sales                                                      
+Nanette              Sales                                                      
+Louise               Sales                                                      
+Alberto              Sales                                                      
+Tayler               Sales                                                      
+Danielle             Sales                                                      
+Peter                Sales                                                      
+Alyssa               Sales                                                      
+Charles              Sales                                                      
+Janette              Sales                                                      
+Sundita              Sales                                                      
+David                Sales                                                      
+Jack                 Sales                                                      
+Mattea               Sales                                                      
+Allan                Sales                                                      
+Christopher          Sales                                                      
+Lisa                 Sales                                                      
+Karen                Sales                                                      
+John                 Sales                                                      
+Sarath               Sales                                                      
+Lindsey              Sales                                                      
+William              Sales                                                      
+Patrick              Sales                                                      
+Jonathon             Sales                                                      
+Peter                Sales                                                      
+Oliver               Sales                                                      
+Clara                Sales                                                      
+Eleni                Sales                                                      
+Neena                Executive                                                  
+Steven               Executive                                                  
+Lex                  Executive                                                  
+Luis                 Finance                                                    
+Jose Manuel          Finance                                                    
+John                 Finance                                                    
+Daniel               Finance                                                    
+Ismael               Finance                                                    
+Nancy                Finance                                                    
+William              Accounting                                                 
+Shelley              Accounting                                                 
+                     Treasury                                                   
+                     Corporate Tax                                              
+                     Control And Credit                                         
+                     Shareholder Services                                       
+                     Benefits                                                   
+                     Manufacturing                                              
+                     Construction                                               
+                     Contracting                                                
+                     Operations                                                 
+                     IT Support                                                 
+                     NOC                                                        
+                     IT Helpdesk                                                
+                     Government Sales                                           
+                     Retail Sales                                               
+                     Recruiting                                                 
+                     Payroll                                                    
+
+122 linhas selecionadas.
+
+SQL> --EXIBIR QUANDO NAO HA EMPREGADOS E NAO HA DEPT
+SQL> SELECT E.FIRST_NAME, D.DEPARTMENT_NAME
+  2  FROM EMPLOYEES FULL OUTER JOIN DEPARTMENTS D
+  3  ON (E.DEPARTMENT_ID = D.DEPARTMENT_ID);
+ON (E.DEPARTMENT_ID = D.DEPARTMENT_ID)
+    *
+ERRO na linha 3:
+ORA-00904: "E"."DEPARTMENT_ID": identificador inválido 
+
+
+SQL> SELECT E.FIRST_NAME, D.DEPARTMENT_NAME
+  2  FROM EMPLOYEES E FULL OUTER JOIN DEPARTMENTS D
+  3  ON (E.DEPARTMENT_ID = D.DEPARTMENT_ID);
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Steven               Executive                                                  
+Neena                Executive                                                  
+Lex                  Executive                                                  
+Alexander            IT                                                         
+Bruce                IT                                                         
+David                IT                                                         
+Valli                IT                                                         
+Diana                IT                                                         
+Nancy                Finance                                                    
+Daniel               Finance                                                    
+John                 Finance                                                    
+Ismael               Finance                                                    
+Jose Manuel          Finance                                                    
+Luis                 Finance                                                    
+Den                  Purchasing                                                 
+Alexander            Purchasing                                                 
+Shelli               Purchasing                                                 
+Sigal                Purchasing                                                 
+Guy                  Purchasing                                                 
+Karen                Purchasing                                                 
+Matthew              Shipping                                                   
+Adam                 Shipping                                                   
+Payam                Shipping                                                   
+Shanta               Shipping                                                   
+Kevin                Shipping                                                   
+Julia                Shipping                                                   
+Irene                Shipping                                                   
+James                Shipping                                                   
+Steven               Shipping                                                   
+Laura                Shipping                                                   
+Mozhe                Shipping                                                   
+James                Shipping                                                   
+TJ                   Shipping                                                   
+Jason                Shipping                                                   
+Michael              Shipping                                                   
+Ki                   Shipping                                                   
+Hazel                Shipping                                                   
+Renske               Shipping                                                   
+Stephen              Shipping                                                   
+John                 Shipping                                                   
+Joshua               Shipping                                                   
+Trenna               Shipping                                                   
+Curtis               Shipping                                                   
+Randall              Shipping                                                   
+Peter                Shipping                                                   
+John                 Sales                                                      
+Karen                Sales                                                      
+Alberto              Sales                                                      
+Gerald               Sales                                                      
+Eleni                Sales                                                      
+Peter                Sales                                                      
+David                Sales                                                      
+Peter                Sales                                                      
+Christopher          Sales                                                      
+Nanette              Sales                                                      
+Oliver               Sales                                                      
+Janette              Sales                                                      
+Patrick              Sales                                                      
+Allan                Sales                                                      
+Lindsey              Sales                                                      
+Louise               Sales                                                      
+Sarath               Sales                                                      
+Clara                Sales                                                      
+Danielle             Sales                                                      
+Mattea               Sales                                                      
+David                Sales                                                      
+Sundar               Sales                                                      
+Amit                 Sales                                                      
+Lisa                 Sales                                                      
+Harrison             Sales                                                      
+Tayler               Sales                                                      
+William              Sales                                                      
+Elizabeth            Sales                                                      
+Sundita              Sales                                                      
+Ellen                Sales                                                      
+Alyssa               Sales                                                      
+Jonathon             Sales                                                      
+Jack                 Sales                                                      
+Kimberely                                                                       
+Charles              Sales                                                      
+Winston              Shipping                                                   
+Jean                 Shipping                                                   
+Martha               Shipping                                                   
+Girard               Shipping                                                   
+Nandita              Shipping                                                   
+Alexis               Shipping                                                   
+Julia                Shipping                                                   
+Anthony              Shipping                                                   
+Kelly                Shipping                                                   
+Jennifer             Shipping                                                   
+Timothy              Shipping                                                   
+Randall              Shipping                                                   
+Sarah                Shipping                                                   
+Britney              Shipping                                                   
+Samuel               Shipping                                                   
+Vance                Shipping                                                   
+Alana                Shipping                                                   
+Kevin                Shipping                                                   
+Donald               Shipping                                                   
+Douglas              Shipping                                                   
+Jennifer             Administration                                             
+Michael              Marketing                                                  
+Pat                  Marketing                                                  
+Susan                Human Resources                                            
+Hermann              Public Relations                                           
+Shelley              Accounting                                                 
+William              Accounting                                                 
+                     NOC                                                        
+                     Manufacturing                                              
+                     Government Sales                                           
+                     IT Support                                                 
+                     Benefits                                                   
+                     Shareholder Services                                       
+                     Retail Sales                                               
+                     Control And Credit                                         
+                     Recruiting                                                 
+                     Operations                                                 
+                     Treasury                                                   
+                     Payroll                                                    
+                     Corporate Tax                                              
+                     Construction                                               
+                     Contracting                                                
+                     IT Helpdesk                                                
+
+123 linhas selecionadas.
+
+SQL> --EXERCICIO EXIBIR O NOME DO DEPT E A CIDADE EM Q ESTA
+SQL> SELECT D.DEPARTMENT_NAME, L.CITY
+  2  FROM DEPARTMENTS D JOIN LOCATIONS L
+  3  ON (D.LOCATION_ID = L.LOCATION_ID);
+
+DEPARTMENT_NAME                CITY                                             
+------------------------------ ------------------------------                   
+IT                             Southlake                                        
+Shipping                       South San Francisco                              
+Administration                 Seattle                                          
+Purchasing                     Seattle                                          
+Executive                      Seattle                                          
+Finance                        Seattle                                          
+Accounting                     Seattle                                          
+Treasury                       Seattle                                          
+Corporate Tax                  Seattle                                          
+Control And Credit             Seattle                                          
+Shareholder Services           Seattle                                          
+Benefits                       Seattle                                          
+Manufacturing                  Seattle                                          
+Construction                   Seattle                                          
+Contracting                    Seattle                                          
+Operations                     Seattle                                          
+IT Support                     Seattle                                          
+NOC                            Seattle                                          
+IT Helpdesk                    Seattle                                          
+Government Sales               Seattle                                          
+Retail Sales                   Seattle                                          
+Recruiting                     Seattle                                          
+Payroll                        Seattle                                          
+Marketing                      Toronto                                          
+Human Resources                London                                           
+Sales                          Oxford                                           
+Public Relations               Munich                                           
+
+27 linhas selecionadas.
+
+SQL> SELECT D.DEPARTMENT_NAME, L.CITY
+  2  FROM DEPARTMENTS D NATURAL JOIN LOCATIONS;
+SELECT D.DEPARTMENT_NAME, L.CITY
+                          *
+ERRO na linha 1:
+ORA-00904: "L"."CITY": identificador inválido 
+
+
+SQL> SELECT D.DEPARTMENT_NAME, L.CITY
+  2  FROM DEPARTMENTS D NATURAL JOIN LOCATIONS L;
+
+DEPARTMENT_NAME                CITY                                             
+------------------------------ ------------------------------                   
+IT                             Southlake                                        
+Shipping                       South San Francisco                              
+Administration                 Seattle                                          
+Purchasing                     Seattle                                          
+Executive                      Seattle                                          
+Finance                        Seattle                                          
+Accounting                     Seattle                                          
+Treasury                       Seattle                                          
+Corporate Tax                  Seattle                                          
+Control And Credit             Seattle                                          
+Shareholder Services           Seattle                                          
+Benefits                       Seattle                                          
+Manufacturing                  Seattle                                          
+Construction                   Seattle                                          
+Contracting                    Seattle                                          
+Operations                     Seattle                                          
+IT Support                     Seattle                                          
+NOC                            Seattle                                          
+IT Helpdesk                    Seattle                                          
+Government Sales               Seattle                                          
+Retail Sales                   Seattle                                          
+Recruiting                     Seattle                                          
+Payroll                        Seattle                                          
+Marketing                      Toronto                                          
+Human Resources                London                                           
+Sales                          Oxford                                           
+Public Relations               Munich                                           
+
+27 linhas selecionadas.
+
+SQL> --NATURAL JOIN
+SQL> SPOOL OFF

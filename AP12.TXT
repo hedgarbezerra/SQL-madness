@@ -1,0 +1,543 @@
+SQL> CONNECT HED/HED
+Connected.
+SQL> CREATE TABLE(
+  2  cName VARCHAR(50) PRIMARY KEY,
+  3  state char(2),
+  4  enrollment number(5));
+CREATE TABLE(
+            *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> CREATE TABLE College(
+  2  cName VARCHAR(50) PRIMARY KEY,
+  3  state char(2),
+  4  enrollment number(5));
+
+Table created.
+
+SQL> CREATE TABLE STUDENT(
+  2  SID NUMBER(5) PRIMARY KEY,
+  3  SNAME VARCHAR(50) ,
+  4  GPA NUMBER(3,1) DEFAULT (3,9),
+  5  SIZEHS VARCHAR(3O));
+GPA NUMBER(3,1) DEFAULT (3,9),
+                          *
+ERROR at line 4:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE STUDENT(
+  2  SID NUMBER(5) PRIMARY KEY,
+  3  SNAME VARCHAR(50) ,
+  4  GPA NUMBER(3,1) DEFAULT ('3,9'),
+  5  SIZEHS VARCHAR(3O));
+SIZEHS VARCHAR(3O))
+                *
+ERROR at line 5:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE STUDENT(
+  2  SID NUMBER(5) PRIMARY KEY,
+  3  SNAME VARCHAR(50) ,
+  4  GPA NUMBER(3,1) DEFAULT 3.9 ,
+  5  SIZEHS VARCHAR(3O));
+SIZEHS VARCHAR(3O))
+                *
+ERROR at line 5:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE STUDENT(
+  2  SID NUMBER(5) PRIMARY KEY,
+  3  SNAME VARCHAR(50) ,
+  4  GPA NUMBER(3,1) DEFAULT ('3,9'),
+  5  SIZEHS VARCHAR(3O));
+SIZEHS VARCHAR(3O))
+                *
+ERROR at line 5:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE STUDENT(
+  2  SID NUMBER(5) PRIMARY KEY,
+  3  SNAME VARCHAR(50) ,
+  4  GPA NUMBER(3,1) DEFAULT 3.9,
+  5  SIZEHS VARCHAR(3O)));
+SIZEHS VARCHAR(3O)))
+                *
+ERROR at line 5:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE STUDENT(
+  2  SID NUMBER(5) PRIMARY KEY,
+  3  SNAME VARCHAR(50) ,
+  4  GPA NUMBER(3,1) DEFAULT 3.9);
+
+Table created.
+
+SQL> CREATE TABLE APPLY(
+  2  SID NUMBER(5),
+  3  CNAME VARCHAR(50),
+  4  MAJOR VARCHAR(50),
+  5  DECISION CHAR(1),
+  6  CONSTRAINT PK_APP PRIMARY KEY (SID,CNAME,MAJOR),
+  7  CONSTRAINT FK_AA FOREIGN KEY (SID) REFERENCES STUDENT,
+  8  CONSTRAINT FK_AAS FOREIGN KEY (CNAME) REFERENCES COLLEGE);
+
+Table created.
+
+SQL> INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('&NOME','&ESTADO','&AA');
+Enter value for nome: AE
+Enter value for estado: SP
+Enter value for aa: 11145
+old   1: INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('&NOME','&ESTADO','&AA')
+new   1: INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('AE','SP','11145')
+
+1 row created.
+
+SQL> /
+Enter value for nome: UNIME
+Enter value for estado: SP
+Enter value for aa: 15562
+old   1: INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('&NOME','&ESTADO','&AA')
+new   1: INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('UNIME','SP','15562')
+
+1 row created.
+
+SQL> /
+Enter value for nome: UNIMONTE
+Enter value for estado: RS
+Enter value for aa: 11121
+old   1: INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('&NOME','&ESTADO','&AA')
+new   1: INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('UNIMONTE','RS','11121')
+
+1 row created.
+
+SQL> /
+Enter value for nome: BRASIZ
+Enter value for estado: RS
+Enter value for aa: 12
+old   1: INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('&NOME','&ESTADO','&AA')
+new   1: INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('BRASIZ','RS','12')
+
+1 row created.
+
+SQL> /
+Enter value for nome: UNIP
+Enter value for estado: RJ
+Enter value for aa: 99999
+old   1: INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('&NOME','&ESTADO','&AA')
+new   1: INSERT INTO COLLEGE (CNAME,STATE,ENROLLMENT) VALUES ('UNIP','RJ','99999')
+
+1 row created.
+
+SQL> INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('&ID','&NOME',DEFAULT);
+Enter value for id: 1234
+Enter value for nome: HED
+old   1: INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('&ID','&NOME',DEFAULT)
+new   1: INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('1234','HED',DEFAULT)
+
+1 row created.
+
+SQL> /
+Enter value for id: 1101
+Enter value for nome: HUEHUE
+old   1: INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('&ID','&NOME',DEFAULT)
+new   1: INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('1101','HUEHUE',DEFAULT)
+
+1 row created.
+
+SQL> /
+Enter value for id: 0011
+Enter value for nome: KAIO
+old   1: INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('&ID','&NOME',DEFAULT)
+new   1: INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('0011','KAIO',DEFAULT)
+
+1 row created.
+
+SQL> /
+Enter value for id: 1122
+Enter value for nome: KAYO
+old   1: INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('&ID','&NOME',DEFAULT)
+new   1: INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('1122','KAYO',DEFAULT)
+
+1 row created.
+
+SQL> /
+Enter value for id: 9999
+Enter value for nome: HED
+old   1: INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('&ID','&NOME',DEFAULT)
+new   1: INSERT INTO STUDENT (SID,SNAME,GPA) VALUES ('9999','HED',DEFAULT)
+
+1 row created.
+
+SQL> INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('&ID','&FACUL','&MAJOR','&DECISION');
+Enter value for id: 9999
+Enter value for facul: UNIP
+Enter value for major: ANALISE
+Enter value for decision: Y
+old   1: INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('&ID','&FACUL','&MAJOR','&DECISION')
+new   1: INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('9999','UNIP','ANALISE','Y')
+
+1 row created.
+
+SQL> /
+Enter value for id: 1122
+Enter value for facul: UNIMONTE
+Enter value for major: BIOMEDICINA
+Enter value for decision: Y
+old   1: INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('&ID','&FACUL','&MAJOR','&DECISION')
+new   1: INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('1122','UNIMONTE','BIOMEDICINA','Y')
+
+1 row created.
+
+SQL> /
+Enter value for id: 0011
+Enter value for facul: UNIMONTE
+Enter value for major: BIOENGENHARIA
+Enter value for decision: Y
+old   1: INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('&ID','&FACUL','&MAJOR','&DECISION')
+new   1: INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('0011','UNIMONTE','BIOENGENHARIA','Y')
+
+1 row created.
+
+SQL> /
+Enter value for id: 1100
+Enter value for facul: UNIO
+Enter value for major: AAAA
+Enter value for decision: Y
+old   1: INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('&ID','&FACUL','&MAJOR','&DECISION')
+new   1: INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('1100','UNIO','AAAA','Y')
+INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('1100','UNIO','AAAA','Y')
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (HED.FK_AAS) violated - parent key not found 
+
+
+SQL> /
+Enter value for id: 1101
+Enter value for facul: UNIMONTE
+Enter value for major: BIODIVERSIDADE
+Enter value for decision: Y
+old   1: INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('&ID','&FACUL','&MAJOR','&DECISION')
+new   1: INSERT INTO APPLY(SID,CNAME,MAJOR,DECISION) VALUES ('1101','UNIMONTE','BIODIVERSIDADE','Y')
+
+1 row created.
+
+SQL> SELECT SID, MAJOR FROM APPLY WHERE MAJOR LIKE '%BIO%'
+  2  
+SQL> SELECT SID, MAJOR FROM APPLY WHERE MAJOR LIKE '%BIO%';
+
+       SID MAJOR                                                                
+---------- --------------------------------------------------                   
+        11 BIOENGENHARIA                                                        
+      1101 BIODIVERSIDADE                                                       
+      1122 BIOMEDICINA                                                          
+
+SQL> SELECT SID, MAJOR,cname FROM APPLY WHERE MAJOR LIKE '%BIO%';
+
+       SID MAJOR                                                                
+---------- --------------------------------------------------                   
+CNAME                                                                           
+--------------------------------------------------                              
+        11 BIOENGENHARIA                                                        
+UNIMONTE                                                                        
+                                                                                
+      1101 BIODIVERSIDADE                                                       
+UNIMONTE                                                                        
+                                                                                
+      1122 BIOMEDICINA                                                          
+UNIMONTE                                                                        
+                                                                                
+
+SQL> SELECT STUDENT.SID,SNAME,GPA,APPLY.CNAME,ENROLLMENT
+  2  FROM STUDENT, COLLEGE, APLLY
+  3  WHERE APPLY.SID = STUDENT.SID;
+FROM STUDENT, COLLEGE, APLLY
+                       *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> SELECT STUDENT.SID,SNAME,GPA,APPLY.CNAME,ENROLLMENT
+  2  FROM STUDENT, COLLEGE, APPLY
+  3  WHERE APPLY.SID = STUDENT.SID;
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                99999                   
+                                                                                
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                   12                   
+                                                                                
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                11121                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                15562                   
+                                                                                
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                11145                   
+                                                                                
+        11 KAIO                                                      3.9        
+UNIMONTE                                                99999                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+        11 KAIO                                                      3.9        
+UNIMONTE                                                   12                   
+                                                                                
+        11 KAIO                                                      3.9        
+UNIMONTE                                                11121                   
+                                                                                
+        11 KAIO                                                      3.9        
+UNIMONTE                                                15562                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+        11 KAIO                                                      3.9        
+UNIMONTE                                                11145                   
+                                                                                
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                99999                   
+                                                                                
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                   12                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                11121                   
+                                                                                
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                15562                   
+                                                                                
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                11145                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      9999 HED                                                       3.9        
+UNIP                                                    99999                   
+                                                                                
+      9999 HED                                                       3.9        
+UNIP                                                       12                   
+                                                                                
+      9999 HED                                                       3.9        
+UNIP                                                    11121                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      9999 HED                                                       3.9        
+UNIP                                                    15562                   
+                                                                                
+      9999 HED                                                       3.9        
+UNIP                                                    11145                   
+                                                                                
+
+20 rows selected.
+
+SQL> SELECT DISTINCT STUDENT.SID,SNAME,GPA,APPLY.CNAME,ENROLLMENT
+  2  FROM STUDENT, COLLEGE, APPLY
+  3  WHERE APPLY.SID = STUDENT.SID;
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                11121                   
+                                                                                
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                15562                   
+                                                                                
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                   12                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                99999                   
+                                                                                
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                15562                   
+                                                                                
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                   12                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      9999 HED                                                       3.9        
+UNIP                                                    11145                   
+                                                                                
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                99999                   
+                                                                                
+      9999 HED                                                       3.9        
+UNIP                                                    99999                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      9999 HED                                                       3.9        
+UNIP                                                       12                   
+                                                                                
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                11121                   
+                                                                                
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                11145                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+        11 KAIO                                                      3.9        
+UNIMONTE                                                11121                   
+                                                                                
+        11 KAIO                                                      3.9        
+UNIMONTE                                                11145                   
+                                                                                
+        11 KAIO                                                      3.9        
+UNIMONTE                                                99999                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+        11 KAIO                                                      3.9        
+UNIMONTE                                                   12                   
+                                                                                
+        11 KAIO                                                      3.9        
+UNIMONTE                                                15562                   
+                                                                                
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                11145                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      9999 HED                                                       3.9        
+UNIP                                                    11121                   
+                                                                                
+      9999 HED                                                       3.9        
+UNIP                                                    15562                   
+                                                                                
+
+20 rows selected.
+
+SQL> SELECT STUDENT.SID,SNAME,GPA,APPLY.CNAME,ENROLLMENT
+  2  FROM STUDENT, COLLEGE, APPLY
+  3  WHERE APPLY.SID = STUDENT.SID AND APPLY.CNAME = COLLEGE.CNAME;
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                11121                   
+                                                                                
+        11 KAIO                                                      3.9        
+UNIMONTE                                                11121                   
+                                                                                
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                11121                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      9999 HED                                                       3.9        
+UNIP                                                    99999                   
+                                                                                
+
+SQL> -- ESSA  UMA JOIN PARA CERTIFICAR-SE QUE  DE FATO A MESMA PESSOA EM TODAS TABELAS--
+SQL> SELECT STUDENT.SID,SNAME,GPA,APPLY.CNAME,ENROLLMENT
+  2  FROM STUDENT, COLLEGE, APPLY
+  3  WHERE APPLY.SID = STUDENT.SID AND APPLY.CNAME = COLLEGE.CNAME
+  4  ORDER BY SID
+  5  ;
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+        11 KAIO                                                      3.9        
+UNIMONTE                                                11121                   
+                                                                                
+      1101 HUEHUE                                                    3.9        
+UNIMONTE                                                11121                   
+                                                                                
+      1122 KAYO                                                      3.9        
+UNIMONTE                                                11121                   
+                                                                                
+
+       SID SNAME                                                     GPA        
+---------- -------------------------------------------------- ----------        
+CNAME                                              ENROLLMENT                   
+-------------------------------------------------- ----------                   
+      9999 HED                                                       3.9        
+UNIP                                                    99999                   
+                                                                                
+
+SQL> select cname from college
+  2  union all
+  3  select sname from student;
+
+CNAME                                                                           
+--------------------------------------------------                              
+AE                                                                              
+BRASIZ                                                                          
+UNIME                                                                           
+UNIMONTE                                                                        
+UNIP                                                                            
+HED                                                                             
+HUEHUE                                                                          
+KAIO                                                                            
+KAYO                                                                            
+HED                                                                             
+
+10 rows selected.
+
+SQL> --seleciona tudo junto ‚ ideal que renomeie ambas sele‡äes--
+SQL> spool off

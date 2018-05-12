@@ -1,0 +1,10 @@
+insert into Rating values(201, 101, 2, '10/11/2019');
+insert into Rating values(201, 101, 4, '27/01/2011');
+insert into Rating values(202, 106, 4, null);
+insert into Rating values(203, 103, 2, '20/01/2011');
+insert into Rating values(203, 108, 4, '12/01/2011');
+insert into Rating values(203, 108, 2, '30/01/2011');
+insert into Rating values(204, 101, 3, '09/010/2011');
+insert into Rating values(205, 103, 3, '27/01/2011');
+insert into Rating values(205, 104, 2, '22/01/2011');
+insert into Rating values(205, 108, 4, null);

@@ -1,0 +1,415 @@
+SQL> SELECT COLUMN_NAME FROM DEPARTAMENTO;
+SELECT COLUMN_NAME FROM DEPARTAMENTO
+       *
+ERRO na linha 1:
+ORA-00904: "COLUMN_NAME": identificador inválido 
+
+
+SQL> SELECT ROW_NAME FROM DEPARTAMENTO;
+SELECT ROW_NAME FROM DEPARTAMENTO
+       *
+ERRO na linha 1:
+ORA-00904: "ROW_NAME": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH FROM USER_TAB_COLUMNS WHERE TABLE_NAME = 'DEPARTAMENTO';
+
+TABLE_NAME                     COLUMN_NAME                                      
+------------------------------ ------------------------------                   
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+DATA_LENGTH                                                                     
+-----------                                                                     
+DEPARTAMENTO                   ID_DEPT                                          
+NUMBER                                                                          
+         22                                                                     
+                                                                                
+DEPARTAMENTO                   NOME                                             
+VARCHAR2                                                                        
+         25                                                                     
+
+TABLE_NAME                     COLUMN_NAME                                      
+------------------------------ ------------------------------                   
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+DATA_LENGTH                                                                     
+-----------                                                                     
+                                                                                
+
+SQL> SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH FROM USER_TAB_COLUMNS WHERE TABLE_NAME = DEEW;
+SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH FROM USER_TAB_COLUMNS WHERE TABLE_NAME = DEEW
+                                                                                                *
+ERRO na linha 1:
+ORA-00904: "DEEW": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH FROM USER_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: EMPREGADO
+antigo   1: SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH FROM USER_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH FROM USER_TAB_COLUMNS WHERE TABLE_NAME = 'EMPREGADO'
+
+TABLE_NAME                     COLUMN_NAME                                      
+------------------------------ ------------------------------                   
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+DATA_LENGTH                                                                     
+-----------                                                                     
+EMPREGADO                      ID_EMRPEGADO                                     
+NUMBER                                                                          
+         22                                                                     
+                                                                                
+EMPREGADO                      NOME                                             
+VARCHAR2                                                                        
+         25                                                                     
+
+TABLE_NAME                     COLUMN_NAME                                      
+------------------------------ ------------------------------                   
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+DATA_LENGTH                                                                     
+-----------                                                                     
+                                                                                
+EMPREGADO                      SOBRENOME                                        
+VARCHAR2                                                                        
+         30                                                                     
+                                                                                
+EMPREGADO                      DEPTID                                           
+NUMBER                                                                          
+
+TABLE_NAME                     COLUMN_NAME                                      
+------------------------------ ------------------------------                   
+DATA_TYPE                                                                       
+--------------------------------------------------------------------------------
+DATA_LENGTH                                                                     
+-----------                                                                     
+         22                                                                     
+                                                                                
+
+SQL> SELECT * FROM USER_OBJECTS WHERE TABLE_NAME = 'EMPREGADO';
+SELECT * FROM USER_OBJECTS WHERE TABLE_NAME = 'EMPREGADO'
+                                 *
+ERRO na linha 1:
+ORA-00904: "TABLE_NAME": identificador inválido 
+
+
+SQL> SELECT COLUMN_NAME FROM USER_OBJECTS WHERE TABLE_NAME = 'EMPREGADO';
+SELECT COLUMN_NAME FROM USER_OBJECTS WHERE TABLE_NAME = 'EMPREGADO'
+                                           *
+ERRO na linha 1:
+ORA-00904: "TABLE_NAME": identificador inválido 
+
+
+SQL> SELECT COLUMN_NAME FROM USER_TAB_COLUMNS WHERE TABLE_NAME = 'EMPREGADO';
+
+COLUMN_NAME                                                                     
+------------------------------                                                  
+ID_EMRPEGADO                                                                    
+NOME                                                                            
+SOBRENOME                                                                       
+DEPTID                                                                          
+
+SQL> ALTER TABLE EMPREGADO
+  2  ADD (SALARIO NUMBER(7,2));
+
+Tabela alterada.
+
+SQL> SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH FROM USER_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: XD
+antigo   1: SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH FROM USER_TAB_COLUMNS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH FROM USER_TAB_COLUMNS WHERE TABLE_NAME = 'XD'
+
+não há linhas selecionadas
+
+SQL> SAVE C:\facul\Basic\BD\SCRIPT02.SQL
+Criado file C:\facul\Basic\BD\SCRIPT02.SQL
+SQL> SELECT USER_CONSTRAINTS, USER_CONS_COLUMNS FROM ALL_TABLES WHERE TABLE_NAME ='&TABELA'
+  2  
+SQL> SELECT USER_CONSTRAINTS, USER_CONS_COLUMNS FROM ALL_TABLES WHERE TABLE_NAME ='&TABELA';
+Informe o valor para tabela: DEPARTAMENTO
+antigo   1: SELECT USER_CONSTRAINTS, USER_CONS_COLUMNS FROM ALL_TABLES WHERE TABLE_NAME ='&TABELA'
+novo   1: SELECT USER_CONSTRAINTS, USER_CONS_COLUMNS FROM ALL_TABLES WHERE TABLE_NAME ='DEPARTAMENTO'
+SELECT USER_CONSTRAINTS, USER_CONS_COLUMNS FROM ALL_TABLES WHERE TABLE_NAME ='DEPARTAMENTO'
+                         *
+ERRO na linha 1:
+ORA-00904: "USER_CONS_COLUMNS": identificador inválido 
+
+
+SQL> SELECT * FROM USER_CONS_COLUMNS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: DEPARTAMENTO
+antigo   1: SELECT * FROM USER_CONS_COLUMNS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT * FROM USER_CONS_COLUMNS WHERE TABLE_NAME = 'DEPARTAMENTO'
+
+OWNER                          CONSTRAINT_NAME                                  
+------------------------------ ------------------------------                   
+TABLE_NAME                                                                      
+------------------------------                                                  
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+  POSITION                                                                      
+----------                                                                      
+HED                            PK_DEPARTAMENTO                                  
+DEPARTAMENTO                                                                    
+ID_DEPT                                                                         
+         1                                                                      
+                                                                                
+
+SQL> SELECT * FROM USER_CONS_COLUMNS AND USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: EMPREGADO
+antigo   1: SELECT * FROM USER_CONS_COLUMNS AND USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT * FROM USER_CONS_COLUMNS AND USER_CONSTRAINTS WHERE TABLE_NAME = 'EMPREGADO'
+SELECT * FROM USER_CONS_COLUMNS AND USER_CONSTRAINTS WHERE TABLE_NAME = 'EMPREGADO'
+                                *
+ERRO na linha 1:
+ORA-00933: comando SQL não encerrado adequadamente 
+
+
+SQL> SELECT * FROM USER_CONS_COLUMNS, USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: EMPREGADO
+antigo   1: SELECT * FROM USER_CONS_COLUMNS, USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT * FROM USER_CONS_COLUMNS, USER_CONSTRAINTS WHERE TABLE_NAME = 'EMPREGADO'
+SELECT * FROM USER_CONS_COLUMNS, USER_CONSTRAINTS WHERE TABLE_NAME = 'EMPREGADO'
+                                                        *
+ERRO na linha 1:
+ORA-00918: coluna definida de maneira ambígua 
+
+
+SQL> SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: EMPREGADO
+antigo   1: SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME = 'EMPREGADO'
+
+não há linhas selecionadas
+
+SQL> SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: DEPARTAMENTO
+antigo   1: SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME = 'DEPARTAMENTO'
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+HED                            PK_DEPARTAMENTO                P                 
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+DEPARTAMENTO                                                                    
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                        ENABLED 
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+NOT DEFERRABLE IMMEDIATE VALIDATED     USER NAME               28/02/18         
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+HED                            PK_DEPARTAMENTO                                  
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+OWNER                          CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+R_OWNER                        R_CONSTRAINT_NAME              DELETE_RU STATUS  
+------------------------------ ------------------------------ --------- --------
+DEFERRABLE     DEFERRED  VALIDATED     GENERATED      BAD RELY LAST_CHA         
+-------------- --------- ------------- -------------- --- ---- --------         
+INDEX_OWNER                    INDEX_NAME                     INVALID           
+------------------------------ ------------------------------ -------           
+VIEW_RELATED                                                                    
+--------------                                                                  
+                                                                                
+
+SQL> SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: EMPREGADO
+antigo   1: SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = 'EMPREGADO'
+
+não há linhas selecionadas
+
+SQL> SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: DEPARTAMENTO
+antigo   1: SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = 'DEPARTAMENTO'
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+CONSTRAINT_NAME                                                                 
+------------------------------                                                  
+DEPARTAMENTO                                                                    
+                                                                                
+PK_DEPARTAMENTO                                                                 
+                                                                                
+
+SQL> SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS, COLUMN_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: DEPARTAMENTO
+antigo   1: SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS, COLUMN_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS, COLUMN_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = 'DEPARTAMENTO'
+SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS, COLUMN_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = 'DEPARTAMENTO'
+                                                              *
+ERRO na linha 1:
+ORA-00904: "COLUMN_NAME": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS, COLUMN_NAME FROM ALL_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: DEPARTAMENTO
+antigo   1: SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS, COLUMN_NAME FROM ALL_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS, COLUMN_NAME FROM ALL_CONSTRAINTS WHERE TABLE_NAME = 'DEPARTAMENTO'
+SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS, COLUMN_NAME FROM ALL_CONSTRAINTS WHERE TABLE_NAME = 'DEPARTAMENTO'
+                                                              *
+ERRO na linha 1:
+ORA-00904: "COLUMN_NAME": identificador inválido 
+
+
+SQL> SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS FROM ALL_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: DEPARTAMENTO
+antigo   1: SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS FROM ALL_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT TABLE_NAME, SEARCH_CONDITION, CONSTRAINT_NAME, STATUS FROM ALL_CONSTRAINTS WHERE TABLE_NAME = 'DEPARTAMENTO'
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+CONSTRAINT_NAME                STATUS                                           
+------------------------------ --------                                         
+DEPARTAMENTO                                                                    
+                                                                                
+PK_DEPARTAMENTO                ENABLED                                          
+                                                                                
+DEPARTAMENTO                                                                    
+                                                                                
+PK_DEPARTAMENTO                ENABLED                                          
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+CONSTRAINT_NAME                STATUS                                           
+------------------------------ --------                                         
+                                                                                
+
+SQL> SAVE C:\facul\Basic\BD\select02.sql
+Criado file C:\facul\Basic\BD\select02.sql
+SQL> COMMENT ON TABLE DEPARTAMENTO IS 'OLA ESSE E MEU PRIMEIRO COMENTARIO';
+
+Comentário criado.
+
+SQL> SELECT * FROM USER_TAB_COMMENTS;
+
+TABLE_NAME                     TABLE_TYPE                                       
+------------------------------ -----------                                      
+COMMENTS                                                                        
+--------------------------------------------------------------------------------
+DEPARTAMENTO                   TABLE                                            
+OLA ESSE E MEU PRIMEIRO COMENTARIO                                              
+                                                                                
+EMPREGADO                      TABLE                                            
+                                                                                
+                                                                                
+EMPREGADO2                     TABLE                                            
+                                                                                
+                                                                                
+
+SQL> SELECT * FROM ALL_ALL_TABLES WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: DEPARTAMENTO
+antigo   1: SELECT * FROM ALL_ALL_TABLES WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT * FROM ALL_ALL_TABLES WHERE TABLE_NAME = 'DEPARTAMENTO'
+                                                  
+                                                                                
+
+SQL> SPOOL OFF

@@ -1,0 +1,43 @@
+SQL> -- INSERT COM VARIAVEIS DE SUBSTITUI€ÇO
+SQL> INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('&Sigla','&Nome');
+Informe o valor para sigla: DIR
+Informe o valor para nome: DIREITO
+antigo   1: INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('&Sigla','&Nome')
+novo   1: INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('DIR','DIREITO')
+INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('DIR','DIREITO')
+*
+ERRO na linha 1:
+ORA-00001: restrição exclusiva (SYSTEM.PK_CURSO) violada 
+
+
+SQL> INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('&Sigla','&Nome');
+Informe o valor para sigla: Gas
+Informe o valor para nome: Gastronomia
+antigo   1: INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('&Sigla','&Nome')
+novo   1: INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('Gas','Gastronomia')
+
+1 linha criada.
+
+SQL> /
+Informe o valor para sigla: ENGC
+Informe o valor para nome: Engenharia Civ¡l
+antigo   1: INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('&Sigla','&Nome')
+novo   1: INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('ENGC','Engenharia Civ¡l')
+
+1 linha criada.
+
+SQL> /
+Informe o valor para sigla: CDP
+Informe o valor para nome: Ciencia da Computa‡Æo
+antigo   1: INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('&Sigla','&Nome')
+novo   1: INSERT INTO CURSO (SG_CURSO,NM_CURSO) VALUES ('CDP','Ciencia da Computa‡Æo')
+
+1 linha criada.
+
+SQL> COOMIT;
+SP2-0042: comando desconhecido "COOMIT" - restante da linha ignorado.
+SQL> COMMIT;
+
+Commit concluído.
+
+SQL> 

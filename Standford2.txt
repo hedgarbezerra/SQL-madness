@@ -1,0 +1,17 @@
+SELECT DISTINCT H.NAME,H.GRADE ,H1.NAME,H1.GRADE,H2.NAME,H2.GRADE
+FROM HIGHSCHOOLER AS H, HIGHSCHOOLER AS H1, HIGHSCHOOLER AS H2, LIKES AS L
+WHERE H.ID = L.ID1 
+AND H1.ID = L.ID2 
+AND H2.ID IN(
+--Se o estudante  3 está na segunda coluna da tabela LIKES--
+SELECT likes.id2
+    FROM likes
+    WHERE likes.id1 = h1.id
+)
+AND H.ID NOT IN
+(
+--Se o estudante 1 não está na segunda tabela da estudante 2--
+    SELECT LIKES.ID2
+    FROM LIKES
+    WHERE LIKES.ID1 = H1.ID
+);

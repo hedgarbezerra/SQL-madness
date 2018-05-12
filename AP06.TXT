@@ -1,0 +1,162 @@
+SQL> SELECT TABLE_NAME, COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME LIKE '&TABELA';
+Informe o valor para tabela: EMPREGADO
+antigo   1: SELECT TABLE_NAME, COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME LIKE '&TABELA'
+novo   1: SELECT TABLE_NAME, COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME LIKE 'EMPREGADO'
+
+TABLE_NAME                     COLUMN_NAME                                      
+------------------------------ ------------------------------                   
+EMPREGADO                      ID_EMRPEGADO                                     
+EMPREGADO                      NOME                                             
+EMPREGADO                      SOBRENOME                                        
+EMPREGADO                      DEPTID                                           
+EMPREGADO                      ID_EMRPEGADO                                     
+EMPREGADO                      NOME                                             
+EMPREGADO                      SOBRENOME                                        
+EMPREGADO                      DEPTID                                           
+
+8 linhas selecionadas.
+
+SQL> SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE FROM ALL_CONSTRAINTS WHERE TABLE_NAME = '&TABELA';
+Informe o valor para tabela: EMPREGADO
+antigo   1: SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE FROM ALL_CONSTRAINTS WHERE TABLE_NAME = '&TABELA'
+novo   1: SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE FROM ALL_CONSTRAINTS WHERE TABLE_NAME = 'EMPREGADO'
+
+CONSTRAINT_NAME                C                                                
+------------------------------ -                                                
+FK_EMPREGADO_DEPT              R                                                
+FK_EMPREGADO_DEPT              R                                                
+
+SQL> ALTER TABLE EMPREGADO ADD CONSTRAINT PK_EMPREGADO PRIMARY KEY (ID_EMPREGADO);
+ALTER TABLE EMPREGADO ADD CONSTRAINT PK_EMPREGADO PRIMARY KEY (ID_EMPREGADO)
+                                                               *
+ERRO na linha 1:
+ORA-00904: "ID_EMPREGADO": identificador inválido 
+
+
+SQL> ALTER TABLE EMPREGADO RENAME COLUMN ID_EMRPEGADO TO ID_EMPREGADO;
+
+Tabela alterada.
+
+SQL> ALTER TABLE EMPREGADO ADD CONSTRAINT PK_EMPREGADO PRIMARY KEY (ID_EMPREGADO);
+
+Tabela alterada.
+
+SQL> INSERT INTO EMPREGADO(ID_EMPREGADO, NOME, SOBRENOME,DEPTID) VALUES ('1457846','HEITOR','PEREIRA','10');
+
+1 linha criada.
+
+SQL> INSERT INTO EMPREGADO(ID_EMPREGADO, NOME, SOBRENOME,DEPTID) VALUES ('1457816','HEITOR','PEREIRA','10');
+
+1 linha criada.
+
+SQL> INSERT INTO EMPREGADO(ID_EMPREGADO, NOME, SOBRENOME,DEPTID) VALUES ('1457816','HEITOR','PEREIRA','10');
+INSERT INTO EMPREGADO(ID_EMPREGADO, NOME, SOBRENOME,DEPTID) VALUES ('1457816','HEITOR','PEREIRA','10')
+*
+ERRO na linha 1:
+ORA-00001: restrição exclusiva (HED.PK_EMPREGADO) violada 
+
+
+SQL> UPDATE EMPREGADO SET ID_EMPREGADO = '1234567' WHERE NOME = 'HEITOR';
+UPDATE EMPREGADO SET ID_EMPREGADO = '1234567' WHERE NOME = 'HEITOR'
+*
+ERRO na linha 1:
+ORA-00001: restrição exclusiva (HED.PK_EMPREGADO) violada 
+
+
+SQL> UPDATE EMPREGADO SET SOBRENOME = 'AZUR' WHERE NOME = 'HEITOR';
+
+2 linhas atualizadas.
+
+SQL> UPDATE EMPREGADO SET ID_EMPREGADO = '1236547' WHERE ID_EMPREGADO = '1457846';
+
+1 linha atualizada.
+
+SQL> SELECT NOME FROM EMPREGADO WHERE ID_EMPREGADO = '&IDENTIFICACAO';
+Informe o valor para identificacao: 1236547
+antigo   1: SELECT NOME FROM EMPREGADO WHERE ID_EMPREGADO = '&IDENTIFICACAO'
+novo   1: SELECT NOME FROM EMPREGADO WHERE ID_EMPREGADO = '1236547'
+
+NOME                                                                            
+-------------------------                                                       
+HEITOR                                                                          
+
+SQL> SELECT NOME,SOBRENOME,DEPTID FROM EMPREGADO WHERE ID_EMPREGADO = '&IDENTIFICACAO';
+Informe o valor para identificacao: 1236547
+antigo   1: SELECT NOME,SOBRENOME,DEPTID FROM EMPREGADO WHERE ID_EMPREGADO = '&IDENTIFICACAO'
+novo   1: SELECT NOME,SOBRENOME,DEPTID FROM EMPREGADO WHERE ID_EMPREGADO = '1236547'
+
+NOME                      SOBRENOME                     DEPTID                  
+------------------------- ------------------------- ----------                  
+HEITOR                    AZUR                              10                  
+
+SQL> ALTER SEQUENCE DEPT_HED NOORDER;
+
+Seqüência alterada.
+
+SQL> SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME =  'DEPARTAMENTO';
+
+COLUMN_NAME                                                                     
+------------------------------                                                  
+ID_DEPT                                                                         
+NOME                                                                            
+ID_DEPT                                                                         
+NOME                                                                            
+
+SQL> INSERT INTO DEPARTAMENTO (ID_DEPT, NOME) VALUES (DEPT_HED.NEXTVAL, ADM);
+INSERT INTO DEPARTAMENTO (ID_DEPT, NOME) VALUES (DEPT_HED.NEXTVAL, ADM)
+                                                                   *
+ERRO na linha 1:
+ORA-00984: coluna não permitida aqui 
+
+
+SQL> INSERT INTO DEPARTAMENTO (ID_DEPT, NOME) VALUES (DEPT_HED.NEXTVAL, 'ADM');
+
+1 linha criada.
+
+SQL> SELECT * FROM DEPARTAMENTO;
+
+   ID_DEPT NOME                                                                 
+---------- -------------------------                                            
+        10 TI                                                                   
+        30 ADM                                                                  
+        20 ARROZ                                                                
+
+SQL> INSERT INTO DEPARTAMENTO (ID_DEPT, NOME) VALUES (DEPT_HED.NEXTVAL, 'ADMS');
+
+1 linha criada.
+
+SQL> SELECT * FROM DEPARTAMENTO;
+
+   ID_DEPT NOME                                                                 
+---------- -------------------------                                            
+        10 TI                                                                   
+        30 ADM                                                                  
+        40 ADMS                                                                 
+        20 ARROZ                                                                
+
+SQL> SAVEPOINT AP06;
+
+Ponto de salvamento criado.
+
+SQL> COMMIT;
+
+Commit concluído.
+
+SQL> ROLLBACK TO SAVEPOINT AP06;
+ROLLBACK TO SAVEPOINT AP06
+*
+ERRO na linha 1:
+ORA-01086: ponto de salvamento 'AP06' nunca estabelecido 
+
+
+SQL> SAVEPOINT AP06;
+
+Ponto de salvamento criado.
+
+SQL> ROLLBACK TO SAVEPOINT AP06;
+
+Rollback concluído.
+
+SQL> --QUANDO FOR DADO COMMIT ELE APAGARA TODOS SAVEPOINTS,ENTAO SO FACA COMMIT SE TIVER CTZ--
+SQL> -- BOA NOITE,HOJE O DIA FOI PRODUTIVO XD--
+SQL> SPOOL OFF

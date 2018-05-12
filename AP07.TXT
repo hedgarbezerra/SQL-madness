@@ -1,0 +1,216 @@
+SQL> CREATE TABLE PESSOA_FISICA(
+  2  CD_PESSOA NUMBER(5),
+  3  NM_PESSOA VARCHAR(60) NOT NULL,
+  4  CD_CPF VARCHAR(11),
+  5  CD_IDENTIDADE NUMBER(8) NOT NULL,
+  6  
+SQL> CREATE TABLE PESSOA_FISICA(
+  2  CD_PESSOA NUMBER(5),
+  3  NM_PESSOA VARCHAR(60) NOT NULL,
+  4  CD_CPF VARCHAR(11) NOT NULL,
+  5  CD_IDENTIDADE NUMBER(8) NOT NULL,
+  6  DT_NASCIMENTO DATE,
+  7  IC_SEXO CHAR(1),
+  8  ESTADO_CIVIL CHAR(10) NOT NULL,
+  9  CONSTRAINT PK_PESSOA_FISICA PRIMARY KEY (CD_PESSOA),
+ 10  CONSTRAINT UK_CPF_PESSOA UNIQUE (CD_CPF),
+ 11  CONSTRAINT CK_SEXO CHECK (IC_SEXO IN ('M','m','F','f')));
+
+Tabela criada.
+
+SQL> INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTITDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL )
+  2  VALUES ('78360','PORSIDONIO RUA','12323445890','23456780','15/04/1988','M','SOLTEIRO');
+INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTITDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL )
+                                                        *
+ERRO na linha 1:
+ORA-00904: "CD_IDENTITDADE": identificador inválido 
+
+
+SQL> ALTER TABLE PESSOA_FISICA ADD NM_ORGAO_EXPEDIDOR CHAR(5) NOT NULL;
+
+Tabela alterada.
+
+SQL> INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTIDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL, NM_ORGAO_EXPEDIDOR )
+  2  VALUES ('78360','PORSIDONIO RUA','12323445890','23456780','15/04/1988','M','SOLTEIRO', 'SSP');
+
+1 linha criada.
+
+SQL> INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTIDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL, NM_ORGAO_EXPEDIDOR )
+  2  VALUES ('78360','PORSIDONIO RUA','12323445890','','04/01/1978','M','VIéVO', 'SSP');
+VALUES ('78360','PORSIDONIO RUA','12323445890','','04/01/1978','M','VIéVO', 'SSP')
+                                               *
+ERRO na linha 2:
+ORA-01400: não é possível inserir NULL em 
+("HED"."PESSOA_FISICA"."CD_IDENTIDADE") 
+
+
+SQL> ALTER TABLE PESSOA_FISICA MODIFY CD_IDENTIDADE VARCHAR(10);
+ALTER TABLE PESSOA_FISICA MODIFY CD_IDENTIDADE VARCHAR(10)
+                                 *
+ERRO na linha 1:
+ORA-01439: a coluna a ser modificada deve estar vazia para que o tipo de dados 
+seja alterado 
+
+
+SQL> DELETE * FROM PESSOA_FISICA;
+DELETE * FROM PESSOA_FISICA
+       *
+ERRO na linha 1:
+ORA-00903: nome de tabela inválido 
+
+
+SQL> DELETE * FROM PESSOA_FISICA;
+DELETE * FROM PESSOA_FISICA
+       *
+ERRO na linha 1:
+ORA-00903: nome de tabela inválido 
+
+
+SQL> DELETE * FROM PESSOA_FISICA;
+DELETE * FROM PESSOA_FISICA
+       *
+ERRO na linha 1:
+ORA-00903: nome de tabela inválido 
+
+
+SQL> DELETE * FROM PESSOA_FISICA WHERE CD_PESSOA = '78360';
+DELETE * FROM PESSOA_FISICA WHERE CD_PESSOA = '78360'
+       *
+ERRO na linha 1:
+ORA-00903: nome de tabela inválido 
+
+
+SQL> DELETE  FROM PESSOA_FISICA WHERE CD_PESSOA = '78360';
+
+1 linha deletada.
+
+SQL> ALTER TABLE PESSOA_FISICA MODIFY CD_IDENTIDADE VARCHAR(10);
+
+Tabela alterada.
+
+SQL> INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTIDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL, NM_ORGAO_EXPEDIDOR )
+  2  VALUES ('78360','PORSIDONIO RUA','12323445890','23456780','15/04/1988','M','SOLTEIRO', 'SSP');
+
+1 linha criada.
+
+SQL> INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTIDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL, NM_ORGAO_EXPEDIDOR )
+  2  VALUES ('78360','PORSIDONIO RUA','12323445890','23456780','15/04/1988','M','SOLTEIRO', 'SSP');
+INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTIDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL, NM_ORGAO_EXPEDIDOR )
+*
+ERRO na linha 1:
+ORA-00001: restrição exclusiva (HED.PK_PESSOA_FISICA) violada 
+
+
+SQL> DELETE  FROM PESSOA_FISICA WHERE CD_PESSOA = '78360';
+
+1 linha deletada.
+
+SQL> INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTIDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL, NM_ORGAO_EXPEDIDOR )
+  2  VALUES ('78360','PORSIDONIO RUA','12323445890','','04/01/1978','M','VIéVO', 'SSP');
+VALUES ('78360','PORSIDONIO RUA','12323445890','','04/01/1978','M','VIéVO', 'SSP')
+                                               *
+ERRO na linha 2:
+ORA-01400: não é possível inserir NULL em 
+("HED"."PESSOA_FISICA"."CD_IDENTIDADE") 
+
+
+SQL> INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTIDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL, NM_ORGAO_EXPEDIDOR )
+  2  VALUES ('78360','PORSIDONIO RUA','12323445890','23456780','04/01/1978','M','VIéVO', 'SSP');
+
+1 linha criada.
+
+SQL> INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTIDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL, NM_ORGAO_EXPEDIDOR )
+  2  VALUES ('78361','CARIOLANDO TABUADA','98798778967','445567X','04/01/1988','M','SOLTEIRO', 'SSP');
+
+1 linha criada.
+
+SQL> INSERT INTO PESSOA_FISICA(CD_PESSOA, NM_PESSOA, CD_CPF, CD_IDENTIDADE, DT_NASCIMENTO, IC_SEXO, ESTADO_CIVIL, NM_ORGAO_EXPEDIDOR )
+  2  VALUES ('78362','GERTRUDES AVENIDA','4567898809','986754340','02/04/1988','M','SOLTEIRO', 'SSP');
+
+1 linha criada.
+
+SQL> SELECT * FROM PESSOA_FISICA;
+
+ CD_PESSOA NM_PESSOA                                                            
+---------- ------------------------------------------------------------         
+CD_CPF      CD_IDENTID DT_NASCI I ESTADO_CIV NM_OR                              
+----------- ---------- -------- - ---------- -----                              
+     78360 PORSIDONIO RUA                                                       
+12323445890 23456780   04/01/78 M VIéVO      SSP                                
+                                                                                
+     78361 CARIOLANDO TABUADA                                                   
+98798778967 445567X    04/01/88 M SOLTEIRO   SSP                                
+                                                                                
+     78362 GERTRUDES AVENIDA                                                    
+4567898809  986754340  02/04/88 M SOLTEIRO   SSP                                
+                                                                                
+
+SQL> UPDATE PESSOA_FISICA SET ('F') WHERE CD_PESSOA = '78362';
+UPDATE PESSOA_FISICA SET ('F') WHERE CD_PESSOA = '78362'
+                          *
+ERRO na linha 1:
+ORA-01747: especificação inválida para usuário.tabela.coluna, tabela.coluna ou 
+de coluna 
+
+
+SQL> UPDATE PESSOA_FISICA SET IC_SEXO ('F') WHERE CD_PESSOA = '78362';
+UPDATE PESSOA_FISICA SET IC_SEXO ('F') WHERE CD_PESSOA = '78362'
+                                 *
+ERRO na linha 1:
+ORA-00927: sinal de igual não encontrado 
+
+
+SQL> UPDATE PESSOA_FISICA SET IC_SEXO ='F' WHERE CD_PESSOA = '78362';
+
+1 linha atualizada.
+
+SQL> SELECT * FROM PESSOA_FISICA;
+
+ CD_PESSOA NM_PESSOA                                                            
+---------- ------------------------------------------------------------         
+CD_CPF      CD_IDENTID DT_NASCI I ESTADO_CIV NM_OR                              
+----------- ---------- -------- - ---------- -----                              
+     78360 PORSIDONIO RUA                                                       
+12323445890 23456780   04/01/78 M VIéVO      SSP                                
+                                                                                
+     78361 CARIOLANDO TABUADA                                                   
+98798778967 445567X    04/01/88 M SOLTEIRO   SSP                                
+                                                                                
+     78362 GERTRUDES AVENIDA                                                    
+4567898809  986754340  02/04/88 F SOLTEIRO   SSP                                
+                                                                                
+
+SQL> UPDATE PESSOA_FISICA SET NM_PESSOA = 'GENOVEVA FLORES' WHERE CD_PESSOA='78361';
+
+1 linha atualizada.
+
+SQL> SELECT * FROM PESSOA_FISICA;
+
+ CD_PESSOA NM_PESSOA                                                            
+---------- ------------------------------------------------------------         
+CD_CPF      CD_IDENTID DT_NASCI I ESTADO_CIV NM_OR                              
+----------- ---------- -------- - ---------- -----                              
+     78360 PORSIDONIO RUA                                                       
+12323445890 23456780   04/01/78 M VIéVO      SSP                                
+                                                                                
+     78361 GENOVEVA FLORES                                                      
+98798778967 445567X    04/01/88 M SOLTEIRO   SSP                                
+                                                                                
+     78362 GERTRUDES AVENIDA                                                    
+4567898809  986754340  02/04/88 F SOLTEIRO   SSP                                
+                                                                                
+
+SQL> UPDATE PESSOA_FISICA SET IC_SEXO ='F',ESTADO_CIVIL = 'CASADA',IC_SEXO ='F' WHERE CD_PESSOA = '78362';
+UPDATE PESSOA_FISICA SET IC_SEXO ='F',ESTADO_CIVIL = 'CASADA',IC_SEXO ='F' WHERE CD_PESSOA = '78362'
+                                                              *
+ERRO na linha 1:
+ORA-00957: nome de coluna duplicado 
+
+
+SQL> UPDATE PESSOA_FISICA SET IC_SEXO ='F',ESTADO_CIVIL = 'CASADA' WHERE CD_PESSOA = '78362';
+
+1 linha atualizada.
+
+SQL> CLEAR SCREEN
+
+SQL> SPOOL OFF

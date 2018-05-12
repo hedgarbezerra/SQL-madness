@@ -1,0 +1,762 @@
+SQL> SELECT DISTINCT DEPARTMENT_ID FROM DEPARTMENTS WHERE  DEPARTMENT_ID IN (SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE JOB_ID = 'ST_CLERK');
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           50                                                                   
+
+SQL> SELECT DISTINCT DEPARTMENT_ID FROM DEPARTMENTS WHERE  DEPARTMENT_ID NOT IN (SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE JOB_ID = 'ST_CLERK');
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          220                                                                   
+          170                                                                   
+           60                                                                   
+          110                                                                   
+           10                                                                   
+          240                                                                   
+           30                                                                   
+           70                                                                   
+          210                                                                   
+          160                                                                   
+          150                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          250                                                                   
+           90                                                                   
+          140                                                                   
+          260                                                                   
+          200                                                                   
+          120                                                                   
+           80                                                                   
+          270                                                                   
+          130                                                                   
+          100                                                                   
+          180                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           20                                                                   
+          190                                                                   
+           40                                                                   
+          230                                                                   
+
+26 rows selected.
+
+SQL> SELECT DEPARTMENT_ID FROM DEPARTMENTS
+  2  MINUS
+  3  SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE JOB_ID = 'ST_CLERK';
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           10                                                                   
+           20                                                                   
+           30                                                                   
+           40                                                                   
+           60                                                                   
+           70                                                                   
+           80                                                                   
+           90                                                                   
+          100                                                                   
+          110                                                                   
+          120                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          130                                                                   
+          140                                                                   
+          150                                                                   
+          160                                                                   
+          170                                                                   
+          180                                                                   
+          190                                                                   
+          200                                                                   
+          210                                                                   
+          220                                                                   
+          230                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          240                                                                   
+          250                                                                   
+          260                                                                   
+          270                                                                   
+
+26 rows selected.
+
+SQL> --ESSAS SÇO DUAS FORMAS DE FAZER UMA SELE€ÇO UMA SUBQUERY E OUTRA COM JOIN--
+SQL> SELECT DEPARTMENT_ID FROM DEPARTMENTS
+  2  UNION
+  3  SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE JOB_ID = 'ST_CLERK';
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           10                                                                   
+           20                                                                   
+           30                                                                   
+           40                                                                   
+           50                                                                   
+           60                                                                   
+           70                                                                   
+           80                                                                   
+           90                                                                   
+          100                                                                   
+          110                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          120                                                                   
+          130                                                                   
+          140                                                                   
+          150                                                                   
+          160                                                                   
+          170                                                                   
+          180                                                                   
+          190                                                                   
+          200                                                                   
+          210                                                                   
+          220                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          230                                                                   
+          240                                                                   
+          250                                                                   
+          260                                                                   
+          270                                                                   
+
+27 rows selected.
+
+SQL> SELECT DISTINCT DEPARTMENT_ID FROM DEPARTMENTS WHERE  DEPARTMENT_ID NOT IN (SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE JOB_ID = 'ST_CLERK');
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          220                                                                   
+          170                                                                   
+           60                                                                   
+          110                                                                   
+           10                                                                   
+          240                                                                   
+           30                                                                   
+           70                                                                   
+          210                                                                   
+          160                                                                   
+          150                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          250                                                                   
+           90                                                                   
+          140                                                                   
+          260                                                                   
+          200                                                                   
+          120                                                                   
+           80                                                                   
+          270                                                                   
+          130                                                                   
+          100                                                                   
+          180                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           20                                                                   
+          190                                                                   
+           40                                                                   
+          230                                                                   
+
+26 rows selected.
+
+SQL> SELECT DEPARTMENT_ID FROM DEPARTMENTS WHERE  DEPARTMENT_ID NOT IN (SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE JOB_ID = 'ST_CLERK');
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          220                                                                   
+          170                                                                   
+           60                                                                   
+          110                                                                   
+           10                                                                   
+          240                                                                   
+           30                                                                   
+           70                                                                   
+          210                                                                   
+          160                                                                   
+          150                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          250                                                                   
+           90                                                                   
+          140                                                                   
+          260                                                                   
+          200                                                                   
+          120                                                                   
+           80                                                                   
+          270                                                                   
+          130                                                                   
+          100                                                                   
+          180                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           20                                                                   
+          190                                                                   
+           40                                                                   
+          230                                                                   
+
+26 rows selected.
+
+SQL> SELECT DEPARTMENT_ID FROM DEPARTMENTS WHERE  DEPARTMENT_ID IN (SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE JOB_ID = 'ST_CLERK');
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           50                                                                   
+
+SQL> SELECT DEPARTMENT_ID FROM DEPARTMENTS
+  2  INTERSECT
+  3  SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE JOB_ID = 'ST_CLERK';
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           50                                                                   
+
+SQL> SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE JOB_ID = 'ST_CLERK';
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+           50                                                                   
+
+20 rows selected.
+
+SQL> CLEAR SCREEN
+
+SQL> SELECT JOB_ID FROM JOBS;
+
+JOB_ID                                                                          
+----------                                                                      
+AC_ACCOUNT                                                                      
+AC_MGR                                                                          
+AD_ASST                                                                         
+AD_PRES                                                                         
+AD_VP                                                                           
+FI_ACCOUNT                                                                      
+FI_MGR                                                                          
+HR_REP                                                                          
+IT_PROG                                                                         
+MK_MAN                                                                          
+MK_REP                                                                          
+
+JOB_ID                                                                          
+----------                                                                      
+PR_REP                                                                          
+PU_CLERK                                                                        
+PU_MAN                                                                          
+SA_MAN                                                                          
+SA_REP                                                                          
+SH_CLERK                                                                        
+ST_CLERK                                                                        
+ST_MAN                                                                          
+
+19 rows selected.
+
+SQL> SELECT JOB_NAME FROM JOBS WHERE JOB_ID = 'ST_CLERK'
+  2  ;
+SELECT JOB_NAME FROM JOBS WHERE JOB_ID = 'ST_CLERK'
+       *
+ERROR at line 1:
+ORA-00904: "JOB_NAME": invalid identifier 
+
+
+SQL> SELECT JOB_NAME FROM JOBS WHERE JOB_ID = 'ST_CLERK';
+SELECT JOB_NAME FROM JOBS WHERE JOB_ID = 'ST_CLERK'
+       *
+ERROR at line 1:
+ORA-00904: "JOB_NAME": invalid identifier 
+
+
+SQL> DESC JOBS
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ JOB_TITLE                                 NOT NULL VARCHAR2(35)
+ MIN_SALARY                                         NUMBER(6)
+ MAX_SALARY                                         NUMBER(6)
+
+SQL> SELECT JOB_TITLE FROM JOBS WHERE JOB_ID = 'ST_CLERK';
+
+JOB_TITLE                                                                       
+-----------------------------------                                             
+Stock Clerk                                                                     
+
+SQL> DESC DEPARTMENTS
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPARTMENT_ID                             NOT NULL NUMBER(4)
+ DEPARTMENT_NAME                           NOT NULL VARCHAR2(30)
+ MANAGER_ID                                         NUMBER(6)
+ LOCATION_ID                                        NUMBER(4)
+
+SQL> SELECT DEPARTMENT_NAME FROM DEPARTMENTS WHERE DEPARTMENT_ID = 50;
+
+DEPARTMENT_NAME                                                                 
+------------------------------                                                  
+Shipping                                                                        
+
+SQL> SELECT EMPLOYEE_ID, JOB_ID FROM EMPLOYEES
+  2  INTERSECT
+  3  SELECT EMPLOYEE_ID FROM JOB_HISTORY WHERE EMPLOYEES.JOB_ID = JOB_HISTORY.JOB_ID;
+SELECT EMPLOYEE_ID FROM JOB_HISTORY WHERE EMPLOYEES.JOB_ID = JOB_HISTORY.JOB_ID
+                                          *
+ERROR at line 3:
+ORA-00904: "EMPLOYEES"."JOB_ID": invalid identifier 
+
+
+SQL> SELECT EMPLOYEE_ID, JOB_ID FROM EMPLOYEES
+  2  INTERSECT
+  3  SELECT EMPLOYEE_ID, JOB_ID FROM JOB_HISTORY;
+
+EMPLOYEE_ID JOB_ID                                                              
+----------- ----------                                                          
+        176 SA_REP                                                              
+        200 AD_ASST                                                             
+
+SQL> SELECT JOB_ID FROM EMPLOYESS WHERE EMPLOYEE_ID = 176;
+SELECT JOB_ID FROM EMPLOYESS WHERE EMPLOYEE_ID = 176
+                   *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> SELECT JOB_ID FROM EMPLOYEES WHERE EMPLOYEE_ID = 176;
+
+JOB_ID                                                                          
+----------                                                                      
+SA_REP                                                                          
+
+SQL> SELECT JOB_ID FROM JOB_HISTORY WHERE EMPLOYEE_ID = 176;
+
+JOB_ID                                                                          
+----------                                                                      
+SA_REP                                                                          
+SA_MAN                                                                          
+
+SQL> SELECT LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES
+  2  UNION ALL
+  3  SELECT DEPARTMENT_ID, DEPARTMENT_NAME FROM DEPARTMENTS;
+SELECT LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES
+       *
+ERROR at line 1:
+ORA-01790: expression must have same datatype as corresponding expression 
+
+
+SQL> SELECT LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES
+  2  UNION ALL
+  3  SELECT DEPARTMENT_NAME, DEPARTMENT_ID FROM DEPARTMENTS;
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+King                                      90                                    
+Kochhar                                   90                                    
+De Haan                                   90                                    
+Hunold                                    60                                    
+Ernst                                     60                                    
+Austin                                    60                                    
+Pataballa                                 60                                    
+Lorentz                                   60                                    
+Greenberg                                100                                    
+Faviet                                   100                                    
+Chen                                     100                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Sciarra                                  100                                    
+Urman                                    100                                    
+Popp                                     100                                    
+Raphaely                                  30                                    
+Khoo                                      30                                    
+Baida                                     30                                    
+Tobias                                    30                                    
+Himuro                                    30                                    
+Colmenares                                30                                    
+Weiss                                     50                                    
+Fripp                                     50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Kaufling                                  50                                    
+Vollman                                   50                                    
+Mourgos                                   50                                    
+Nayer                                     50                                    
+Mikkilineni                               50                                    
+Landry                                    50                                    
+Markle                                    50                                    
+Bissot                                    50                                    
+Atkinson                                  50                                    
+Marlow                                    50                                    
+Olson                                     50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Mallin                                    50                                    
+Rogers                                    50                                    
+Gee                                       50                                    
+Philtanker                                50                                    
+Ladwig                                    50                                    
+Stiles                                    50                                    
+Seo                                       50                                    
+Patel                                     50                                    
+Rajs                                      50                                    
+Davies                                    50                                    
+Matos                                     50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Vargas                                    50                                    
+Russell                                   80                                    
+Partners                                  80                                    
+Errazuriz                                 80                                    
+Cambrault                                 80                                    
+Zlotkey                                   80                                    
+Tucker                                    80                                    
+Bernstein                                 80                                    
+Hall                                      80                                    
+Olsen                                     80                                    
+Cambrault                                 80                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Tuvault                                   80                                    
+King                                      80                                    
+Sully                                     80                                    
+McEwen                                    80                                    
+Smith                                     80                                    
+Doran                                     80                                    
+Sewall                                    80                                    
+Vishney                                   80                                    
+Greene                                    80                                    
+Marvins                                   80                                    
+Lee                                       80                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Ande                                      80                                    
+Banda                                     80                                    
+Ozer                                      80                                    
+Bloom                                     80                                    
+Fox                                       80                                    
+Smith                                     80                                    
+Bates                                     80                                    
+Kumar                                     80                                    
+Abel                                      80                                    
+Hutton                                    80                                    
+Taylor                                    80                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Livingston                                80                                    
+Grant                                                                           
+Johnson                                   80                                    
+Taylor                                    50                                    
+Fleaur                                    50                                    
+Sullivan                                  50                                    
+Geoni                                     50                                    
+Sarchand                                  50                                    
+Bull                                      50                                    
+Dellinger                                 50                                    
+Cabrio                                    50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Chung                                     50                                    
+Dilly                                     50                                    
+Gates                                     50                                    
+Perkins                                   50                                    
+Bell                                      50                                    
+Everett                                   50                                    
+McCain                                    50                                    
+Jones                                     50                                    
+Walsh                                     50                                    
+Feeney                                    50                                    
+OConnell                                  50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Grant                                     50                                    
+Whalen                                    10                                    
+Hartstein                                 20                                    
+Fay                                       20                                    
+Mavris                                    40                                    
+Baer                                      70                                    
+Higgins                                  110                                    
+Gietz                                    110                                    
+Administration                            10                                    
+Marketing                                 20                                    
+Purchasing                                30                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Human Resources                           40                                    
+Shipping                                  50                                    
+IT                                        60                                    
+Public Relations                          70                                    
+Sales                                     80                                    
+Executive                                 90                                    
+Finance                                  100                                    
+Accounting                               110                                    
+Treasury                                 120                                    
+Corporate Tax                            130                                    
+Control And Credit                       140                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Shareholder Services                     150                                    
+Benefits                                 160                                    
+Manufacturing                            170                                    
+Construction                             180                                    
+Contracting                              190                                    
+Operations                               200                                    
+IT Support                               210                                    
+NOC                                      220                                    
+IT Helpdesk                              230                                    
+Government Sales                         240                                    
+Retail Sales                             250                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Recruiting                               260                                    
+Payroll                                  270                                    
+
+134 rows selected.
+
+SQL> SELECT LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES
+  2  UNION ALL
+  3  SELECT DEPARTMENT_NAME, DEPARTMENT_ID FROM DEPARTMENTS
+  4  GROUP BY DEPARTMENT_ID;
+SELECT DEPARTMENT_NAME, DEPARTMENT_ID FROM DEPARTMENTS
+       *
+ERROR at line 3:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> SELECT LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES
+  2  UNION ALL
+  3  SELECT DEPARTMENT_NAME, DEPARTMENT_ID FROM DEPARTMENTS
+  4  GROUP BY 1;
+SELECT DEPARTMENT_NAME, DEPARTMENT_ID FROM DEPARTMENTS
+       *
+ERROR at line 3:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> SELECT LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES
+  2  UNION ALL
+  3  SELECT DEPARTMENT_NAME, DEPARTMENT_ID FROM DEPARTMENTS
+  4  ORDER BY DEPARTMENT_ID;
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Whalen                                    10                                    
+Administration                            10                                    
+Hartstein                                 20                                    
+Fay                                       20                                    
+Marketing                                 20                                    
+Raphaely                                  30                                    
+Khoo                                      30                                    
+Baida                                     30                                    
+Tobias                                    30                                    
+Himuro                                    30                                    
+Colmenares                                30                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Purchasing                                30                                    
+Mavris                                    40                                    
+Human Resources                           40                                    
+Weiss                                     50                                    
+Fripp                                     50                                    
+Kaufling                                  50                                    
+Vollman                                   50                                    
+Mourgos                                   50                                    
+Nayer                                     50                                    
+Mikkilineni                               50                                    
+Landry                                    50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Markle                                    50                                    
+Bissot                                    50                                    
+Atkinson                                  50                                    
+Marlow                                    50                                    
+Olson                                     50                                    
+Mallin                                    50                                    
+Rogers                                    50                                    
+Gee                                       50                                    
+Philtanker                                50                                    
+Ladwig                                    50                                    
+Stiles                                    50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Seo                                       50                                    
+Patel                                     50                                    
+Rajs                                      50                                    
+Davies                                    50                                    
+Matos                                     50                                    
+Vargas                                    50                                    
+Taylor                                    50                                    
+Fleaur                                    50                                    
+Sullivan                                  50                                    
+Geoni                                     50                                    
+Sarchand                                  50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Bull                                      50                                    
+Dellinger                                 50                                    
+Cabrio                                    50                                    
+Chung                                     50                                    
+Dilly                                     50                                    
+Gates                                     50                                    
+Perkins                                   50                                    
+Bell                                      50                                    
+Everett                                   50                                    
+McCain                                    50                                    
+Jones                                     50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Walsh                                     50                                    
+Feeney                                    50                                    
+OConnell                                  50                                    
+Grant                                     50                                    
+Shipping                                  50                                    
+Hunold                                    60                                    
+Ernst                                     60                                    
+Austin                                    60                                    
+Pataballa                                 60                                    
+Lorentz                                   60                                    
+IT                                        60                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Baer                                      70                                    
+Public Relations                          70                                    
+Russell                                   80                                    
+Partners                                  80                                    
+Errazuriz                                 80                                    
+Cambrault                                 80                                    
+Zlotkey                                   80                                    
+Tucker                                    80                                    
+Bernstein                                 80                                    
+Hall                                      80                                    
+Olsen                                     80                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Cambrault                                 80                                    
+Tuvault                                   80                                    
+King                                      80                                    
+Sully                                     80                                    
+McEwen                                    80                                    
+Smith                                     80                                    
+Doran                                     80                                    
+Sewall                                    80                                    
+Vishney                                   80                                    
+Greene                                    80                                    
+Marvins                                   80                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Lee                                       80                                    
+Ande                                      80                                    
+Banda                                     80                                    
+Ozer                                      80                                    
+Bloom                                     80                                    
+Fox                                       80                                    
+Smith                                     80                                    
+Bates                                     80                                    
+Kumar                                     80                                    
+Abel                                      80                                    
+Hutton                                    80                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Taylor                                    80                                    
+Livingston                                80                                    
+Johnson                                   80                                    
+Sales                                     80                                    
+Executive                                 90                                    
+De Haan                                   90                                    
+Kochhar                                   90                                    
+King                                      90                                    
+Urman                                    100                                    
+Popp                                     100                                    
+Finance                                  100                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Chen                                     100                                    
+Faviet                                   100                                    
+Greenberg                                100                                    
+Sciarra                                  100                                    
+Gietz                                    110                                    
+Accounting                               110                                    
+Higgins                                  110                                    
+Treasury                                 120                                    
+Corporate Tax                            130                                    
+Control And Credit                       140                                    
+Shareholder Services                     150                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Benefits                                 160                                    
+Manufacturing                            170                                    
+Construction                             180                                    
+Contracting                              190                                    
+Operations                               200                                    
+IT Support                               210                                    
+NOC                                      220                                    
+IT Helpdesk                              230                                    
+Government Sales                         240                                    
+Retail Sales                             250                                    
+Recruiting                               260                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Payroll                                  270                                    
+Grant                                                                           
+
+134 rows selected.
+
+SQL> SELECT LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES
+  2  UNION ALL
+  3  SELECT DEPARTMENT_NAME, DEPARTMENT_ID FROM DEPARTMENTS
+  4  ORDER BY DEPARTMENT_NAME;
+ORDER BY DEPARTMENT_NAME
+         *
+ERROR at line 4:
+ORA-00904: "DEPARTMENT_NAME": invalid identifier 
+
+
+SQL> SPOOL OFF

@@ -1,0 +1,5 @@
+SQL> --EXECUTAR SCRIPT--
+SQL> START D:\BD\SCRIPT1.SQL
+SP2-0640: Não conectado
+SP2-0734: início de comando desconhecido "ADD CONSTR..." - restante da linha ignorado.
+SQL> SPOOL OFF

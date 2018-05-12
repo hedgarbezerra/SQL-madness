@@ -1,0 +1,1187 @@
+SQL> DESC EMPLOYEES;
+ Nome                                      Nulo?    Tipo
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+
+SQL> SELECT * FROM EMPLOYEES;
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME                                      
+----------- -------------------- -------------------------                      
+EMAIL                     PHONE_NUMBER         HIRE_DAT JOB_ID         SALARY   
+------------------------- -------------------- -------- ---------- ----------   
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID                                         
+-------------- ---------- -------------                                         
+        100 ALOO                 King                                           
+SKING                     515.123.4567         17/06/03 AD_PRES         24000   
+                                     90                                         
+                                                                                
+        101 Neena                Kochhar                                        
+NKOCHHAR                  515.123.4568         21/09/05 AD_VP           17000   
+                      100            90                                         
+                                                                                
+        102 Lex                  De Haan                                        
+LDEHAAN                   515.123.4569         13/01/01 AD_VP           17000   
+                      100            90                                         
+                                                                                
+        103 Alexander            Hunold                                         
+AHUNOLD                   590.423.4567         03/01/06 IT_PROG          9000   
+                      102            60                                         
+                                                                                
+        104 Bruce                Ernst                                          
+BERNST                    590.423.4568         21/05/07 IT_PROG          6000   
+                      103            60                                         
+                                                                                
+        105 David                Austin                                         
+DAUSTIN                   590.423.4569         25/06/05 IT_PROG          4800   
+                      103            60                                         
+                                                                                
+        106 Valli                Pataballa                                      
+VPATABAL                  590.423.4560         05/02/06 IT_PROG          4800   
+                      103            60                                         
+                                                                                
+        107 Diana                Lorentz                                        
+DLORENTZ                  590.423.5567         07/02/07 IT_PROG          4200   
+                      103            60                                         
+                                                                                
+        108 Nancy                Greenberg                                      
+NGREENBE                  515.124.4569         17/08/02 FI_MGR          12008   
+                      101           100                                         
+                                                                                
+        109 Daniel               Faviet                                         
+DFAVIET                   515.124.4169         16/08/02 FI_ACCOUNT       9000   
+                      108           100                                         
+                                                                                
+        110 John                 Chen                                           
+JCHEN                     515.124.4269         28/09/05 FI_ACCOUNT       8200   
+                      108           100                                         
+                                                                                
+        111 Ismael               Sciarra                                        
+ISCIARRA                  515.124.4369         30/09/05 FI_ACCOUNT       7700   
+                      108           100                                         
+                                                                                
+        112 Jose Manuel          Urman                                          
+JMURMAN                   515.124.4469         07/03/06 FI_ACCOUNT       7800   
+                      108           100                                         
+                                                                                
+        113 Luis                 Popp                                           
+LPOPP                     515.124.4567         07/12/07 FI_ACCOUNT       6900   
+                      108           100                                         
+                                                                                
+        114 Den                  Raphaely                                       
+DRAPHEAL                  515.127.4561         07/12/02 PU_MAN          11000   
+                      100            30                                         
+                                                                                
+        115 Alexander            Khoo                                           
+AKHOO                     515.127.4562         18/05/03 PU_CLERK         3100   
+                      114            30                                         
+                                                                                
+        116 Shelli               Baida                                          
+SBAIDA                    515.127.4563         24/12/05 PU_CLERK         2900   
+                      114            30                                         
+                                                                                
+        117 Sigal                Tobias                                         
+STOBIAS                   515.127.4564         24/07/05 PU_CLERK         2800   
+                      114            30                                         
+                                                                                
+        118 Guy                  Himuro                                         
+GHIMURO                   515.127.4565         15/11/06 PU_CLERK         2600   
+                      114            30                                         
+                                                                                
+        119 Karen                Colmenares                                     
+KCOLMENA                  515.127.4566         10/08/07 PU_CLERK         2500   
+                      114            30                                         
+                                                                                
+        120 Matthew              Weiss                                          
+MWEISS                    650.123.1234         18/07/04 ST_MAN           8000   
+                      100            50                                         
+                                                                                
+        121 Adam                 Fripp                                          
+AFRIPP                    650.123.2234         10/04/05 ST_MAN           8200   
+                      100            50                                         
+                                                                                
+        122 Payam                Kaufling                                       
+PKAUFLIN                  650.123.3234         01/05/03 ST_MAN           7900   
+                      100            50                                         
+                                                                                
+        123 Shanta               Vollman                                        
+SVOLLMAN                  650.123.4234         10/10/05 ST_MAN           6500   
+                      100            50                                         
+                                                                                
+        124 Kevin                Mourgos                                        
+KMOURGOS                  650.123.5234         16/11/07 ST_MAN           5800   
+                      100            50                                         
+                                                                                
+        125 Julia                Nayer                                          
+JNAYER                    650.124.1214         16/07/05 ST_CLERK         3200   
+                      120            50                                         
+                                                                                
+        126 Irene                Mikkilineni                                    
+IMIKKILI                  650.124.1224         28/09/06 ST_CLERK         2700   
+                      120            50                                         
+                                                                                
+        127 James                Landry                                         
+JLANDRY                   650.124.1334         14/01/07 ST_CLERK         2400   
+                      120            50                                         
+                                                                                
+        128 Steven               Markle                                         
+SMARKLE                   650.124.1434         08/03/08 ST_CLERK         2200   
+                      120            50                                         
+                                                                                
+        129 Laura                Bissot                                         
+LBISSOT                   650.124.5234         20/08/05 ST_CLERK         3300   
+                      121            50                                         
+                                                                                
+        130 Mozhe                Atkinson                                       
+MATKINSO                  650.124.6234         30/10/05 ST_CLERK         2800   
+                      121            50                                         
+                                                                                
+        131 James                Marlow                                         
+JAMRLOW                   650.124.7234         16/02/05 ST_CLERK         2500   
+                      121            50                                         
+                                                                                
+        132 TJ                   Olson                                          
+TJOLSON                   650.124.8234         10/04/07 ST_CLERK         2100   
+                      121            50                                         
+                                                                                
+        133 Jason                Mallin                                         
+JMALLIN                   650.127.1934         14/06/04 ST_CLERK         3300   
+                      122            50                                         
+                                                                                
+        134 Michael              Rogers                                         
+MROGERS                   650.127.1834         26/08/06 ST_CLERK         2900   
+                      122            50                                         
+                                                                                
+        135 Ki                   Gee                                            
+KGEE                      650.127.1734         12/12/07 ST_CLERK         2400   
+                      122            50                                         
+                                                                                
+        136 Hazel                Philtanker                                     
+HPHILTAN                  650.127.1634         06/02/08 ST_CLERK         2200   
+                      122            50                                         
+                                                                                
+        137 Renske               Ladwig                                         
+RLADWIG                   650.121.1234         14/07/03 ST_CLERK         3600   
+                      123            50                                         
+                                                                                
+        138 Stephen              Stiles                                         
+SSTILES                   650.121.2034         26/10/05 ST_CLERK         3200   
+                      123            50                                         
+                                                                                
+        139 John                 Seo                                            
+JSEO                      650.121.2019         12/02/06 ST_CLERK         2700   
+                      123            50                                         
+                                                                                
+        140 Joshua               Patel                                          
+JPATEL                    650.121.1834         06/04/06 ST_CLERK         2500   
+                      123            50                                         
+                                                                                
+        141 Trenna               Rajs                                           
+TRAJS                     650.121.8009         17/10/03 ST_CLERK         3500   
+                      124            50                                         
+                                                                                
+        142 Curtis               Davies                                         
+CDAVIES                   650.121.2994         29/01/05 ST_CLERK         3100   
+                      124            50                                         
+                                                                                
+        143 Randall              Matos                                          
+RMATOS                    650.121.2874         15/03/06 ST_CLERK         2600   
+                      124            50                                         
+                                                                                
+        144 Peter                Vargas                                         
+PVARGAS                   650.121.2004         09/07/06 ST_CLERK         2500   
+                      124            50                                         
+                                                                                
+        145 John                 Russell                                        
+JRUSSEL                   011.44.1344.429268   01/10/04 SA_MAN          14000   
+            ,4        100            80                                         
+                                                                                
+        146 Karen                Partners                                       
+KPARTNER                  011.44.1344.467268   05/01/05 SA_MAN          13500   
+            ,3        100            80                                         
+                                                                                
+        147 Alberto              Errazuriz                                      
+AERRAZUR                  011.44.1344.429278   10/03/05 SA_MAN          12000   
+            ,3        100            80                                         
+                                                                                
+        148 Gerald               Cambrault                                      
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME                                      
+----------- -------------------- -------------------------                      
+EMAIL                     PHONE_NUMBER         HIRE_DAT JOB_ID         SALARY   
+------------------------- -------------------- -------- ---------- ----------   
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID                                         
+-------------- ---------- -------------                                         
+GCAMBRAU                  011.44.1344.619268   15/10/07 SA_MAN          11000   
+            ,3        100            80                                         
+                                                                                
+        149 Eleni                Zlotkey                                        
+EZLOTKEY                  011.44.1344.429018   29/01/08 SA_MAN          10500   
+            ,2        100            80                                         
+                                                                                
+        150 Peter                Tucker                                         
+PTUCKER                   011.44.1344.129268   30/01/05 SA_REP          10000   
+            ,3        145            80                                         
+                                                                                
+        151 David                Bernstein                                      
+DBERNSTE                  011.44.1344.345268   24/03/05 SA_REP           9500   
+           ,25        145            80                                         
+                                                                                
+        152 Peter                Hall                                           
+PHALL                     011.44.1344.478968   20/08/05 SA_REP           9000   
+           ,25        145            80                                         
+                                                                                
+        153 Christopher          Olsen                                          
+COLSEN                    011.44.1344.498718   30/03/06 SA_REP           8000   
+            ,2        145            80                                         
+                                                                                
+        154 Nanette              Cambrault                                      
+NCAMBRAU                  011.44.1344.987668   09/12/06 SA_REP           7500   
+            ,2        145            80                                         
+                                                                                
+        155 Oliver               Tuvault                                        
+OTUVAULT                  011.44.1344.486508   23/11/07 SA_REP           7000   
+           ,15        145            80                                         
+                                                                                
+        156 Janette              King                                           
+JKING                     011.44.1345.429268   30/01/04 SA_REP          10000   
+           ,35        146            80                                         
+                                                                                
+        157 Patrick              Sully                                          
+PSULLY                    011.44.1345.929268   04/03/04 SA_REP           9500   
+           ,35        146            80                                         
+                                                                                
+        158 Allan                McEwen                                         
+AMCEWEN                   011.44.1345.829268   01/08/04 SA_REP           9000   
+           ,35        146            80                                         
+                                                                                
+        159 Lindsey              Smith                                          
+LSMITH                    011.44.1345.729268   10/03/05 SA_REP           8000   
+            ,3        146            80                                         
+                                                                                
+        160 Louise               Doran                                          
+LDORAN                    011.44.1345.629268   15/12/05 SA_REP           7500   
+            ,3        146            80                                         
+                                                                                
+        161 Sarath               Sewall                                         
+SSEWALL                   011.44.1345.529268   03/11/06 SA_REP           7000   
+           ,25        146            80                                         
+                                                                                
+        162 Clara                Vishney                                        
+CVISHNEY                  011.44.1346.129268   11/11/05 SA_REP          10500   
+           ,25        147            80                                         
+                                                                                
+        163 Danielle             Greene                                         
+DGREENE                   011.44.1346.229268   19/03/07 SA_REP           9500   
+           ,15        147            80                                         
+                                                                                
+        164 Mattea               Marvins                                        
+MMARVINS                  011.44.1346.329268   24/01/08 SA_REP           7200   
+            ,1        147            80                                         
+                                                                                
+        165 David                Lee                                            
+DLEE                      011.44.1346.529268   23/02/08 SA_REP           6800   
+            ,1        147            80                                         
+                                                                                
+        166 Sundar               Ande                                           
+SANDE                     011.44.1346.629268   24/03/08 SA_REP           6400   
+            ,1        147            80                                         
+                                                                                
+        167 Amit                 Banda                                          
+ABANDA                    011.44.1346.729268   21/04/08 SA_REP           6200   
+            ,1        147            80                                         
+                                                                                
+        168 Lisa                 Ozer                                           
+LOZER                     011.44.1343.929268   11/03/05 SA_REP          11500   
+           ,25        148            80                                         
+                                                                                
+        169 Harrison             Bloom                                          
+HBLOOM                    011.44.1343.829268   23/03/06 SA_REP          10000   
+            ,2        148            80                                         
+                                                                                
+        170 Tayler               Fox                                            
+TFOX                      011.44.1343.729268   24/01/06 SA_REP           9600   
+            ,2        148            80                                         
+                                                                                
+        171 William              Smith                                          
+WSMITH                    011.44.1343.629268   23/02/07 SA_REP           7400   
+           ,15        148            80                                         
+                                                                                
+        172 Elizabeth            Bates                                          
+EBATES                    011.44.1343.529268   24/03/07 SA_REP           7300   
+           ,15        148            80                                         
+                                                                                
+        173 Sundita              Kumar                                          
+SKUMAR                    011.44.1343.329268   21/04/08 SA_REP           6100   
+            ,1        148            80                                         
+                                                                                
+        174 Ellen                Abel                                           
+EABEL                     011.44.1644.429267   11/05/04 SA_REP          11000   
+            ,3        149            80                                         
+                                                                                
+        175 Alyssa               Hutton                                         
+AHUTTON                   011.44.1644.429266   19/03/05 SA_REP           8800   
+           ,25        149            80                                         
+                                                                                
+        176 Jonathon             Taylor                                         
+JTAYLOR                   011.44.1644.429265   24/03/06 SA_REP           8600   
+            ,2        149            80                                         
+                                                                                
+        177 Jack                 Livingston                                     
+JLIVINGS                  011.44.1644.429264   23/04/06 SA_REP           8400   
+            ,2        149            80                                         
+                                                                                
+        178 Kimberely            Grant                                          
+KGRANT                    011.44.1644.429263   24/05/07 SA_REP           7000   
+           ,15        149                                                       
+                                                                                
+        179 Charles              Johnson                                        
+CJOHNSON                  011.44.1644.429262   04/01/08 SA_REP           6200   
+            ,1        149            80                                         
+                                                                                
+        180 Winston              Taylor                                         
+WTAYLOR                   650.507.9876         24/01/06 SH_CLERK         3200   
+                      120            50                                         
+                                                                                
+        181 Jean                 Fleaur                                         
+JFLEAUR                   650.507.9877         23/02/06 SH_CLERK         3100   
+                      120            50                                         
+                                                                                
+        182 Martha               Sullivan                                       
+MSULLIVA                  650.507.9878         21/06/07 SH_CLERK         2500   
+                      120            50                                         
+                                                                                
+        183 Girard               Geoni                                          
+GGEONI                    650.507.9879         03/02/08 SH_CLERK         2800   
+                      120            50                                         
+                                                                                
+        184 Nandita              Sarchand                                       
+NSARCHAN                  650.509.1876         27/01/04 SH_CLERK         4200   
+                      121            50                                         
+                                                                                
+        185 Alexis               Bull                                           
+ABULL                     650.509.2876         20/02/05 SH_CLERK         4100   
+                      121            50                                         
+                                                                                
+        186 Julia                Dellinger                                      
+JDELLING                  650.509.3876         24/06/06 SH_CLERK         3400   
+                      121            50                                         
+                                                                                
+        187 Anthony              Cabrio                                         
+ACABRIO                   650.509.4876         07/02/07 SH_CLERK         3000   
+                      121            50                                         
+                                                                                
+        188 Kelly                Chung                                          
+KCHUNG                    650.505.1876         14/06/05 SH_CLERK         3800   
+                      122            50                                         
+                                                                                
+        189 Jennifer             Dilly                                          
+JDILLY                    650.505.2876         13/08/05 SH_CLERK         3600   
+                      122            50                                         
+                                                                                
+        190 Timothy              Gates                                          
+TGATES                    650.505.3876         11/07/06 SH_CLERK         2900   
+                      122            50                                         
+                                                                                
+        191 Randall              Perkins                                        
+RPERKINS                  650.505.4876         19/12/07 SH_CLERK         2500   
+                      122            50                                         
+                                                                                
+        192 Sarah                Bell                                           
+SBELL                     650.501.1876         04/02/04 SH_CLERK         4000   
+                      123            50                                         
+                                                                                
+        193 Britney              Everett                                        
+BEVERETT                  650.501.2876         03/03/05 SH_CLERK         3900   
+                      123            50                                         
+                                                                                
+        194 Samuel               McCain                                         
+SMCCAIN                   650.501.3876         01/07/06 SH_CLERK         3200   
+                      123            50                                         
+                                                                                
+        195 Vance                Jones                                          
+VJONES                    650.501.4876         17/03/07 SH_CLERK         2800   
+                      123            50                                         
+                                                                                
+        196 Alana                Walsh                                          
+AWALSH                    650.507.9811         24/04/06 SH_CLERK         3100   
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME                                      
+----------- -------------------- -------------------------                      
+EMAIL                     PHONE_NUMBER         HIRE_DAT JOB_ID         SALARY   
+------------------------- -------------------- -------- ---------- ----------   
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID                                         
+-------------- ---------- -------------                                         
+                      124            50                                         
+                                                                                
+        197 Kevin                Feeney                                         
+KFEENEY                   650.507.9822         23/05/06 SH_CLERK         3000   
+                      124            50                                         
+                                                                                
+        198 Donald               OConnell                                       
+DOCONNEL                  650.507.9833         21/06/07 SH_CLERK         2600   
+                      124            50                                         
+                                                                                
+        199 Douglas              Grant                                          
+DGRANT                    650.507.9844         13/01/08 SH_CLERK         2600   
+                      124            50                                         
+                                                                                
+        200 Jennifer             Whalen                                         
+JWHALEN                   515.123.4444         17/09/03 AD_ASST          4400   
+                      101            10                                         
+                                                                                
+        201 Michael              Hartstein                                      
+MHARTSTE                  515.123.5555         17/02/04 MK_MAN          13000   
+                      100            20                                         
+                                                                                
+        202 Pat                  Fay                                            
+PFAY                      603.123.6666         17/08/05 MK_REP           6000   
+                      201            20                                         
+                                                                                
+        203 Susan                Mavris                                         
+SMAVRIS                   515.123.7777         07/06/02 HR_REP           6500   
+                      101            40                                         
+                                                                                
+        204 Hermann              Baer                                           
+HBAER                     515.123.8888         07/06/02 PR_REP          10000   
+                      101            70                                         
+                                                                                
+        205 Shelley              Higgins                                        
+SHIGGINS                  515.123.8080         07/06/02 AC_MGR          12008   
+                      101           110                                         
+                                                                                
+        206 William              Gietz                                          
+WGIETZ                    515.123.8181         07/06/02 AC_ACCOUNT       8300   
+                      205           110                                         
+                                                                                
+
+107 linhas selecionadas.
+
+SQL> SELECT FIRST_NAME||' '||LAST_NAME AS "NOME", JOB_ID, HIRE_DATE FROM EMPLOYEES;
+
+NOME                                           JOB_ID     HIRE_DAT              
+---------------------------------------------- ---------- --------              
+ALOO King                                      AD_PRES    17/06/03              
+Neena Kochhar                                  AD_VP      21/09/05              
+Lex De Haan                                    AD_VP      13/01/01              
+Alexander Hunold                               IT_PROG    03/01/06              
+Bruce Ernst                                    IT_PROG    21/05/07              
+David Austin                                   IT_PROG    25/06/05              
+Valli Pataballa                                IT_PROG    05/02/06              
+Diana Lorentz                                  IT_PROG    07/02/07              
+Nancy Greenberg                                FI_MGR     17/08/02              
+Daniel Faviet                                  FI_ACCOUNT 16/08/02              
+John Chen                                      FI_ACCOUNT 28/09/05              
+Ismael Sciarra                                 FI_ACCOUNT 30/09/05              
+Jose Manuel Urman                              FI_ACCOUNT 07/03/06              
+Luis Popp                                      FI_ACCOUNT 07/12/07              
+Den Raphaely                                   PU_MAN     07/12/02              
+Alexander Khoo                                 PU_CLERK   18/05/03              
+Shelli Baida                                   PU_CLERK   24/12/05              
+Sigal Tobias                                   PU_CLERK   24/07/05              
+Guy Himuro                                     PU_CLERK   15/11/06              
+Karen Colmenares                               PU_CLERK   10/08/07              
+Matthew Weiss                                  ST_MAN     18/07/04              
+Adam Fripp                                     ST_MAN     10/04/05              
+Payam Kaufling                                 ST_MAN     01/05/03              
+Shanta Vollman                                 ST_MAN     10/10/05              
+Kevin Mourgos                                  ST_MAN     16/11/07              
+Julia Nayer                                    ST_CLERK   16/07/05              
+Irene Mikkilineni                              ST_CLERK   28/09/06              
+James Landry                                   ST_CLERK   14/01/07              
+Steven Markle                                  ST_CLERK   08/03/08              
+Laura Bissot                                   ST_CLERK   20/08/05              
+Mozhe Atkinson                                 ST_CLERK   30/10/05              
+James Marlow                                   ST_CLERK   16/02/05              
+TJ Olson                                       ST_CLERK   10/04/07              
+Jason Mallin                                   ST_CLERK   14/06/04              
+Michael Rogers                                 ST_CLERK   26/08/06              
+Ki Gee                                         ST_CLERK   12/12/07              
+Hazel Philtanker                               ST_CLERK   06/02/08              
+Renske Ladwig                                  ST_CLERK   14/07/03              
+Stephen Stiles                                 ST_CLERK   26/10/05              
+John Seo                                       ST_CLERK   12/02/06              
+Joshua Patel                                   ST_CLERK   06/04/06              
+Trenna Rajs                                    ST_CLERK   17/10/03              
+Curtis Davies                                  ST_CLERK   29/01/05              
+Randall Matos                                  ST_CLERK   15/03/06              
+Peter Vargas                                   ST_CLERK   09/07/06              
+John Russell                                   SA_MAN     01/10/04              
+Karen Partners                                 SA_MAN     05/01/05              
+Alberto Errazuriz                              SA_MAN     10/03/05              
+Gerald Cambrault                               SA_MAN     15/10/07              
+Eleni Zlotkey                                  SA_MAN     29/01/08              
+Peter Tucker                                   SA_REP     30/01/05              
+David Bernstein                                SA_REP     24/03/05              
+Peter Hall                                     SA_REP     20/08/05              
+Christopher Olsen                              SA_REP     30/03/06              
+Nanette Cambrault                              SA_REP     09/12/06              
+Oliver Tuvault                                 SA_REP     23/11/07              
+Janette King                                   SA_REP     30/01/04              
+Patrick Sully                                  SA_REP     04/03/04              
+Allan McEwen                                   SA_REP     01/08/04              
+Lindsey Smith                                  SA_REP     10/03/05              
+Louise Doran                                   SA_REP     15/12/05              
+Sarath Sewall                                  SA_REP     03/11/06              
+Clara Vishney                                  SA_REP     11/11/05              
+Danielle Greene                                SA_REP     19/03/07              
+Mattea Marvins                                 SA_REP     24/01/08              
+David Lee                                      SA_REP     23/02/08              
+Sundar Ande                                    SA_REP     24/03/08              
+Amit Banda                                     SA_REP     21/04/08              
+Lisa Ozer                                      SA_REP     11/03/05              
+Harrison Bloom                                 SA_REP     23/03/06              
+Tayler Fox                                     SA_REP     24/01/06              
+William Smith                                  SA_REP     23/02/07              
+Elizabeth Bates                                SA_REP     24/03/07              
+Sundita Kumar                                  SA_REP     21/04/08              
+Ellen Abel                                     SA_REP     11/05/04              
+Alyssa Hutton                                  SA_REP     19/03/05              
+Jonathon Taylor                                SA_REP     24/03/06              
+Jack Livingston                                SA_REP     23/04/06              
+Kimberely Grant                                SA_REP     24/05/07              
+Charles Johnson                                SA_REP     04/01/08              
+Winston Taylor                                 SH_CLERK   24/01/06              
+Jean Fleaur                                    SH_CLERK   23/02/06              
+Martha Sullivan                                SH_CLERK   21/06/07              
+Girard Geoni                                   SH_CLERK   03/02/08              
+Nandita Sarchand                               SH_CLERK   27/01/04              
+Alexis Bull                                    SH_CLERK   20/02/05              
+Julia Dellinger                                SH_CLERK   24/06/06              
+Anthony Cabrio                                 SH_CLERK   07/02/07              
+Kelly Chung                                    SH_CLERK   14/06/05              
+Jennifer Dilly                                 SH_CLERK   13/08/05              
+Timothy Gates                                  SH_CLERK   11/07/06              
+Randall Perkins                                SH_CLERK   19/12/07              
+Sarah Bell                                     SH_CLERK   04/02/04              
+Britney Everett                                SH_CLERK   03/03/05              
+Samuel McCain                                  SH_CLERK   01/07/06              
+Vance Jones                                    SH_CLERK   17/03/07              
+Alana Walsh                                    SH_CLERK   24/04/06              
+Kevin Feeney                                   SH_CLERK   23/05/06              
+Donald OConnell                                SH_CLERK   21/06/07              
+Douglas Grant                                  SH_CLERK   13/01/08              
+Jennifer Whalen                                AD_ASST    17/09/03              
+Michael Hartstein                              MK_MAN     17/02/04              
+Pat Fay                                        MK_REP     17/08/05              
+Susan Mavris                                   HR_REP     07/06/02              
+Hermann Baer                                   PR_REP     07/06/02              
+Shelley Higgins                                AC_MGR     07/06/02              
+William Gietz                                  AC_ACCOUNT 07/06/02              
+
+107 linhas selecionadas.
+
+SQL> SAVE C:\EXERC01.SQL
+SP2-0110: Não é possível criar arquivo "C:\EXERC01.SQL"
+SQL> SAVE E:\EXERC01.SQL
+Criado file E:\EXERC01.SQL
+SQL> @ E:\EXERC01.SQL
+
+NOME                                           JOB_ID     HIRE_DAT              
+---------------------------------------------- ---------- --------              
+ALOO King                                      AD_PRES    17/06/03              
+Neena Kochhar                                  AD_VP      21/09/05              
+Lex De Haan                                    AD_VP      13/01/01              
+Alexander Hunold                               IT_PROG    03/01/06              
+Bruce Ernst                                    IT_PROG    21/05/07              
+David Austin                                   IT_PROG    25/06/05              
+Valli Pataballa                                IT_PROG    05/02/06              
+Diana Lorentz                                  IT_PROG    07/02/07              
+Nancy Greenberg                                FI_MGR     17/08/02              
+Daniel Faviet                                  FI_ACCOUNT 16/08/02              
+John Chen                                      FI_ACCOUNT 28/09/05              
+Ismael Sciarra                                 FI_ACCOUNT 30/09/05              
+Jose Manuel Urman                              FI_ACCOUNT 07/03/06              
+Luis Popp                                      FI_ACCOUNT 07/12/07              
+Den Raphaely                                   PU_MAN     07/12/02              
+Alexander Khoo                                 PU_CLERK   18/05/03              
+Shelli Baida                                   PU_CLERK   24/12/05              
+Sigal Tobias                                   PU_CLERK   24/07/05              
+Guy Himuro                                     PU_CLERK   15/11/06              
+Karen Colmenares                               PU_CLERK   10/08/07              
+Matthew Weiss                                  ST_MAN     18/07/04              
+Adam Fripp                                     ST_MAN     10/04/05              
+Payam Kaufling                                 ST_MAN     01/05/03              
+Shanta Vollman                                 ST_MAN     10/10/05              
+Kevin Mourgos                                  ST_MAN     16/11/07              
+Julia Nayer                                    ST_CLERK   16/07/05              
+Irene Mikkilineni                              ST_CLERK   28/09/06              
+James Landry                                   ST_CLERK   14/01/07              
+Steven Markle                                  ST_CLERK   08/03/08              
+Laura Bissot                                   ST_CLERK   20/08/05              
+Mozhe Atkinson                                 ST_CLERK   30/10/05              
+James Marlow                                   ST_CLERK   16/02/05              
+TJ Olson                                       ST_CLERK   10/04/07              
+Jason Mallin                                   ST_CLERK   14/06/04              
+Michael Rogers                                 ST_CLERK   26/08/06              
+Ki Gee                                         ST_CLERK   12/12/07              
+Hazel Philtanker                               ST_CLERK   06/02/08              
+Renske Ladwig                                  ST_CLERK   14/07/03              
+Stephen Stiles                                 ST_CLERK   26/10/05              
+John Seo                                       ST_CLERK   12/02/06              
+Joshua Patel                                   ST_CLERK   06/04/06              
+Trenna Rajs                                    ST_CLERK   17/10/03              
+Curtis Davies                                  ST_CLERK   29/01/05              
+Randall Matos                                  ST_CLERK   15/03/06              
+Peter Vargas                                   ST_CLERK   09/07/06              
+John Russell                                   SA_MAN     01/10/04              
+Karen Partners                                 SA_MAN     05/01/05              
+Alberto Errazuriz                              SA_MAN     10/03/05              
+Gerald Cambrault                               SA_MAN     15/10/07              
+Eleni Zlotkey                                  SA_MAN     29/01/08              
+Peter Tucker                                   SA_REP     30/01/05              
+David Bernstein                                SA_REP     24/03/05              
+Peter Hall                                     SA_REP     20/08/05              
+Christopher Olsen                              SA_REP     30/03/06              
+Nanette Cambrault                              SA_REP     09/12/06              
+Oliver Tuvault                                 SA_REP     23/11/07              
+Janette King                                   SA_REP     30/01/04              
+Patrick Sully                                  SA_REP     04/03/04              
+Allan McEwen                                   SA_REP     01/08/04              
+Lindsey Smith                                  SA_REP     10/03/05              
+Louise Doran                                   SA_REP     15/12/05              
+Sarath Sewall                                  SA_REP     03/11/06              
+Clara Vishney                                  SA_REP     11/11/05              
+Danielle Greene                                SA_REP     19/03/07              
+Mattea Marvins                                 SA_REP     24/01/08              
+David Lee                                      SA_REP     23/02/08              
+Sundar Ande                                    SA_REP     24/03/08              
+Amit Banda                                     SA_REP     21/04/08              
+Lisa Ozer                                      SA_REP     11/03/05              
+Harrison Bloom                                 SA_REP     23/03/06              
+Tayler Fox                                     SA_REP     24/01/06              
+William Smith                                  SA_REP     23/02/07              
+Elizabeth Bates                                SA_REP     24/03/07              
+Sundita Kumar                                  SA_REP     21/04/08              
+Ellen Abel                                     SA_REP     11/05/04              
+Alyssa Hutton                                  SA_REP     19/03/05              
+Jonathon Taylor                                SA_REP     24/03/06              
+Jack Livingston                                SA_REP     23/04/06              
+Kimberely Grant                                SA_REP     24/05/07              
+Charles Johnson                                SA_REP     04/01/08              
+Winston Taylor                                 SH_CLERK   24/01/06              
+Jean Fleaur                                    SH_CLERK   23/02/06              
+Martha Sullivan                                SH_CLERK   21/06/07              
+Girard Geoni                                   SH_CLERK   03/02/08              
+Nandita Sarchand                               SH_CLERK   27/01/04              
+Alexis Bull                                    SH_CLERK   20/02/05              
+Julia Dellinger                                SH_CLERK   24/06/06              
+Anthony Cabrio                                 SH_CLERK   07/02/07              
+Kelly Chung                                    SH_CLERK   14/06/05              
+Jennifer Dilly                                 SH_CLERK   13/08/05              
+Timothy Gates                                  SH_CLERK   11/07/06              
+Randall Perkins                                SH_CLERK   19/12/07              
+Sarah Bell                                     SH_CLERK   04/02/04              
+Britney Everett                                SH_CLERK   03/03/05              
+Samuel McCain                                  SH_CLERK   01/07/06              
+Vance Jones                                    SH_CLERK   17/03/07              
+Alana Walsh                                    SH_CLERK   24/04/06              
+Kevin Feeney                                   SH_CLERK   23/05/06              
+Donald OConnell                                SH_CLERK   21/06/07              
+Douglas Grant                                  SH_CLERK   13/01/08              
+Jennifer Whalen                                AD_ASST    17/09/03              
+Michael Hartstein                              MK_MAN     17/02/04              
+Pat Fay                                        MK_REP     17/08/05              
+Susan Mavris                                   HR_REP     07/06/02              
+Hermann Baer                                   PR_REP     07/06/02              
+Shelley Higgins                                AC_MGR     07/06/02              
+William Gietz                                  AC_ACCOUNT 07/06/02              
+
+107 linhas selecionadas.
+
+SQL> SELECT DISTINCT JOB_ID FROM EMPLOYEES;
+
+JOB_ID                                                                          
+----------                                                                      
+AC_ACCOUNT                                                                      
+AC_MGR                                                                          
+AD_ASST                                                                         
+AD_PRES                                                                         
+AD_VP                                                                           
+FI_ACCOUNT                                                                      
+FI_MGR                                                                          
+HR_REP                                                                          
+IT_PROG                                                                         
+MK_MAN                                                                          
+MK_REP                                                                          
+PR_REP                                                                          
+PU_CLERK                                                                        
+PU_MAN                                                                          
+SA_MAN                                                                          
+SA_REP                                                                          
+SH_CLERK                                                                        
+ST_CLERK                                                                        
+ST_MAN                                                                          
+
+19 linhas selecionadas.
+
+SQL> @ E:\EXERC01.SQL
+
+NOME                                           JOB_ID     HIRE_DAT              
+---------------------------------------------- ---------- --------              
+ALOO King                                      AD_PRES    17/06/03              
+Neena Kochhar                                  AD_VP      21/09/05              
+Lex De Haan                                    AD_VP      13/01/01              
+Alexander Hunold                               IT_PROG    03/01/06              
+Bruce Ernst                                    IT_PROG    21/05/07              
+David Austin                                   IT_PROG    25/06/05              
+Valli Pataballa                                IT_PROG    05/02/06              
+Diana Lorentz                                  IT_PROG    07/02/07              
+Nancy Greenberg                                FI_MGR     17/08/02              
+Daniel Faviet                                  FI_ACCOUNT 16/08/02              
+John Chen                                      FI_ACCOUNT 28/09/05              
+Ismael Sciarra                                 FI_ACCOUNT 30/09/05              
+Jose Manuel Urman                              FI_ACCOUNT 07/03/06              
+Luis Popp                                      FI_ACCOUNT 07/12/07              
+Den Raphaely                                   PU_MAN     07/12/02              
+Alexander Khoo                                 PU_CLERK   18/05/03              
+Shelli Baida                                   PU_CLERK   24/12/05              
+Sigal Tobias                                   PU_CLERK   24/07/05              
+Guy Himuro                                     PU_CLERK   15/11/06              
+Karen Colmenares                               PU_CLERK   10/08/07              
+Matthew Weiss                                  ST_MAN     18/07/04              
+Adam Fripp                                     ST_MAN     10/04/05              
+Payam Kaufling                                 ST_MAN     01/05/03              
+Shanta Vollman                                 ST_MAN     10/10/05              
+Kevin Mourgos                                  ST_MAN     16/11/07              
+Julia Nayer                                    ST_CLERK   16/07/05              
+Irene Mikkilineni                              ST_CLERK   28/09/06              
+James Landry                                   ST_CLERK   14/01/07              
+Steven Markle                                  ST_CLERK   08/03/08              
+Laura Bissot                                   ST_CLERK   20/08/05              
+Mozhe Atkinson                                 ST_CLERK   30/10/05              
+James Marlow                                   ST_CLERK   16/02/05              
+TJ Olson                                       ST_CLERK   10/04/07              
+Jason Mallin                                   ST_CLERK   14/06/04              
+Michael Rogers                                 ST_CLERK   26/08/06              
+Ki Gee                                         ST_CLERK   12/12/07              
+Hazel Philtanker                               ST_CLERK   06/02/08              
+Renske Ladwig                                  ST_CLERK   14/07/03              
+Stephen Stiles                                 ST_CLERK   26/10/05              
+John Seo                                       ST_CLERK   12/02/06              
+Joshua Patel                                   ST_CLERK   06/04/06              
+Trenna Rajs                                    ST_CLERK   17/10/03              
+Curtis Davies                                  ST_CLERK   29/01/05              
+Randall Matos                                  ST_CLERK   15/03/06              
+Peter Vargas                                   ST_CLERK   09/07/06              
+John Russell                                   SA_MAN     01/10/04              
+Karen Partners                                 SA_MAN     05/01/05              
+Alberto Errazuriz                              SA_MAN     10/03/05              
+Gerald Cambrault                               SA_MAN     15/10/07              
+Eleni Zlotkey                                  SA_MAN     29/01/08              
+Peter Tucker                                   SA_REP     30/01/05              
+David Bernstein                                SA_REP     24/03/05              
+Peter Hall                                     SA_REP     20/08/05              
+Christopher Olsen                              SA_REP     30/03/06              
+Nanette Cambrault                              SA_REP     09/12/06              
+Oliver Tuvault                                 SA_REP     23/11/07              
+Janette King                                   SA_REP     30/01/04              
+Patrick Sully                                  SA_REP     04/03/04              
+Allan McEwen                                   SA_REP     01/08/04              
+Lindsey Smith                                  SA_REP     10/03/05              
+Louise Doran                                   SA_REP     15/12/05              
+Sarath Sewall                                  SA_REP     03/11/06              
+Clara Vishney                                  SA_REP     11/11/05              
+Danielle Greene                                SA_REP     19/03/07              
+Mattea Marvins                                 SA_REP     24/01/08              
+David Lee                                      SA_REP     23/02/08              
+Sundar Ande                                    SA_REP     24/03/08              
+Amit Banda                                     SA_REP     21/04/08              
+Lisa Ozer                                      SA_REP     11/03/05              
+Harrison Bloom                                 SA_REP     23/03/06              
+Tayler Fox                                     SA_REP     24/01/06              
+William Smith                                  SA_REP     23/02/07              
+Elizabeth Bates                                SA_REP     24/03/07              
+Sundita Kumar                                  SA_REP     21/04/08              
+Ellen Abel                                     SA_REP     11/05/04              
+Alyssa Hutton                                  SA_REP     19/03/05              
+Jonathon Taylor                                SA_REP     24/03/06              
+Jack Livingston                                SA_REP     23/04/06              
+Kimberely Grant                                SA_REP     24/05/07              
+Charles Johnson                                SA_REP     04/01/08              
+Winston Taylor                                 SH_CLERK   24/01/06              
+Jean Fleaur                                    SH_CLERK   23/02/06              
+Martha Sullivan                                SH_CLERK   21/06/07              
+Girard Geoni                                   SH_CLERK   03/02/08              
+Nandita Sarchand                               SH_CLERK   27/01/04              
+Alexis Bull                                    SH_CLERK   20/02/05              
+Julia Dellinger                                SH_CLERK   24/06/06              
+Anthony Cabrio                                 SH_CLERK   07/02/07              
+Kelly Chung                                    SH_CLERK   14/06/05              
+Jennifer Dilly                                 SH_CLERK   13/08/05              
+Timothy Gates                                  SH_CLERK   11/07/06              
+Randall Perkins                                SH_CLERK   19/12/07              
+Sarah Bell                                     SH_CLERK   04/02/04              
+Britney Everett                                SH_CLERK   03/03/05              
+Samuel McCain                                  SH_CLERK   01/07/06              
+Vance Jones                                    SH_CLERK   17/03/07              
+Alana Walsh                                    SH_CLERK   24/04/06              
+Kevin Feeney                                   SH_CLERK   23/05/06              
+Donald OConnell                                SH_CLERK   21/06/07              
+Douglas Grant                                  SH_CLERK   13/01/08              
+Jennifer Whalen                                AD_ASST    17/09/03              
+Michael Hartstein                              MK_MAN     17/02/04              
+Pat Fay                                        MK_REP     17/08/05              
+Susan Mavris                                   HR_REP     07/06/02              
+Hermann Baer                                   PR_REP     07/06/02              
+Shelley Higgins                                AC_MGR     07/06/02              
+William Gietz                                  AC_ACCOUNT 07/06/02              
+
+107 linhas selecionadas.
+
+SQL> L
+  1* SELECT FIRST_NAME||' '||LAST_NAME AS "NOME", JOB_ID, HIRE_DATE FROM EMPLOYEES
+SQL> EDIT E:\EXERC01.SQL
+
+SQL> @ E:\EXERC01.SQL
+
+NOME                                           Funcao     Admissão              
+---------------------------------------------- ---------- --------              
+ALOO King                                      AD_PRES    17/06/03              
+Neena Kochhar                                  AD_VP      21/09/05              
+Lex De Haan                                    AD_VP      13/01/01              
+Alexander Hunold                               IT_PROG    03/01/06              
+Bruce Ernst                                    IT_PROG    21/05/07              
+David Austin                                   IT_PROG    25/06/05              
+Valli Pataballa                                IT_PROG    05/02/06              
+Diana Lorentz                                  IT_PROG    07/02/07              
+Nancy Greenberg                                FI_MGR     17/08/02              
+Daniel Faviet                                  FI_ACCOUNT 16/08/02              
+John Chen                                      FI_ACCOUNT 28/09/05              
+Ismael Sciarra                                 FI_ACCOUNT 30/09/05              
+Jose Manuel Urman                              FI_ACCOUNT 07/03/06              
+Luis Popp                                      FI_ACCOUNT 07/12/07              
+Den Raphaely                                   PU_MAN     07/12/02              
+Alexander Khoo                                 PU_CLERK   18/05/03              
+Shelli Baida                                   PU_CLERK   24/12/05              
+Sigal Tobias                                   PU_CLERK   24/07/05              
+Guy Himuro                                     PU_CLERK   15/11/06              
+Karen Colmenares                               PU_CLERK   10/08/07              
+Matthew Weiss                                  ST_MAN     18/07/04              
+Adam Fripp                                     ST_MAN     10/04/05              
+Payam Kaufling                                 ST_MAN     01/05/03              
+Shanta Vollman                                 ST_MAN     10/10/05              
+Kevin Mourgos                                  ST_MAN     16/11/07              
+Julia Nayer                                    ST_CLERK   16/07/05              
+Irene Mikkilineni                              ST_CLERK   28/09/06              
+James Landry                                   ST_CLERK   14/01/07              
+Steven Markle                                  ST_CLERK   08/03/08              
+Laura Bissot                                   ST_CLERK   20/08/05              
+Mozhe Atkinson                                 ST_CLERK   30/10/05              
+James Marlow                                   ST_CLERK   16/02/05              
+TJ Olson                                       ST_CLERK   10/04/07              
+Jason Mallin                                   ST_CLERK   14/06/04              
+Michael Rogers                                 ST_CLERK   26/08/06              
+Ki Gee                                         ST_CLERK   12/12/07              
+Hazel Philtanker                               ST_CLERK   06/02/08              
+Renske Ladwig                                  ST_CLERK   14/07/03              
+Stephen Stiles                                 ST_CLERK   26/10/05              
+John Seo                                       ST_CLERK   12/02/06              
+Joshua Patel                                   ST_CLERK   06/04/06              
+Trenna Rajs                                    ST_CLERK   17/10/03              
+Curtis Davies                                  ST_CLERK   29/01/05              
+Randall Matos                                  ST_CLERK   15/03/06              
+Peter Vargas                                   ST_CLERK   09/07/06              
+John Russell                                   SA_MAN     01/10/04              
+Karen Partners                                 SA_MAN     05/01/05              
+Alberto Errazuriz                              SA_MAN     10/03/05              
+Gerald Cambrault                               SA_MAN     15/10/07              
+Eleni Zlotkey                                  SA_MAN     29/01/08              
+Peter Tucker                                   SA_REP     30/01/05              
+David Bernstein                                SA_REP     24/03/05              
+Peter Hall                                     SA_REP     20/08/05              
+Christopher Olsen                              SA_REP     30/03/06              
+Nanette Cambrault                              SA_REP     09/12/06              
+Oliver Tuvault                                 SA_REP     23/11/07              
+Janette King                                   SA_REP     30/01/04              
+Patrick Sully                                  SA_REP     04/03/04              
+Allan McEwen                                   SA_REP     01/08/04              
+Lindsey Smith                                  SA_REP     10/03/05              
+Louise Doran                                   SA_REP     15/12/05              
+Sarath Sewall                                  SA_REP     03/11/06              
+Clara Vishney                                  SA_REP     11/11/05              
+Danielle Greene                                SA_REP     19/03/07              
+Mattea Marvins                                 SA_REP     24/01/08              
+David Lee                                      SA_REP     23/02/08              
+Sundar Ande                                    SA_REP     24/03/08              
+Amit Banda                                     SA_REP     21/04/08              
+Lisa Ozer                                      SA_REP     11/03/05              
+Harrison Bloom                                 SA_REP     23/03/06              
+Tayler Fox                                     SA_REP     24/01/06              
+William Smith                                  SA_REP     23/02/07              
+Elizabeth Bates                                SA_REP     24/03/07              
+Sundita Kumar                                  SA_REP     21/04/08              
+Ellen Abel                                     SA_REP     11/05/04              
+Alyssa Hutton                                  SA_REP     19/03/05              
+Jonathon Taylor                                SA_REP     24/03/06              
+Jack Livingston                                SA_REP     23/04/06              
+Kimberely Grant                                SA_REP     24/05/07              
+Charles Johnson                                SA_REP     04/01/08              
+Winston Taylor                                 SH_CLERK   24/01/06              
+Jean Fleaur                                    SH_CLERK   23/02/06              
+Martha Sullivan                                SH_CLERK   21/06/07              
+Girard Geoni                                   SH_CLERK   03/02/08              
+Nandita Sarchand                               SH_CLERK   27/01/04              
+Alexis Bull                                    SH_CLERK   20/02/05              
+Julia Dellinger                                SH_CLERK   24/06/06              
+Anthony Cabrio                                 SH_CLERK   07/02/07              
+Kelly Chung                                    SH_CLERK   14/06/05              
+Jennifer Dilly                                 SH_CLERK   13/08/05              
+Timothy Gates                                  SH_CLERK   11/07/06              
+Randall Perkins                                SH_CLERK   19/12/07              
+Sarah Bell                                     SH_CLERK   04/02/04              
+Britney Everett                                SH_CLERK   03/03/05              
+Samuel McCain                                  SH_CLERK   01/07/06              
+Vance Jones                                    SH_CLERK   17/03/07              
+Alana Walsh                                    SH_CLERK   24/04/06              
+Kevin Feeney                                   SH_CLERK   23/05/06              
+Donald OConnell                                SH_CLERK   21/06/07              
+Douglas Grant                                  SH_CLERK   13/01/08              
+Jennifer Whalen                                AD_ASST    17/09/03              
+Michael Hartstein                              MK_MAN     17/02/04              
+Pat Fay                                        MK_REP     17/08/05              
+Susan Mavris                                   HR_REP     07/06/02              
+Hermann Baer                                   PR_REP     07/06/02              
+Shelley Higgins                                AC_MGR     07/06/02              
+William Gietz                                  AC_ACCOUNT 07/06/02              
+
+107 linhas selecionadas.
+
+SQL> SELECT FIRST_NAME||' , '||JOB_ID AS "Nome e profissÆo" FROM EMPLOYEES;
+
+Nome e profissÆo                                                                
+---------------------------------                                               
+Ellen , SA_REP                                                                  
+Sundar , SA_REP                                                                 
+Mozhe , ST_CLERK                                                                
+David , IT_PROG                                                                 
+Hermann , PR_REP                                                                
+Shelli , PU_CLERK                                                               
+Amit , SA_REP                                                                   
+Elizabeth , SA_REP                                                              
+Sarah , SH_CLERK                                                                
+David , SA_REP                                                                  
+Laura , ST_CLERK                                                                
+Harrison , SA_REP                                                               
+Alexis , SH_CLERK                                                               
+Anthony , SH_CLERK                                                              
+Gerald , SA_MAN                                                                 
+Nanette , SA_REP                                                                
+John , FI_ACCOUNT                                                               
+Kelly , SH_CLERK                                                                
+Karen , PU_CLERK                                                                
+Curtis , ST_CLERK                                                               
+Lex , AD_VP                                                                     
+Julia , SH_CLERK                                                                
+Jennifer , SH_CLERK                                                             
+Louise , SA_REP                                                                 
+Bruce , IT_PROG                                                                 
+Alberto , SA_MAN                                                                
+Britney , SH_CLERK                                                              
+Daniel , FI_ACCOUNT                                                             
+Pat , MK_REP                                                                    
+Kevin , SH_CLERK                                                                
+Jean , SH_CLERK                                                                 
+Tayler , SA_REP                                                                 
+Adam , ST_MAN                                                                   
+Timothy , SH_CLERK                                                              
+Ki , ST_CLERK                                                                   
+Girard , SH_CLERK                                                               
+William , AC_ACCOUNT                                                            
+Douglas , SH_CLERK                                                              
+Kimberely , SA_REP                                                              
+Nancy , FI_MGR                                                                  
+Danielle , SA_REP                                                               
+Peter , SA_REP                                                                  
+Michael , MK_MAN                                                                
+Shelley , AC_MGR                                                                
+Guy , PU_CLERK                                                                  
+Alexander , IT_PROG                                                             
+Alyssa , SA_REP                                                                 
+Charles , SA_REP                                                                
+Vance , SH_CLERK                                                                
+Payam , ST_MAN                                                                  
+Alexander , PU_CLERK                                                            
+ALOO , AD_PRES                                                                  
+Janette , SA_REP                                                                
+Neena , AD_VP                                                                   
+Sundita , SA_REP                                                                
+Renske , ST_CLERK                                                               
+James , ST_CLERK                                                                
+David , SA_REP                                                                  
+Jack , SA_REP                                                                   
+Diana , IT_PROG                                                                 
+Jason , ST_CLERK                                                                
+Steven , ST_CLERK                                                               
+James , ST_CLERK                                                                
+Mattea , SA_REP                                                                 
+Randall , ST_CLERK                                                              
+Susan , HR_REP                                                                  
+Samuel , SH_CLERK                                                               
+Allan , SA_REP                                                                  
+Irene , ST_CLERK                                                                
+Kevin , ST_MAN                                                                  
+Julia , ST_CLERK                                                                
+Donald , SH_CLERK                                                               
+Christopher , SA_REP                                                            
+TJ , ST_CLERK                                                                   
+Lisa , SA_REP                                                                   
+Karen , SA_MAN                                                                  
+Valli , IT_PROG                                                                 
+Joshua , ST_CLERK                                                               
+Randall , SH_CLERK                                                              
+Hazel , ST_CLERK                                                                
+Luis , FI_ACCOUNT                                                               
+Trenna , ST_CLERK                                                               
+Den , PU_MAN                                                                    
+Michael , ST_CLERK                                                              
+John , SA_MAN                                                                   
+Nandita , SH_CLERK                                                              
+Ismael , FI_ACCOUNT                                                             
+John , ST_CLERK                                                                 
+Sarath , SA_REP                                                                 
+Lindsey , SA_REP                                                                
+William , SA_REP                                                                
+Stephen , ST_CLERK                                                              
+Martha , SH_CLERK                                                               
+Patrick , SA_REP                                                                
+Jonathon , SA_REP                                                               
+Winston , SH_CLERK                                                              
+Sigal , PU_CLERK                                                                
+Peter , SA_REP                                                                  
+Oliver , SA_REP                                                                 
+Jose Manuel , FI_ACCOUNT                                                        
+Peter , ST_CLERK                                                                
+Clara , SA_REP                                                                  
+Shanta , ST_MAN                                                                 
+Alana , SH_CLERK                                                                
+Matthew , ST_MAN                                                                
+Jennifer , AD_ASST                                                              
+Eleni , SA_MAN                                                                  
+
+107 linhas selecionadas.
+
+SQL> SELECT EMPLOYEE_ID||' , '||FIRST_NAME||' , '||LAST_NAME AS "DADOS" FROM EMPLOYEES;
+
+DADOS                                                                           
+--------------------------------------------------------------------------------
+100 , ALOO , King                                                               
+101 , Neena , Kochhar                                                           
+102 , Lex , De Haan                                                             
+103 , Alexander , Hunold                                                        
+104 , Bruce , Ernst                                                             
+105 , David , Austin                                                            
+106 , Valli , Pataballa                                                         
+107 , Diana , Lorentz                                                           
+108 , Nancy , Greenberg                                                         
+109 , Daniel , Faviet                                                           
+110 , John , Chen                                                               
+111 , Ismael , Sciarra                                                          
+112 , Jose Manuel , Urman                                                       
+113 , Luis , Popp                                                               
+114 , Den , Raphaely                                                            
+115 , Alexander , Khoo                                                          
+116 , Shelli , Baida                                                            
+117 , Sigal , Tobias                                                            
+118 , Guy , Himuro                                                              
+119 , Karen , Colmenares                                                        
+120 , Matthew , Weiss                                                           
+121 , Adam , Fripp                                                              
+122 , Payam , Kaufling                                                          
+123 , Shanta , Vollman                                                          
+124 , Kevin , Mourgos                                                           
+125 , Julia , Nayer                                                             
+126 , Irene , Mikkilineni                                                       
+127 , James , Landry                                                            
+128 , Steven , Markle                                                           
+129 , Laura , Bissot                                                            
+130 , Mozhe , Atkinson                                                          
+131 , James , Marlow                                                            
+132 , TJ , Olson                                                                
+133 , Jason , Mallin                                                            
+134 , Michael , Rogers                                                          
+135 , Ki , Gee                                                                  
+136 , Hazel , Philtanker                                                        
+137 , Renske , Ladwig                                                           
+138 , Stephen , Stiles                                                          
+139 , John , Seo                                                                
+140 , Joshua , Patel                                                            
+141 , Trenna , Rajs                                                             
+142 , Curtis , Davies                                                           
+143 , Randall , Matos                                                           
+144 , Peter , Vargas                                                            
+145 , John , Russell                                                            
+146 , Karen , Partners                                                          
+147 , Alberto , Errazuriz                                                       
+148 , Gerald , Cambrault                                                        
+149 , Eleni , Zlotkey                                                           
+150 , Peter , Tucker                                                            
+151 , David , Bernstein                                                         
+152 , Peter , Hall                                                              
+153 , Christopher , Olsen                                                       
+154 , Nanette , Cambrault                                                       
+155 , Oliver , Tuvault                                                          
+156 , Janette , King                                                            
+157 , Patrick , Sully                                                           
+158 , Allan , McEwen                                                            
+159 , Lindsey , Smith                                                           
+160 , Louise , Doran                                                            
+161 , Sarath , Sewall                                                           
+162 , Clara , Vishney                                                           
+163 , Danielle , Greene                                                         
+164 , Mattea , Marvins                                                          
+165 , David , Lee                                                               
+166 , Sundar , Ande                                                             
+167 , Amit , Banda                                                              
+168 , Lisa , Ozer                                                               
+169 , Harrison , Bloom                                                          
+170 , Tayler , Fox                                                              
+171 , William , Smith                                                           
+172 , Elizabeth , Bates                                                         
+173 , Sundita , Kumar                                                           
+174 , Ellen , Abel                                                              
+175 , Alyssa , Hutton                                                           
+176 , Jonathon , Taylor                                                         
+177 , Jack , Livingston                                                         
+178 , Kimberely , Grant                                                         
+179 , Charles , Johnson                                                         
+180 , Winston , Taylor                                                          
+181 , Jean , Fleaur                                                             
+182 , Martha , Sullivan                                                         
+183 , Girard , Geoni                                                            
+184 , Nandita , Sarchand                                                        
+185 , Alexis , Bull                                                             
+186 , Julia , Dellinger                                                         
+187 , Anthony , Cabrio                                                          
+188 , Kelly , Chung                                                             
+189 , Jennifer , Dilly                                                          
+190 , Timothy , Gates                                                           
+191 , Randall , Perkins                                                         
+192 , Sarah , Bell                                                              
+193 , Britney , Everett                                                         
+194 , Samuel , McCain                                                           
+195 , Vance , Jones                                                             
+196 , Alana , Walsh                                                             
+197 , Kevin , Feeney                                                            
+198 , Donald , OConnell                                                         
+199 , Douglas , Grant                                                           
+200 , Jennifer , Whalen                                                         
+201 , Michael , Hartstein                                                       
+202 , Pat , Fay                                                                 
+203 , Susan , Mavris                                                            
+204 , Hermann , Baer                                                            
+205 , Shelley , Higgins                                                         
+206 , William , Gietz                                                           
+
+107 linhas selecionadas.
+
+SQL> SPOOL OFF

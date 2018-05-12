@@ -1,0 +1,160 @@
+SQL> SELECT ORIGINAL_NAME,DROP TIME FROM RECYCLEBIN;
+SELECT ORIGINAL_NAME,DROP TIME FROM RECYCLEBIN
+                     *
+ERRO na linha 1:
+ORA-00936: expressão não encontrada 
+
+
+SQL> SELECT ORIGINAL_NAME,DROPTIME FROM RECYCLEBIN;
+
+não há linhas selecionadas
+
+SQL> DROP TABLE ALUNO;
+
+Tabela eliminada.
+
+SQL> SELECT ORIGINAL_NAME,DROPTIME FROM RECYCLEBIN;
+
+não há linhas selecionadas
+
+SQL> DROP TABLE CURSO;
+
+Tabela eliminada.
+
+SQL> SELECT ORIGINAL_NAME,DROPTIME FROM RECYCLEBIN;
+
+não há linhas selecionadas
+
+SQL> SELECT ORIGINAL_NAME,DROPTIME FROM RECYCLEBIN;
+
+não há linhas selecionadas
+
+SQL> CREATE TABLE CURSO
+  2  (SGCURSO CHAR(5) PRIMARY KEY,
+  3  NMCURSO VARCHAR(50) NOT NULL,
+  4  VLCURSO NUMBER(8,2) DEFAULT 300.50);
+
+Tabela criada.
+
+SQL> INSERT INTO CURSO (SGCURSO,NMCURSO) VALUES ('ADS','ANALISE E DESENVOLVIMENTO DE SISTEMAS');
+
+1 linha criada.
+
+SQL> COMMIT;
+
+Commit concluído.
+
+SQL> DROP TABLE CURSO;
+
+Tabela eliminada.
+
+SQL> SELECT ORIGINAL_NAME,DROPTIME FROM RECYCLEBIN;
+
+não há linhas selecionadas
+
+SQL> CREATE TABLE CURSO
+  2  (SGCURSO CHAR(5) PRIMARY KEY,
+  3  NMCURSO VARCHAR(50) NOT NULL,
+  4  VLCURSO NUMBER(8,2) DEFAULT 300.50);
+
+Tabela criada.
+
+SQL> CREATE TABLE PRODUTO
+  2  AS
+  3  SELECT SG_CURSO sigla,NM_CURSO nome FROM curso;
+SELECT SG_CURSO sigla,NM_CURSO nome FROM curso
+                      *
+ERRO na linha 3:
+ORA-00904: "NM_CURSO": identificador inválido 
+
+
+SQL> CREATE TABLE PRODUTO
+  2  AS
+  3  SELECT SG_CURSO sigla,NMCURSO nome FROM curso;
+SELECT SG_CURSO sigla,NMCURSO nome FROM curso
+       *
+ERRO na linha 3:
+ORA-00904: "SG_CURSO": identificador inválido 
+
+
+SQL> CREATE TABLE PRODUTO
+  2  AS
+  3  SELECT SGCURSO sigla,NMCURSO nome FROM curso;
+
+Tabela criada.
+
+SQL> select * from produto;
+
+não há linhas selecionadas
+
+SQL> drop table produto;
+
+Tabela eliminada.
+
+SQL> INSERT INTO CURSO (SGCURSO,NMCURSO) VALUES ('ADS','ANALISE E DESENVOLVIMENTO DE SISTEMAS');
+
+1 linha criada.
+
+SQL> INSERT INTO CURSO (SGCURSO,NMCURSO) VALUES ('Aaas','saddsasdasd');
+
+1 linha criada.
+
+SQL> CREATE TABLE PRODUTO
+  2  AS
+  3  SELECT SGCURSO sigla,NMCURSO nome FROM curso;
+
+Tabela criada.
+
+SQL> select * from produto;
+
+SIGLA NOME                                                                      
+----- --------------------------------------------------                        
+ADS   ANALISE E DESENVOLVIMENTO DE SISTEMAS                                     
+Aaas  saddsasdasd                                                               
+
+SQL> drop table produto purge;
+
+Tabela eliminada.
+
+SQL> CLEAR SCREEN
+
+SQL> DELETE FROM CURSO WHERE SGCURSO = 'ADS';
+
+1 linha deletada.
+
+SQL> insert into curso (sgcurso,nmcurso) values ('&Sigla','&Nome');
+Informe o valor para sigla: GAST
+Informe o valor para nome: GASTRONOMIA
+antigo   1: insert into curso (sgcurso,nmcurso) values ('&Sigla','&Nome')
+novo   1: insert into curso (sgcurso,nmcurso) values ('GAST','GASTRONOMIA')
+
+1 linha criada.
+
+SQL> select 'Sigla do curso:'||sgcurso ,' Nome do curso: '||nmcurso from curso;
+
+'SIGLADOCURSO:'||SGC                                                            
+--------------------                                                            
+'NOMEDOCURSO:'||NMCURSO                                                         
+------------------------------------------------------------------              
+Sigla do curso:Aaas                                                             
+ Nome do curso: saddsasdasd                                                     
+                                                                                
+Sigla do curso:GAST                                                             
+ Nome do curso: GASTRONOMIA                                                     
+                                                                                
+
+SQL> select 'Sigla do curso:'||sgcurso as "Sigla" ,' Nome do curso: '||nmcurso as "NOME" from curso;
+
+Sigla                                                                           
+--------------------                                                            
+NOME                                                                            
+------------------------------------------------------------------              
+Sigla do curso:Aaas                                                             
+ Nome do curso: saddsasdasd                                                     
+                                                                                
+Sigla do curso:GAST                                                             
+ Nome do curso: GASTRONOMIA                                                     
+                                                                                
+
+SQL> --update curso set vlcurso= vlcurso *1.10; update com aumento de 10%--
+SQL> spool off
